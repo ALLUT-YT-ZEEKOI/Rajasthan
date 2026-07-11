@@ -46,6 +46,14 @@
             --serif: "Archivo", sans-serif;
             --body: "Hanken Grotesk", sans-serif;
             --script: "Pinyon Script", cursive;
+
+            --display: "Archivo", system-ui, sans-serif;
+            --beige: #E9DEBC;
+            --fog: rgba(233, 222, 188, .62);
+            --fog-dim: rgba(233, 222, 188, .40);
+            --line-dark: rgba(233, 222, 188, .14);
+            --white: #FFFFFF;
+            --ink-3: #211A14;
         }
 
         * {
@@ -65,6 +73,11 @@
             line-height: 1.6;
             -webkit-font-smoothing: antialiased;
             overflow-x: hidden;
+        }
+
+        body.locked {
+            overflow: hidden;
+            height: 100vh
         }
 
         img {
@@ -158,323 +171,311 @@
             }
         }
 
-        /* ============================================================ HEADER */
-        .util {
-            background: var(--onyx-2);
-            border-bottom: 1px solid var(--line-2);
-            font-size: .74rem;
-            color: var(--txt-dim);
-            letter-spacing: .02em;
-            transition: height .4s var(--ease), opacity .4s var(--ease);
-            overflow: hidden;
-        }
+                /* ============================== HEADER ============================== */
+            header {
+              position: fixed;
+              top: 0;
+              left: 0;
+              right: 0;
+              z-index: 900
+            }
 
-        .util .shell {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            height: 40px
-        }
+            .util {
+                background: rgba(8, 7, 6, .96);
+                border-bottom: 1px solid var(--line-dark);
+              backdrop-filter: blur(8px);
+              overflow: hidden;
+              max-height: 46px;
+              transition: max-height .45s var(--ease), opacity .35s ease, border-color .4s ease
+            }
 
-        .util .u-r {
-            display: flex;
-            gap: 1.6rem;
-            align-items: center
-        }
+            header.docked .util {
+              max-height: 0;
+              opacity: 0;
+              border-color: transparent
+            }
 
-        .util .u-r a {
-            display: flex;
-            gap: .45rem;
-            align-items: center;
-            transition: color .3s
-        }
+            .util-in {
+              display: flex;
+              align-items: center;
+              justify-content: space-between;
+              height: 46px
+            }
 
-        .util .u-r a:hover {
-            color: var(--gold)
-        }
+            .util-left {
+              font-size: .62rem;
+              letter-spacing: .26em;
+              text-transform: uppercase;
+              color: var(--fog-dim)
+            }
 
-        .util .u-r svg {
-            width: 13px;
-            height: 13px;
-            stroke: var(--gold);
-            fill: none;
-            stroke-width: 1.6
-        }
+            .util-right {
+              display: flex;
+              align-items: center;
+              gap: 1.7rem
+            }
 
-        .scrolled .util {
-            height: 0;
-            opacity: 0;
-            border-color: transparent
-        }
+            .util-right a {
+              font-size: .64rem;
+              letter-spacing: .16em;
+              text-transform: uppercase;
+              color: var(--fog);
+              display: inline-flex;
+              align-items: center;
+              gap: .55em;
+              transition: color .3s ease
+            }
 
-        header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 60
-        }
+            .util-right a:hover {
+              color: var(--gold)
+            }
 
-        .bar {
-            background: rgba(14, 11, 10, .82);
-            backdrop-filter: blur(14px);
-            border-bottom: 1px solid var(--line);
-            transition: padding .4s var(--ease), background .4s var(--ease);
-        }
+            .util-right svg {
+              width: 13px;
+              height: 13px;
+              color: var(--gold)
+            }
 
-        .bar .shell {
-            display: grid;
-            grid-template-columns: 1fr auto 1fr;
-            align-items: center;
-            padding: 1.15rem 0
-        }
+            .bar {
+                background: rgba(11, 10, 9, .96);
+                backdrop-filter: blur(14px);
+                transition: background .4s ease, border-color .4s ease;
+                border-bottom: 1px solid var(--line-dark)
+            }
 
-        .scrolled .bar .shell {
-            padding: .7rem 0
-        }
+            header.docked .bar {
+              background: rgba(11, 10, 9, .88);
+              backdrop-filter: blur(14px);
+              border-bottom: 1px solid var(--line-dark)
+            }
 
-        .scrolled .bar {
-            background: rgba(14, 11, 10, .94)
-        }
+            .bar-in {
+              display: grid;
+              grid-template-columns: 1fr auto 1fr;
+              align-items: center;
+              padding: 1.15rem 0;
+              transition: padding .4s ease
+            }
 
-        .b-left,
-        .b-right {
-            display: flex;
-            align-items: center;
-            gap: 1.5rem
-        }
+            header.docked .bar-in {
+              padding: .66rem 0
+            }
 
-        .b-right {
-            justify-content: flex-end
-        }
+            .menu-btn {
+              justify-self: start;
+              display: inline-flex;
+              align-items: center;
+              gap: .75rem;
+              background: none;
+              border: 0;
+              cursor: pointer;
+              color: var(--beige);
+              padding: .4rem 0
+            }
 
-        .menu-btn {
-            display: flex;
-            align-items: center;
-            gap: .6rem;
-            font-family: var(--serif);
-            font-weight: 600;
-            font-size: .78rem;
-            letter-spacing: .18em;
-            text-transform: uppercase
-        }
+            .menu-btn .ml {
+              display: flex;
+              flex-direction: column;
+              gap: 4px;
+              width: 22px
+            }
 
-        .menu-btn .lines {
-            display: inline-flex;
-            flex-direction: column;
-            gap: 4px;
-            width: 22px
-        }
+            .menu-btn .ml span {
+              height: 1.5px;
+              background: var(--beige);
+              transition: .35s var(--ease)
+            }
 
-        .menu-btn .lines span {
-            height: 1.6px;
-            background: var(--txt);
-            display: block;
-            transition: .3s
-        }
+            .menu-btn .ml span:nth-child(2) {
+              width: 64%
+            }
 
-        .menu-btn:hover .lines span {
-            background: var(--gold)
-        }
+            .menu-btn:hover .ml span {
+              background: var(--gold)
+            }
 
-        .menu-btn:hover .lines span:nth-child(2) {
-            width: 14px
-        }
+            .menu-btn:hover .ml span:nth-child(2) {
+              width: 100%
+            }
 
-        .brand-c {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: .18rem;
-            text-align: center
-        }
+            .menu-btn em {
+              font-style: normal;
+              font-size: .7rem;
+              letter-spacing: .24em;
+              text-transform: uppercase;
+              font-weight: 600
+            }
 
-        .mono {
-            width: 46px;
-            height: 46px;
-            border: 1.5px solid var(--gold);
-            border-radius: 50%;
-            display: grid;
-            place-items: center;
-            font-family: var(--serif);
-            font-weight: 800;
-            color: var(--gold);
-            font-size: 1.02rem;
-            letter-spacing: .02em;
-            position: relative;
-        }
+            .brand-center {
+              justify-self: center;
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              gap: .5rem;
+              text-align: center;
+              color: #fff
+            }
 
-        .mono::after {
-            content: "";
-            position: absolute;
-            inset: 4px;
-            border: 1px solid var(--line);
-            border-radius: 50%
-        }
+            .brand-center svg {
+              width: 30px;
+              height: 30px;
+              color: var(--crimson);
+              transition: color .4s ease
+            }
 
-        .wordmark {
-            font-family: var(--serif);
-            font-weight: 700;
-            font-size: .82rem;
-            letter-spacing: .42em;
-            text-transform: uppercase;
-            color: var(--txt);
-            padding-left: .42em
-        }
+            header.docked .brand-center svg {
+              color: var(--gold)
+            }
 
-        .since {
-            font-size: .6rem;
-            letter-spacing: .32em;
-            color: var(--txt-dimmer);
-            text-transform: uppercase
-        }
+            .brand-center .wm {
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              line-height: 1
+            }
 
-        .icon-btn {
-            width: 38px;
-            height: 38px;
-            border: 1px solid var(--line);
-            border-radius: 50%;
-            display: grid;
-            place-items: center;
-            transition: .3s
-        }
+            .brand-center .wm b {
+              font-family: var(--display);
+              font-weight: 800;
+              font-size: 1rem;
+              letter-spacing: .34em;
+              text-indent: .34em;
+              text-transform: uppercase
+            }
 
-        .icon-btn:hover {
-            border-color: var(--gold);
-            background: rgba(201, 162, 74, .08)
-        }
+            .brand-center .wm span {
+              font-size: .5rem;
+              letter-spacing: .5em;
+              text-indent: .5em;
+              color: var(--gold);
+              margin-top: .42rem
+            }
 
-        .icon-btn svg {
-            width: 16px;
-            height: 16px;
-            stroke: var(--txt);
-            fill: none;
-            stroke-width: 1.6
-        }
+            .bar-right {
+              justify-self: end;
+              display: flex;
+              align-items: center;
+              gap: 1.2rem
+            }
 
-        /* slide-down search overlay (matches homepage) */
-        .search-ov {
-            position: fixed;
-            left: 0;
-            right: 0;
-            top: 0;
-            z-index: 95;
-            background: rgba(14, 11, 10, .97);
-            backdrop-filter: blur(16px);
-            border-bottom: 1px solid var(--line);
-            transform: translateY(-100%);
-            transition: transform .5s var(--ease);
-            padding: 2.4rem 0
-        }
+            .ic-btn {
+              background: none;
+              border: 0;
+              cursor: pointer;
+              color: var(--beige);
+              display: grid;
+              place-items: center;
+              padding: .3rem;
+              transition: color .3s ease
+            }
 
-        .search-ov.open {
-            transform: translateY(0)
-        }
+            .ic-btn:hover {
+              color: var(--gold)
+            }
 
-        .search-ov .shell {
-            display: flex;
-            flex-direction: column;
-            gap: 1.2rem
-        }
+            .ic-btn svg {
+              width: 19px;
+              height: 19px
+            }
 
-        .search-ov .so-row {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            border-bottom: 1px solid var(--line);
-            padding-bottom: 1rem
-        }
+            .nav-cta {
+              font-family: var(--body);
+              font-weight: 600;
+              font-size: .7rem;
+              letter-spacing: .16em;
+              text-transform: uppercase;
+              color: var(--white);
+              border: 1px solid var(--crimson);
+              background: var(--crimson);
+              padding: .7rem 1.3rem;
+              border-radius: 2px;
+              transition: .35s var(--ease);
+              white-space: nowrap
+            }
 
-        .search-ov .so-row svg {
-            width: 24px;
-            height: 24px;
-            stroke: var(--gold);
-            fill: none;
-            stroke-width: 1.6;
-            flex: 0 0 auto
-        }
+            .nav-cta:hover {
+              background: transparent;
+              color: var(--crimson);
+              box-shadow: inset 0 0 0 1px var(--crimson)
+            }
 
-        .search-ov input {
-            flex: 1;
-            background: none;
-            border: none;
-            color: var(--txt);
-            font-family: var(--serif);
-            font-weight: 600;
-            font-size: clamp(1.2rem, 2.4vw, 1.8rem);
-            letter-spacing: .01em;
-            outline: none
-        }
+            /* search overlay */
+            #search {
+              position: fixed;
+              top: 0;
+              left: 0;
+              right: 0;
+              z-index: 905;
+              background: rgba(11, 10, 9, .97);
+              backdrop-filter: blur(16px);
+              border-bottom: 1px solid var(--line-dark);
+              transform: translateY(-100%);
+              transition: transform .45s var(--ease);
+              padding: 2.2rem 0 1.8rem
+            }
 
-        .search-ov input::placeholder {
-            color: var(--txt-dimmer)
-        }
+            #search.open {
+              transform: none
+            }
 
-        .search-ov .so-close {
-            font-size: 1.6rem;
-            color: var(--txt-dim);
-            transition: .3s
-        }
+            .search-in {
+              display: flex;
+              align-items: center;
+              gap: 1rem;
+              border-bottom: 1px solid var(--ink-3);
+              padding-bottom: 1rem
+            }
 
-        .search-ov .so-close:hover {
-            color: var(--crimson);
-            transform: rotate(90deg)
-        }
+            .search-in>svg {
+              width: 22px;
+              height: 22px;
+              color: var(--gold);
+              flex: none
+            }
 
-        .search-ov .so-sug {
-            display: flex;
-            flex-wrap: wrap;
-            gap: .6rem;
-            align-items: center
-        }
+            .search-in input {
+              flex: 1;
+              background: none;
+              border: 0;
+              color: #fff;
+              font-family: var(--display);
+              font-weight: 700;
+              font-size: clamp(1.1rem, 3vw, 1.9rem);
+              text-transform: uppercase;
+              letter-spacing: .01em
+            }
 
-        .search-ov .so-sug span {
-            font-size: .72rem;
-            letter-spacing: .18em;
-            text-transform: uppercase;
-            color: var(--txt-dimmer)
-        }
+            .search-in input::placeholder {
+              color: var(--fog-dim)
+            }
 
-        .search-ov .so-sug a {
-            font-size: .86rem;
-            color: var(--txt-dim);
-            padding: .4rem .9rem;
-            border: 1px solid var(--line);
-            border-radius: 30px;
-            transition: .3s
-        }
+            .search-in input:focus {
+              outline: none
+            }
 
-        .search-ov .so-sug a:hover {
-            color: var(--gold);
-            border-color: rgba(201, 162, 74, .4)
-        }
+            .search-close {
+              background: none;
+              border: 0;
+              color: var(--fog);
+              cursor: pointer;
+              font-size: 1.5rem;
+              line-height: 1;
+              transition: color .3s ease
+            }
 
-        .cta-pill {
-            display: inline-flex;
-            align-items: center;
-            gap: .5rem;
-            background: var(--crimson);
-            color: #fff;
-            font-family: var(--serif);
-            font-weight: 600;
-            font-size: .74rem;
-            letter-spacing: .12em;
-            text-transform: uppercase;
-            padding: .72rem 1.25rem;
-            border-radius: 40px;
-            transition: .3s;
-        }
+            .search-close:hover {
+              color: var(--gold)
+            }
 
-        .cta-pill:hover {
-            background: var(--crimson-deep);
-            transform: translateY(-1px)
-        }
+            .search-hint {
+              margin-top: .9rem;
+              font-size: .64rem;
+              letter-spacing: .2em;
+              text-transform: uppercase;
+              color: var(--fog-dim)
+            }
 
-        .cta-pill svg {
-            width: 14px;
-            height: 14px;
-            fill: #fff
-        }
+            
 
         /* premium menu drawer */
         #drawer {
@@ -2178,41 +2179,25 @@
         }
 
         /* ============================================================ MOBILE HEADER */
-        @media (max-width:720px) {
+        @media (max-width:760px) {
             .util {
                 display: none
             }
 
-            .bar .shell {
-                padding: .85rem 0
-            }
-
-            .cta-pill {
+            .nav-cta {
                 display: none
             }
 
-            .wordmark {
-                font-size: .66rem;
-                letter-spacing: .26em
+            .menu-btn em {
+                display: none
             }
 
-            .mono {
-                width: 40px;
-                height: 40px;
-                font-size: .9rem
-            }
-
-            .menu-btn {
-                font-size: .7rem;
-                letter-spacing: .14em
+            .brand-center .wm b {
+                font-size: .82rem;
+                letter-spacing: .22em;
+                text-indent: .22em
             }
         }
-
-        @media (max-width:420px) {
-            .wordmark {
-                font-size: .58rem;
-                letter-spacing: .2em
-            }
 
             .menu-btn span:not(.lines) {
                 display: none
@@ -2223,8 +2208,69 @@
 
 <body>
 
-    <!-- ====================== HEADER ====================== -->
-    <!-- mobile drawer -->
+      <!-- ============ HEADER ============ -->
+  <header id="header">
+    <div class="util">
+      <div class="shell util-in">
+        <span class="util-left">Four experience centres across Kochi &amp; Ernakulam</span>
+        <div class="util-right">
+          <a href="index.html#connect">Request a Call Back</a>
+          <a href="tel:9895227744"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+              <path
+                d="M5 4h3l2 5-2.2 1.1a11 11 0 0 0 5.1 5.1L14 13l5 2v3a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z" />
+            </svg> Call Us · 98952 27744</a>
+          <a href="index.html#connect"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+              <path d="M12 22s7-6.5 7-12A7 7 0 0 0 5 10c0 5.5 7 12 7 12z" />
+              <circle cx="12" cy="10" r="2.4" />
+            </svg> Store Locator</a>
+        </div>
+      </div>
+    </div>
+    <div class="bar">
+      <div class="shell bar-in">
+        <button class="menu-btn" id="burger" aria-label="Open menu" aria-expanded="false">
+          <span class="ml"><span></span><span></span><span></span></span><em>Menu</em>
+        </button>
+        <a class="brand brand-center" href="index.html" aria-label="Rajasthan Marbles home">
+          <svg viewBox="0 0 120 120" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="9"
+            stroke-linejoin="miter">
+            <path d="M14 14 H106 V92 L88 110" />
+            <path d="M14 14 V92 L32 110 H88" />
+            <path d="M40 92 V44 H62 a14 14 0 0 1 0 28 H40" />
+            <path d="M58 70 L80 96" />
+            <path d="M70 50 L86 70 V96" />
+          </svg>
+          <span class="wm"><b>Rajasthan Marbles</b><span>Since 1984</span></span>
+        </a>
+        <div class="bar-right">
+          <button class="ic-btn" id="searchBtn" aria-label="Search"><svg viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="1.7">
+              <circle cx="11" cy="11" r="7" />
+              <path d="M21 21l-4.3-4.3" />
+            </svg></button>
+          <a href="index.html#connect" class="nav-cta">Visit Showroom</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+<!-- search overlay -->
+  <div id="search">
+    <div class="shell">
+      <div class="search-in">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7">
+          <circle cx="11" cy="11" r="7" />
+          <path d="M21 21l-4.3-4.3" />
+        </svg>
+        <input id="searchInput" type="text" placeholder="Search collections, brands, showrooms…" />
+        <button class="search-close" id="searchClose" aria-label="Close search">&times;</button>
+      </div>
+      <p class="search-hint">Try &ldquo;tiles&rdquo;, &ldquo;Jaquar&rdquo;, &ldquo;bathroom&rdquo;, &ldquo;store
+        locator&rdquo;</p>
+    </div>
+  </div>
+
+  <!-- mobile drawer -->
     <div id="drawer">
         <button class="drawer-close" id="drawerClose" aria-label="Close menu">&times;</button>
         <div class="drawer-in">
@@ -2242,10 +2288,10 @@
                     <a href="index.html#categories"><span class="dn">03</span>Materials</a>
                     <div class="drawer-sub">
                         <a href="rajasthan-marbles-tiles.html">Tiles</a>
-                        <a href="collections/sanitaryware.html">Sanitaryware</a>
-                        <a href="collections/paints.html">Paints &amp; Coatings</a>
-                        <a href="collections/kitchen.html">Kitchen Accessories</a>
-                        <a href="collections/pvc-pipes.html">PVC Pipes</a>
+                        <a href="Sanitaryware.html">Sanitaryware</a>
+                        <a href="Paints-Coatings.html">Paints &amp; Coatings</a>
+                        <a href="Kitchen-Accessories.html">Kitchen Accessories</a>
+                        <a href="PVC-Pipes.html">PVC Pipes</a>
                     </div>
                 </div>
                 <a href="index.html#journal"><span class="dn">04</span>Blog</a>
@@ -2276,69 +2322,6 @@
                             </svg></a></div>
                 </div>
             </aside>
-        </div>
-    </div>
-
-    <header id="head">
-        <div class="util">
-            <div class="shell">
-                <span>Four experience centres across Kerala — guidance before the build begins.</span>
-                <div class="u-r">
-                    <a href="#connect"><svg viewBox="0 0 24 24">
-                            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
-                        </svg>Request a Call Back</a>
-                    <a href="tel:+919895227744"><svg viewBox="0 0 24 24">
-                            <path
-                                d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z" />
-                        </svg>98952 27744</a>
-                    <a href="#connect"><svg viewBox="0 0 24 24">
-                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
-                            <circle cx="12" cy="10" r="3" />
-                        </svg>Store Locator</a>
-                </div>
-            </div>
-        </div>
-        <div class="bar">
-            <div class="shell">
-                <div class="b-left">
-                    <button class="menu-btn" id="burger"><span
-                            class="lines"><span></span><span></span><span></span></span>Menu</button>
-                </div>
-                <a href="index.html" class="brand-c" aria-label="Rajasthan Marbles home">
-                    <div class="mono">RM</div>
-                    <span class="wordmark">Rajasthan&nbsp;Marbles</span>
-                    <span class="since">Since 1984</span>
-                </a>
-                <div class="b-right">
-                    <button class="icon-btn" id="searchBtn" aria-label="Search"><svg viewBox="0 0 24 24">
-                            <circle cx="11" cy="11" r="7" />
-                            <path d="m21 21-4.3-4.3" />
-                        </svg></button>
-                    <a href="#connect" class="cta-pill"><svg viewBox="0 0 24 24">
-                            <path d="M12 2 2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
-                        </svg>Visit Showroom</a>
-                </div>
-            </div>
-        </div>
-    </header>
-
-    <!-- slide-down search overlay -->
-    <div class="search-ov" id="searchOv">
-        <div class="shell">
-            <div class="so-row">
-                <svg viewBox="0 0 24 24">
-                    <circle cx="11" cy="11" r="7" />
-                    <path d="m21 21-4.3-4.3" />
-                </svg>
-                <input type="search" id="searchInput" placeholder="Search tiles, sanitaryware, brands…"
-                    aria-label="Search the site" />
-                <button class="so-close" id="searchClose" aria-label="Close search">&times;</button>
-            </div>
-            <div class="so-sug">
-                <span>Popular:</span>
-                <a href="#zones">Flooring</a><a href="#zones">Kitchens</a><a href="#zones">Bathrooms</a><a
-                    href="#brands">Brands</a><a href="#inspire">Inspiration</a>
-            </div>
         </div>
     </div>
 
@@ -2801,8 +2784,8 @@
             </div>
             <div class="f-end">
                 <span>© 2026 Rajasthan Marbles. All rights reserved.</span>
-                <div class="f-nav"><a href="#">Home</a><a href="#inspire">Residential</a><a href="#brands">Brand
-                        Circle</a><a href="#connect">Connect</a></div>
+                <div class="f-nav"><a href="index.html">Home</a><a href="rajasthan-marbles-residential.html">Residential</a><a href="#brands">Brand
+                        Circle</a><a href="index.html#connect">Connect</a></div>
                 <span>Kerala · India</span>
             </div>
         </div>
@@ -2815,20 +2798,28 @@
     <script>
         (function () {
             "use strict";
-            /* ---- header scroll state ---- */
-            var head = document.getElementById('head'), totop = document.getElementById('totop');
-            function onScroll() {
-                var y = window.scrollY;
-                head.classList.toggle('scrolled', y > 60);
-                totop.classList.toggle('show', y > 700);
+            /* ---- header dock ---- */
+            var header = document.getElementById('header');
+            var totop = document.getElementById('totop');
+            var body = document.body;
+            function onHeaderScroll() {
+                header.classList.toggle('docked', window.scrollY > 40);
+                if (totop) totop.classList.toggle('show', window.scrollY > 700);
             }
-            window.addEventListener('scroll', onScroll, { passive: true }); onScroll();
-            totop.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }) });
+            onHeaderScroll();
+            window.addEventListener('scroll', onHeaderScroll, { passive: true });
 
             /* ---- drawer ---- */
+            var burger = document.getElementById('burger');
             var drawer = document.getElementById('drawer');
-            document.getElementById('burger').addEventListener('click', function () { drawer.classList.add('open') });
-            document.getElementById('drawerClose').addEventListener('click', function () { drawer.classList.remove('open') });
+            var drawerClose = document.getElementById('drawerClose');
+            function setMenu(open) {
+                drawer.classList.toggle('open', open);
+                burger.setAttribute('aria-expanded', open);
+                body.classList.toggle('locked', open);
+            }
+            burger.addEventListener('click', function () { setMenu(!drawer.classList.contains('open')); });
+            if (drawerClose) drawerClose.addEventListener('click', function () { setMenu(false); });
             drawer.querySelectorAll('.drawer-group > a').forEach(function (a) {
                 a.addEventListener('click', function (e) {
                     if (window.innerWidth <= 900) {
@@ -2838,20 +2829,28 @@
                 });
             });
             drawer.querySelectorAll('.drawer-sub a, .drawer-nav > a').forEach(function (a) {
-                a.addEventListener('click', function () {
-                    if (typeof setMenu === 'function') setMenu(false); else drawer.classList.remove('open');
-                });
+                a.addEventListener('click', function () { setMenu(false); });
             });
 
             /* ---- search overlay ---- */
-            var searchOv = document.getElementById('searchOv');
+            var searchBtn = document.getElementById('searchBtn');
+            var searchOv = document.getElementById('search');
+            var searchClose = document.getElementById('searchClose');
             var searchInput = document.getElementById('searchInput');
-            function openSearch() { searchOv.classList.add('open'); setTimeout(function () { searchInput && searchInput.focus() }, 300) }
-            function closeSearch() { searchOv.classList.remove('open') }
-            var sb = document.getElementById('searchBtn'); if (sb) sb.addEventListener('click', openSearch);
-            var sc = document.getElementById('searchClose'); if (sc) sc.addEventListener('click', closeSearch);
-            searchOv.querySelectorAll('.so-sug a').forEach(function (a) { a.addEventListener('click', closeSearch) });
-            document.addEventListener('keydown', function (e) { if (e.key === 'Escape') { closeSearch(); drawer.classList.remove('open') } });
+            function setSearch(open) {
+                if (!searchOv) return;
+                searchOv.classList.toggle('open', open);
+                if (open && searchInput) setTimeout(function () { searchInput.focus(); }, 120);
+            }
+            if (searchBtn) searchBtn.addEventListener('click', function () { setSearch(!searchOv.classList.contains('open')); });
+            if (searchClose) searchClose.addEventListener('click', function () { setSearch(false); });
+            if (searchInput) searchInput.addEventListener('keydown', function (e) { if (e.key === 'Enter') setSearch(false); });
+            document.addEventListener('keydown', function (e) {
+                if (e.key === 'Escape') {
+                    setSearch(false);
+                    if (drawer.classList.contains('open')) setMenu(false);
+                }
+            });
 
             /* ---- hero · full-page sections (scene settle on enter) ---- */
             var hpanels = Array.prototype.slice.call(document.querySelectorAll('.hpanel'));
