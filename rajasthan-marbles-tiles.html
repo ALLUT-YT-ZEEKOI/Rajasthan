@@ -1,0 +1,993 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Tiles — Rajasthan Marbles | Tiles That Live With You</title>
+<meta name="description" content="Tiles chosen by judgment, not just looks. The Rajasthan Tile Method™ — Impact, Exposure, Maintenance, Longevity. Premium tiles since 1984 across four Kerala experience centres." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&family=Hanken+Grotesk:wght@300;400;500;600;700&family=Pinyon+Script&display=swap" rel="stylesheet">
+<style>
+:root{
+  --crimson:#C92140;
+  --crimson-deep:#9E1730;
+  --gold:#C9A24A;
+  --gold-soft:#E3C988;
+  --beige:#E9DEBC;
+  --moss:#3D4A3F;
+  --terra:#B5633C;
+  --onyx:#0E0B0A;
+  --onyx-2:#171210;
+  --paper:#F7F1E6;
+  --paper-2:#EFE6D4;
+  --ink:#1A1512;
+  --muted:#6F655A;
+  --line:rgba(26,21,18,.14);
+  --line-soft:rgba(26,21,18,.08);
+  --shadow:0 30px 80px -30px rgba(14,11,10,.45);
+  --display:'Archivo',sans-serif;
+  --body:'Hanken Grotesk',sans-serif;
+  --script:'Pinyon Script',cursive;
+  --maxw:1280px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:var(--body);
+  background:var(--paper);
+  color:var(--ink);
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+  line-height:1.55;
+}
+body.locked{overflow:hidden}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+.wrap{width:100%;max-width:var(--maxw);margin:0 auto;padding:0 clamp(18px,4vw,48px)}
+h1,h2,h3,h4{font-family:var(--display);line-height:1.04;letter-spacing:-.02em;font-weight:800}
+.eyebrow{
+  font-family:var(--display);
+  font-weight:700;
+  font-size:12px;
+  letter-spacing:.34em;
+  text-transform:uppercase;
+  color:var(--crimson);
+  display:inline-flex;align-items:center;gap:12px;
+}
+.eyebrow::before{content:"";width:34px;height:1px;background:var(--gold)}
+.script{font-family:var(--script);font-weight:400;letter-spacing:0}
+
+/* ============ HEADER ============ */
+header.site{
+  position:fixed;top:0;left:0;right:0;z-index:120;
+  background:rgba(247,241,230,.86);
+  backdrop-filter:blur(14px) saturate(140%);
+  -webkit-backdrop-filter:blur(14px) saturate(140%);
+  border-bottom:1px solid var(--line-soft);
+  transition:box-shadow .4s ease;
+}
+header.site.docked{box-shadow:0 14px 40px -26px rgba(14,11,10,.5)}
+.util{
+  display:flex;align-items:center;justify-content:space-between;
+  font-size:12px;letter-spacing:.04em;color:var(--muted);
+  border-bottom:1px solid var(--line-soft);
+  max-height:42px;overflow:hidden;
+  transition:max-height .45s ease,opacity .35s ease,padding .45s ease;
+}
+header.site.docked .util{max-height:0;opacity:0;padding-top:0;padding-bottom:0;border-color:transparent}
+.util .wrap{display:flex;align-items:center;justify-content:space-between;padding-top:9px;padding-bottom:9px;width:100%;max-width:var(--maxw);margin:0 auto}
+.util-left{display:flex;align-items:center;gap:8px}
+.util-left b{color:var(--crimson);font-weight:700;font-family:var(--display);letter-spacing:.02em}
+.util-right{display:flex;align-items:center;gap:22px}
+.util-right a{display:inline-flex;align-items:center;gap:7px;transition:color .25s}
+.util-right a:hover{color:var(--crimson)}
+.util-right svg{width:14px;height:14px;stroke:var(--gold);fill:none;stroke-width:1.6}
+.util-right .num{color:var(--ink);font-weight:600}
+
+.bar{display:flex;align-items:center;justify-content:space-between;padding-top:16px;padding-bottom:16px;transition:padding .4s ease}
+header.site.docked .bar{padding-top:11px;padding-bottom:11px}
+.menu-btn{display:inline-flex;align-items:center;gap:11px;font-family:var(--display);font-weight:600;font-size:13px;letter-spacing:.18em;text-transform:uppercase;background:none;border:none;cursor:pointer;color:var(--ink)}
+.menu-btn .lines{display:inline-flex;flex-direction:column;gap:4px;width:22px}
+.menu-btn .lines span{height:1.6px;background:var(--ink);border-radius:2px;transition:.3s}
+.menu-btn:hover .lines span{background:var(--crimson)}
+
+.brand{position:absolute;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:3px;text-align:center}
+.brand .mono{
+  width:46px;height:46px;border-radius:50%;
+  border:1.4px solid var(--gold);
+  display:grid;place-items:center;
+  font-family:var(--display);font-weight:800;font-size:16px;letter-spacing:.02em;
+  color:var(--crimson);
+  background:radial-gradient(circle at 50% 30%,rgba(201,162,74,.16),transparent 70%);
+  transition:transform .4s ease;
+}
+header.site.docked .brand .mono{transform:scale(.9)}
+.brand .word{font-family:var(--display);font-weight:700;font-size:14px;letter-spacing:.36em;text-transform:uppercase;color:var(--ink);padding-left:.36em}
+.brand .since{font-size:9.5px;letter-spacing:.34em;text-transform:uppercase;color:var(--gold);font-weight:600}
+header.site.docked .brand .word,header.site.docked .brand .since{display:none}
+
+.bar-right{display:flex;align-items:center;gap:18px}
+.icon-btn{background:none;border:none;cursor:pointer;display:inline-grid;place-items:center;width:38px;height:38px;border-radius:50%;transition:background .25s}
+.icon-btn:hover{background:rgba(201,33,64,.08)}
+.icon-btn svg{width:19px;height:19px;stroke:var(--ink);fill:none;stroke-width:1.7}
+.btn-showroom{
+  display:inline-flex;align-items:center;gap:9px;
+  background:var(--crimson);color:#fff;
+  font-family:var(--display);font-weight:600;font-size:12.5px;letter-spacing:.12em;text-transform:uppercase;
+  padding:12px 22px;border-radius:100px;
+  transition:transform .3s ease,background .3s ease,box-shadow .3s ease;
+  box-shadow:0 12px 28px -12px rgba(201,33,64,.7);
+}
+.btn-showroom:hover{background:var(--crimson-deep);transform:translateY(-2px)}
+.btn-showroom svg{width:15px;height:15px;stroke:#fff;fill:none;stroke-width:1.8}
+
+/* drawer */
+.drawer{
+  position:fixed;inset:0;z-index:200;
+  background:linear-gradient(160deg,var(--onyx) 0%,#1d1512 60%,#241413 100%);
+  color:var(--beige);
+  display:grid;grid-template-columns:1.4fr 1fr;
+  clip-path:circle(0% at 92% 0);
+  transition:clip-path .7s cubic-bezier(.7,0,.2,1);
+  pointer-events:none;
+}
+.drawer.open{clip-path:circle(150% at 92% 0);pointer-events:auto}
+.drawer-close{position:absolute;top:26px;right:32px;width:46px;height:46px;border-radius:50%;border:1px solid rgba(233,222,188,.35);background:none;color:var(--beige);cursor:pointer;font-size:22px;display:grid;place-items:center;transition:.3s;z-index:5}
+.drawer-close:hover{background:var(--crimson);border-color:var(--crimson);color:#fff;transform:rotate(90deg)}
+.drawer-nav{padding:clamp(70px,9vh,120px) clamp(40px,6vw,96px);display:flex;flex-direction:column;justify-content:center}
+.drawer-nav a{
+  display:flex;align-items:baseline;gap:20px;
+  font-family:var(--display);font-weight:800;font-size:clamp(28px,4.4vw,52px);
+  letter-spacing:-.02em;color:var(--beige);
+  padding:8px 0;opacity:.55;transition:.4s;
+}
+.drawer-nav a .n{font-size:13px;font-weight:600;color:var(--gold);letter-spacing:.1em;opacity:.8;transform:translateY(-.5em)}
+.drawer-nav a:hover,.drawer-nav a.active{opacity:1;color:#fff;transform:translateX(14px)}
+.drawer-nav a.active .n{color:var(--crimson)}
+.drawer-aside{
+  background:rgba(0,0,0,.28);
+  border-left:1px solid rgba(233,222,188,.14);
+  padding:clamp(70px,9vh,120px) clamp(34px,4vw,64px);
+  display:flex;flex-direction:column;justify-content:center;gap:34px;
+}
+.drawer-aside h5{font-family:var(--display);font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);margin-bottom:14px;font-weight:700}
+.drawer-aside .ad-row{font-size:15px;color:rgba(233,222,188,.86);line-height:1.7}
+.drawer-aside .ad-row a:hover{color:#fff}
+.drawer-socials{display:flex;gap:14px;margin-top:6px}
+.drawer-socials a{width:40px;height:40px;border-radius:50%;border:1px solid rgba(233,222,188,.3);display:grid;place-items:center;transition:.3s}
+.drawer-socials a:hover{background:var(--crimson);border-color:var(--crimson)}
+.drawer-socials svg{width:17px;height:17px;stroke:var(--beige);fill:none;stroke-width:1.6}
+.drawer-socials a:hover svg{stroke:#fff}
+
+/* search overlay */
+.search-ov{position:fixed;left:0;right:0;top:0;z-index:190;background:rgba(247,241,230,.97);backdrop-filter:blur(8px);transform:translateY(-100%);transition:transform .5s cubic-bezier(.7,0,.2,1);padding:34px 0;box-shadow:var(--shadow)}
+.search-ov.open{transform:translateY(0)}
+.so-row{display:flex;align-items:center;gap:16px;border-bottom:2px solid var(--ink);padding-bottom:14px}
+.so-row svg{width:24px;height:24px;stroke:var(--crimson);fill:none;stroke-width:1.8}
+.so-row input{flex:1;border:none;background:none;font-family:var(--display);font-size:clamp(20px,3vw,32px);font-weight:600;color:var(--ink);outline:none}
+.so-close{background:none;border:none;font-size:30px;cursor:pointer;color:var(--muted);line-height:1}
+.so-sug{display:flex;align-items:center;gap:14px;margin-top:18px;flex-wrap:wrap;font-size:14px;color:var(--muted)}
+.so-sug a{padding:6px 16px;border:1px solid var(--line);border-radius:100px;transition:.25s}
+.so-sug a:hover{background:var(--crimson);color:#fff;border-color:var(--crimson)}
+
+/* ============ HERO + 3D SLIDER ============ */
+.hero{
+  position:relative;
+  min-height:100vh; min-height:100svh;
+  display:flex; flex-direction:column; justify-content:center;
+  padding-top:clamp(116px,15vh,150px);
+  padding-bottom:clamp(26px,4vh,46px);
+  background:
+    radial-gradient(120% 90% at 80% -10%,rgba(201,162,74,.18),transparent 55%),
+    radial-gradient(90% 80% at 10% 110%,rgba(201,33,64,.10),transparent 55%),
+    linear-gradient(180deg,var(--paper) 0%,var(--paper-2) 100%);
+  overflow:hidden;
+}
+.hero-top{text-align:center;max-width:880px;margin:0 auto clamp(18px,2.6vh,34px)}
+.hero h1{font-size:clamp(31px,5.2vw,62px);font-weight:900;color:var(--ink);margin:14px 0 0}
+.hero h1 em{font-style:normal;color:var(--crimson)}
+.hero .sub{font-size:clamp(15px,1.6vw,19px);color:var(--muted);max-width:560px;margin:14px auto 0;font-weight:400}
+.hero-cta{margin-top:22px;display:inline-flex;gap:14px;flex-wrap:wrap;justify-content:center}
+.btn-primary{
+  display:inline-flex;align-items:center;gap:10px;
+  background:var(--crimson);color:#fff;
+  font-family:var(--display);font-weight:600;font-size:14px;letter-spacing:.06em;
+  padding:16px 30px;border-radius:100px;cursor:pointer;border:none;
+  transition:transform .3s,background .3s,box-shadow .3s;
+  box-shadow:0 16px 34px -14px rgba(201,33,64,.7);
+}
+.btn-primary:hover{background:var(--crimson-deep);transform:translateY(-2px)}
+.btn-primary svg{width:17px;height:17px;stroke:#fff;fill:none;stroke-width:2}
+.btn-ghost{
+  display:inline-flex;align-items:center;gap:10px;
+  background:transparent;color:var(--ink);
+  font-family:var(--display);font-weight:600;font-size:14px;letter-spacing:.06em;
+  padding:16px 28px;border-radius:100px;cursor:pointer;
+  border:1.5px solid var(--line);transition:.3s;
+}
+.btn-ghost:hover{border-color:var(--crimson);color:var(--crimson)}
+
+/* 3D coverflow */
+.stage{
+  position:relative;
+  height:clamp(248px,33vh,344px);
+  perspective:1500px;
+  margin-top:clamp(4px,1.6vh,14px);
+}
+.coverflow{position:absolute;inset:0;transform-style:preserve-3d}
+.cf-slide{
+  position:absolute;top:50%;left:50%;
+  width:clamp(208px,24vw,320px);
+  height:clamp(228px,30vh,300px);
+  margin:calc(-1 * clamp(114px,15vh,150px)) 0 0 calc(-1 * clamp(104px,12vw,160px));
+  border-radius:18px;
+  overflow:hidden;
+  cursor:pointer;
+  transform-style:preserve-3d;
+  transition:transform .8s cubic-bezier(.55,.1,.25,1),opacity .8s,filter .8s;
+  box-shadow:0 40px 70px -30px rgba(14,11,10,.7);
+  border:1px solid rgba(255,255,255,.1);
+  background:var(--onyx-2);
+}
+.cf-slide .img{position:absolute;inset:0;background-size:cover;background-position:center;transition:transform 1s ease}
+.cf-slide::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(14,11,10,0) 30%,rgba(14,11,10,.86) 100%)}
+.cf-cap{position:absolute;left:0;right:0;bottom:0;padding:22px 24px;z-index:2;color:#fff}
+.cf-cap .k{font-family:var(--display);font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--gold-soft);font-weight:700}
+.cf-cap .t{font-family:var(--display);font-size:clamp(19px,2vw,26px);font-weight:800;margin-top:6px;line-height:1.05}
+.cf-slide.active{box-shadow:0 50px 90px -28px rgba(201,33,64,.55),0 0 0 1px rgba(201,162,74,.5)}
+.cf-slide.active .img{transform:scale(1.06)}
+.cf-slide:not(.active){filter:saturate(.65) brightness(.7)}
+
+.cf-nav{display:flex;align-items:center;justify-content:center;gap:20px;margin:clamp(14px,2.4vh,26px) auto 0;z-index:30}
+.cf-arrow{width:50px;height:50px;border-radius:50%;border:1px solid var(--line);background:rgba(247,241,230,.7);backdrop-filter:blur(6px);cursor:pointer;display:grid;place-items:center;transition:.3s;color:var(--ink)}
+.cf-arrow:hover{background:var(--crimson);border-color:var(--crimson);color:#fff;transform:scale(1.06)}
+.cf-arrow svg{width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:2}
+.cf-dots{display:flex;gap:9px}
+.cf-dot{width:8px;height:8px;border-radius:50%;background:var(--line);border:none;cursor:pointer;transition:.3s;padding:0}
+.cf-dot.on{background:var(--crimson);width:26px;border-radius:5px}
+
+/* ============ SHIFT THE MINDSET ============ */
+.mindset{padding:clamp(80px,12vh,140px) 0;background:var(--paper)}
+.mindset-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(40px,6vw,90px);align-items:center}
+.mindset h2{font-size:clamp(30px,4.4vw,56px);font-weight:900;color:var(--ink);margin:22px 0 0}
+.mindset h2 .red{color:var(--crimson)}
+.q-block{margin-top:34px;display:flex;flex-direction:column;gap:18px}
+.q-card{padding:22px 26px;border-radius:14px;border:1px solid var(--line);background:var(--paper-2)}
+.q-card.bad{opacity:.7}
+.q-card.good{border-color:rgba(201,33,64,.4);background:#fff;box-shadow:var(--shadow)}
+.q-card .lab{font-family:var(--display);font-size:11px;letter-spacing:.24em;text-transform:uppercase;font-weight:700;color:var(--muted);margin-bottom:8px}
+.q-card.good .lab{color:var(--crimson)}
+.q-card .q{font-family:var(--display);font-size:clamp(19px,2.3vw,28px);font-weight:700;line-height:1.2}
+.mindset-right{position:relative}
+.factors-card{background:linear-gradient(165deg,var(--moss),#2c352d);color:var(--beige);border-radius:22px;padding:clamp(30px,4vw,46px);box-shadow:var(--shadow);position:relative;overflow:hidden}
+.factors-card::before{content:"";position:absolute;top:-40px;right:-40px;width:160px;height:160px;border-radius:50%;background:radial-gradient(circle,rgba(201,162,74,.3),transparent 70%)}
+.factors-card h4{font-size:18px;font-weight:700;color:#fff;margin-bottom:8px;position:relative}
+.factors-card p.lead{font-size:14px;color:rgba(233,222,188,.75);margin-bottom:24px;position:relative}
+.factor{display:flex;align-items:center;gap:16px;padding:15px 0;border-bottom:1px solid rgba(233,222,188,.16);position:relative}
+.factor:last-child{border-bottom:none}
+.factor .ico{width:44px;height:44px;border-radius:12px;background:rgba(201,162,74,.16);display:grid;place-items:center;flex-shrink:0}
+.factor .ico svg{width:22px;height:22px;stroke:var(--gold-soft);fill:none;stroke-width:1.7}
+.factor .fx{font-family:var(--display);font-weight:700;font-size:17px;color:#fff}
+.fail-line{margin-top:34px;text-align:center}
+.fail-line .small{font-size:14px;color:var(--muted)}
+.fail-line .big{font-family:var(--display);font-size:clamp(20px,2.6vw,30px);font-weight:800;color:var(--ink);margin-top:4px}
+.fail-line .big em{font-style:normal;color:var(--crimson)}
+
+/* ============ THE RAJASTHAN TILE METHOD™ (HIGHLIGHT) ============ */
+.method{
+  position:relative;
+  padding:clamp(90px,14vh,160px) 0;
+  background:
+    radial-gradient(120% 100% at 50% -10%,rgba(201,162,74,.16),transparent 60%),
+    linear-gradient(180deg,var(--onyx) 0%,#1c1411 55%,#241312 100%);
+  color:var(--beige);
+  overflow:hidden;
+}
+.method::before{
+  content:"";position:absolute;inset:0;
+  background-image:linear-gradient(rgba(201,162,74,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(201,162,74,.05) 1px,transparent 1px);
+  background-size:64px 64px;
+  mask-image:radial-gradient(circle at 50% 40%,#000,transparent 75%);
+  -webkit-mask-image:radial-gradient(circle at 50% 40%,#000,transparent 75%);
+}
+.method .wrap{position:relative;z-index:2}
+.method-head{text-align:center;max-width:760px;margin:0 auto clamp(50px,7vh,80px)}
+.signature-badge{
+  display:inline-flex;align-items:center;gap:10px;
+  border:1px solid rgba(201,162,74,.45);
+  background:rgba(201,162,74,.08);
+  color:var(--gold-soft);
+  font-family:var(--display);font-weight:700;font-size:11px;letter-spacing:.26em;text-transform:uppercase;
+  padding:9px 18px;border-radius:100px;margin-bottom:24px;
+}
+.signature-badge .dot{width:7px;height:7px;border-radius:50%;background:var(--crimson);box-shadow:0 0 12px 2px rgba(201,33,64,.8)}
+.method-head h2{font-size:clamp(34px,5.4vw,68px);font-weight:900;color:#fff;letter-spacing:-.025em}
+.method-head h2 .tm{color:var(--gold);font-size:.5em;vertical-align:super;font-weight:700}
+.method-head .ours{font-family:var(--script);font-size:clamp(24px,3.4vw,40px);color:var(--gold-soft);margin-top:6px;line-height:1}
+.method-head p{font-size:clamp(15px,1.7vw,18px);color:rgba(233,222,188,.78);margin-top:22px}
+.method-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+.mstep{
+  position:relative;
+  border:1px solid rgba(233,222,188,.16);
+  border-radius:20px;
+  padding:34px 26px 30px;
+  background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.01));
+  overflow:hidden;
+  transition:transform .5s ease,border-color .5s ease,background .5s ease;
+}
+.mstep::before{content:"";position:absolute;left:0;top:0;height:3px;width:0;background:linear-gradient(90deg,var(--crimson),var(--gold));transition:width .6s ease}
+.mstep:hover{transform:translateY(-8px);border-color:rgba(201,162,74,.5);background:linear-gradient(180deg,rgba(201,162,74,.1),rgba(255,255,255,.02))}
+.mstep:hover::before{width:100%}
+.mstep .num{font-family:var(--display);font-size:54px;font-weight:900;line-height:1;color:transparent;-webkit-text-stroke:1.4px rgba(201,162,74,.55);text-stroke:1.4px rgba(201,162,74,.55);margin-bottom:18px}
+.mstep .m-ico{width:52px;height:52px;border-radius:14px;background:rgba(201,33,64,.16);display:grid;place-items:center;margin-bottom:18px}
+.mstep .m-ico svg{width:26px;height:26px;stroke:var(--gold-soft);fill:none;stroke-width:1.7}
+.mstep h3{font-size:22px;font-weight:800;color:#fff;margin-bottom:10px}
+.mstep p{font-size:14px;color:rgba(233,222,188,.72);line-height:1.6}
+.method-foot{text-align:center;margin-top:clamp(44px,6vh,68px)}
+.method-foot .btn-gold{
+  display:inline-flex;align-items:center;gap:10px;
+  background:linear-gradient(100deg,var(--gold),var(--gold-soft));
+  color:var(--onyx);
+  font-family:var(--display);font-weight:700;font-size:14px;letter-spacing:.05em;
+  padding:16px 32px;border-radius:100px;
+  transition:transform .3s,box-shadow .3s;
+  box-shadow:0 18px 40px -16px rgba(201,162,74,.7);
+}
+.method-foot .btn-gold:hover{transform:translateY(-2px)}
+.method-foot .btn-gold svg{width:17px;height:17px;stroke:var(--onyx);fill:none;stroke-width:2}
+
+/* ============ CURATED BY / USE CASES ============ */
+.curated{padding:clamp(80px,12vh,140px) 0;background:var(--paper)}
+.curated-head{max-width:720px;margin:0 auto clamp(44px,6vh,70px);text-align:center}
+.curated-head h2{font-size:clamp(30px,4.4vw,54px);font-weight:900;margin-top:18px}
+.curated-head p{color:var(--muted);margin-top:16px;font-size:17px}
+.use-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+.use-card{
+  position:relative;border-radius:20px;overflow:hidden;min-height:320px;
+  display:flex;flex-direction:column;justify-content:flex-end;
+  padding:28px;color:#fff;cursor:pointer;
+  background:var(--moss);
+  transition:transform .5s ease,box-shadow .5s ease;
+  box-shadow:0 22px 50px -28px rgba(14,11,10,.6);
+}
+.use-card .img{position:absolute;inset:0;background-size:cover;background-position:center;transition:transform 1s ease}
+.use-card::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(14,11,10,.1) 0%,rgba(14,11,10,.82) 100%)}
+.use-card>*{position:relative;z-index:2}
+.use-card:hover{transform:translateY(-8px)}
+.use-card:hover .img{transform:scale(1.08)}
+.use-card .emoji{font-size:30px;margin-bottom:auto}
+/* ---- per-card rotating 3D objects (homepage style) ---- */
+.use3d{position:relative;height:132px;width:100%;display:grid;place-items:center;perspective:680px;margin-bottom:auto;margin-top:-2px}
+.use3d::after{content:"";position:absolute;bottom:6px;left:50%;width:108px;height:22px;background:radial-gradient(closest-side,rgba(0,0,0,.5),transparent);filter:blur(5px);transform:translateX(-50%) rotateX(70deg)}
+.obj3d{transform-style:preserve-3d}
+.objspin{position:relative;width:0;height:0;transform-style:preserve-3d;animation:objspin 26s linear infinite;will-change:transform}
+.use-card:hover .objspin{animation-duration:9s}
+@keyframes objspin{from{transform:rotateX(-18deg) rotateY(0)}to{transform:rotateX(-18deg) rotateY(360deg)}}
+.cface{position:absolute;left:50%;top:50%;backface-visibility:hidden;overflow:hidden}
+.cface.win::after{content:"";position:absolute;inset:5px;background:
+  repeating-linear-gradient(to bottom,rgba(232,206,140,.16) 0 2px,transparent 2px 9px),
+  repeating-linear-gradient(to right,rgba(0,0,0,.32) 0 2px,transparent 2px 11px);opacity:.85}
+@media(prefers-reduced-motion:reduce){.objspin{animation:none;transform:rotateX(-18deg) rotateY(-28deg)}}
+.use-card h3{font-size:23px;font-weight:800;margin-top:14px}
+.use-card .go{display:inline-flex;align-items:center;gap:8px;font-family:var(--display);font-size:12px;letter-spacing:.12em;text-transform:uppercase;font-weight:600;color:var(--gold-soft);margin-top:12px;opacity:0;transform:translateY(8px);transition:.4s}
+.use-card:hover .go{opacity:1;transform:translateY(0)}
+.use-card .go svg{width:14px;height:14px;stroke:var(--gold-soft);fill:none;stroke-width:2}
+
+/* ============ BRANDS / TRUST ============ */
+.trust{padding:clamp(70px,10vh,120px) 0;background:linear-gradient(180deg,var(--paper-2),var(--paper));border-top:1px solid var(--line-soft)}
+.trust-head{text-align:center;margin-bottom:clamp(36px,5vh,56px)}
+.trust-head h2{font-size:clamp(26px,3.6vw,44px);font-weight:900;margin-top:14px}
+.trust-head p{color:var(--muted);margin-top:12px}
+.brand-row{display:flex;align-items:center;justify-content:center;gap:clamp(20px,5vw,72px);flex-wrap:wrap}
+.brand-item{
+  font-family:var(--display);font-weight:800;
+  font-size:clamp(22px,3.2vw,38px);
+  letter-spacing:.02em;color:var(--muted);
+  opacity:.6;filter:grayscale(1);
+  transition:.4s;cursor:default;
+}
+.brand-item:hover{opacity:1;filter:grayscale(0);color:var(--crimson);transform:translateY(-3px)}
+
+/* ============ JOURNAL ============ */
+.journal{padding:clamp(80px,12vh,140px) 0;background:var(--paper)}
+.journal-card{
+  position:relative;border-radius:26px;overflow:hidden;
+  display:grid;grid-template-columns:1.1fr 1fr;
+  background:var(--onyx);color:var(--beige);
+  box-shadow:var(--shadow);min-height:380px;
+}
+.journal-media{position:relative;overflow:hidden;background:#1a1310}
+.journal-media .img{position:absolute;inset:0;background-size:cover;background-position:center;transition:transform 1.2s ease}
+.journal-card:hover .journal-media .img{transform:scale(1.06)}
+.journal-media::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,transparent 40%,rgba(14,11,10,.6))}
+.journal-body{padding:clamp(36px,5vw,64px);display:flex;flex-direction:column;justify-content:center}
+.journal-body .tag{font-family:var(--display);font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);font-weight:700}
+.journal-body h2{font-size:clamp(28px,4vw,48px);font-weight:900;color:#fff;margin:18px 0;letter-spacing:-.02em}
+.journal-body p{color:rgba(233,222,188,.78);font-size:16px;max-width:440px}
+.journal-body .read{display:inline-flex;align-items:center;gap:10px;margin-top:26px;font-family:var(--display);font-weight:600;font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--gold-soft)}
+.journal-body .read svg{width:16px;height:16px;stroke:var(--gold-soft);fill:none;stroke-width:2;transition:transform .3s}
+.journal-body .read:hover svg{transform:translateX(5px)}
+
+/* ============ CLOSING CTA ============ */
+.closing{
+  position:relative;padding:clamp(90px,14vh,160px) 0;text-align:center;
+  background:
+    radial-gradient(100% 100% at 50% 0%,rgba(201,33,64,.18),transparent 60%),
+    linear-gradient(180deg,#2c352d 0%,var(--moss) 100%);
+  color:#fff;overflow:hidden;
+}
+.closing h2{font-size:clamp(34px,6vw,76px);font-weight:900;letter-spacing:-.025em;line-height:1.02}
+.closing h2 .red{color:var(--gold-soft)}
+.closing p{font-size:clamp(16px,2vw,21px);color:rgba(233,222,188,.82);margin:22px auto 0;max-width:520px}
+.closing .btn-primary{margin-top:34px;background:var(--crimson)}
+.closing .btn-primary:hover{background:var(--crimson-deep)}
+
+/* ============ FOOTER ============ */
+footer.site{background:var(--onyx);color:var(--beige);padding:clamp(64px,9vh,100px) 0 36px;position:relative}
+.crest{display:flex;align-items:center;justify-content:center;gap:24px;margin-bottom:clamp(44px,6vh,68px)}
+.crest .hair{height:1px;flex:1;max-width:280px;background:linear-gradient(90deg,transparent,rgba(201,162,74,.5),transparent)}
+.crest .mono{width:60px;height:60px;border-radius:50%;border:1.4px solid var(--gold);display:grid;place-items:center;font-family:var(--display);font-weight:800;font-size:20px;color:var(--gold-soft)}
+.foot-cols{display:grid;grid-template-columns:1.4fr 1fr 1.2fr;gap:clamp(34px,5vw,72px);padding-bottom:clamp(44px,6vh,64px);border-bottom:1px solid rgba(233,222,188,.14)}
+.foot-brand h4{font-family:var(--display);font-size:22px;font-weight:800;color:#fff;letter-spacing:.04em}
+.foot-brand .since{font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-top:4px}
+.foot-brand p{font-size:14px;color:rgba(233,222,188,.7);margin-top:18px;max-width:320px;line-height:1.7}
+.foot-contact{margin-top:22px;display:flex;flex-direction:column;gap:9px;font-size:14.5px}
+.foot-contact a{display:inline-flex;align-items:center;gap:10px;color:rgba(233,222,188,.85);transition:.25s}
+.foot-contact a:hover{color:#fff}
+.foot-contact svg{width:16px;height:16px;stroke:var(--gold);fill:none;stroke-width:1.6}
+.foot-socials{display:flex;gap:12px;margin-top:20px}
+.foot-socials a{width:42px;height:42px;border-radius:50%;border:1px solid rgba(233,222,188,.28);display:grid;place-items:center;transition:.3s}
+.foot-socials a:hover{background:var(--crimson);border-color:var(--crimson);transform:translateY(-3px)}
+.foot-socials svg{width:18px;height:18px;stroke:var(--beige);fill:none;stroke-width:1.6}
+.foot-socials a:hover svg{stroke:#fff}
+.foot-mid{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:10px}
+.foot-mid .script{font-family:var(--script);font-size:clamp(30px,4vw,46px);color:var(--gold-soft);line-height:1}
+.foot-mid .sub{font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:rgba(233,222,188,.6);font-family:var(--display);font-weight:600}
+.foot-news h5{font-family:var(--display);font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:8px}
+.foot-news p{font-size:14px;color:rgba(233,222,188,.7);margin-bottom:16px}
+.news-row{display:flex;border:1px solid rgba(233,222,188,.3);border-radius:100px;overflow:hidden;background:rgba(0,0,0,.2)}
+.news-row input{flex:1;background:none;border:none;padding:13px 18px;color:#fff;font-family:var(--body);font-size:14px;outline:none}
+.news-row input::placeholder{color:rgba(233,222,188,.5)}
+.news-row button{background:var(--crimson);border:none;color:#fff;padding:0 22px;cursor:pointer;font-family:var(--display);font-weight:600;font-size:13px;letter-spacing:.08em;text-transform:uppercase;transition:.3s}
+.news-row button:hover{background:var(--crimson-deep)}
+.foot-cat{display:inline-flex;align-items:center;gap:10px;margin-top:18px;font-family:var(--display);font-weight:600;font-size:13px;letter-spacing:.08em;color:var(--gold-soft)}
+.foot-cat svg{width:16px;height:16px;stroke:var(--gold-soft);fill:none;stroke-width:1.7}
+.foot-links{display:flex;flex-wrap:wrap;gap:8px 28px;padding:30px 0;justify-content:center;font-family:var(--display);font-size:13px;letter-spacing:.08em;text-transform:uppercase;font-weight:500}
+.foot-links a{color:rgba(233,222,188,.72);transition:.25s}
+.foot-links a:hover{color:var(--gold-soft)}
+.foot-end{display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap;border-top:1px solid rgba(233,222,188,.12);padding-top:26px;font-size:13px;color:rgba(233,222,188,.55)}
+.foot-end .made{color:rgba(233,222,188,.7);font-style:italic}
+.to-top{position:fixed;right:26px;bottom:26px;width:50px;height:50px;border-radius:50%;background:var(--crimson);border:none;cursor:pointer;display:grid;place-items:center;opacity:0;transform:translateY(20px);pointer-events:none;transition:.4s;z-index:90;box-shadow:0 14px 30px -10px rgba(201,33,64,.7)}
+.to-top.show{opacity:1;transform:translateY(0);pointer-events:auto}
+.to-top svg{width:20px;height:20px;stroke:#fff;fill:none;stroke-width:2}
+
+/* whatsapp float */
+.wa-float{position:fixed;right:26px;bottom:88px;width:54px;height:54px;border-radius:50%;background:#25D366;display:grid;place-items:center;z-index:90;box-shadow:0 14px 30px -8px rgba(37,211,102,.6);transition:transform .3s}
+.wa-float:hover{transform:scale(1.08)}
+.wa-float svg{width:28px;height:28px;fill:#fff}
+
+/* reveal */
+.reveal{opacity:0;transform:translateY(34px);transition:opacity .9s ease,transform .9s cubic-bezier(.2,.7,.2,1)}
+.reveal.in{opacity:1;transform:none}
+
+/* ============ RESPONSIVE ============ */
+@media(max-width:1024px){
+  .method-steps{grid-template-columns:repeat(2,1fr)}
+  .use-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:880px){
+  .util{display:none}
+  .brand{position:static;transform:none;flex-direction:row;gap:10px}
+  .brand .word,.brand .since{display:none}
+  .bar{justify-content:space-between}
+  .btn-showroom{display:none}
+  .drawer{grid-template-columns:1fr}
+  .drawer-aside{display:none}
+  .mindset-grid{grid-template-columns:1fr;gap:40px}
+  .journal-card{grid-template-columns:1fr}
+  .journal-media{min-height:240px}
+  .foot-cols{grid-template-columns:1fr;text-align:center}
+  .foot-brand p{margin-left:auto;margin-right:auto}
+  .foot-contact{align-items:center}
+  .foot-socials{justify-content:center}
+  .foot-end{justify-content:center;text-align:center}
+}
+@media(max-width:560px){
+  .method-steps{grid-template-columns:1fr}
+  .use-grid{grid-template-columns:1fr}
+  .cf-slide{width:74vw;margin-left:-37vw}
+  .q-card .q{font-size:19px}
+  .brand-row{gap:18px 28px}
+  .hero-cta{flex-direction:column;width:100%}
+  .hero-cta .btn-primary,.hero-cta .btn-ghost{justify-content:center}
+}
+</style>
+</head>
+<body>
+
+<!-- ============ HEADER ============ -->
+<header class="site" id="header">
+  <div class="util">
+    <div class="wrap">
+      <div class="util-left"><b>Four experience centres</b> across Kerala · Since 1984</div>
+      <div class="util-right">
+        <a href="https://wa.me/919895227744"><svg viewBox="0 0 24 24"><path d="M21 15.5a2 2 0 0 1-2 2 16 16 0 0 1-13-13 2 2 0 0 1 2-2h2l1 4-2 1a12 12 0 0 0 5 5l1-2 4 1z"/></svg>Request a Call Back</a>
+        <a href="tel:+919895227744"><span class="num">98952 27744</span></a>
+        <a href="#connect"><svg viewBox="0 0 24 24"><path d="M12 21s-7-5.5-7-11a7 7 0 0 1 14 0c0 5.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>Store Locator</a>
+      </div>
+    </div>
+  </div>
+  <div class="wrap">
+    <div class="bar">
+      <button class="menu-btn" id="menuBtn" aria-label="Open menu">
+        <span class="lines"><span></span><span></span><span></span></span> Menu
+      </button>
+      <a href="#top" class="brand" aria-label="Rajasthan Marbles home">
+        <span class="mono">RM</span>
+        <span class="word">Rajasthan Marbles</span>
+        <span class="since">Since 1984</span>
+      </a>
+      <div class="bar-right">
+        <button class="icon-btn" id="searchBtn" aria-label="Search"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg></button>
+        <a href="#connect" class="btn-showroom"><svg viewBox="0 0 24 24"><path d="M3 21V8l9-5 9 5v13"/><path d="M9 21v-6h6v6"/></svg>Visit Showroom</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- drawer -->
+<nav class="drawer" id="drawer" aria-hidden="true">
+  <button class="drawer-close" id="drawerClose" aria-label="Close menu">&times;</button>
+  <div class="drawer-nav">
+    <a href="rajasthan-marbles.html"><span class="n">01</span> Home</a>
+    <a href="rajasthan-marbles-residential.html"><span class="n">02</span> Residential</a>
+    <a href="#"><span class="n">03</span> Commercial &amp; Govt.</a>
+    <a href="tiles.html" class="active"><span class="n">04</span> Tiles</a>
+    <a href="#curated"><span class="n">05</span> Collections</a>
+    <a href="#journal"><span class="n">06</span> The Journal</a>
+    <a href="#connect"><span class="n">07</span> Contact</a>
+  </div>
+  <aside class="drawer-aside">
+    <div>
+      <h5>Talk to us</h5>
+      <div class="ad-row"><a href="tel:+919895227744">+91 98952 27744</a></div>
+      <div class="ad-row"><a href="mailto:Sales@rajasthanmarbles.com">Sales@rajasthanmarbles.com</a></div>
+    </div>
+    <div>
+      <h5>Experience centres</h5>
+      <div class="ad-row">Kothamangalam · Kadamattom</div>
+      <div class="ad-row">Kalamassery · Adimali</div>
+    </div>
+    <div>
+      <h5>Follow</h5>
+      <div class="drawer-socials">
+        <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+        <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M14 9h3V5h-3a4 4 0 0 0-4 4v2H7v4h3v6h4v-6h3l1-4h-4V9a1 1 0 0 1 1-1z"/></svg></a>
+        <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="4"/><path d="M10 9l5 3-5 3z" fill="currentColor" stroke="none"/></svg></a>
+        <a href="https://wa.me/919895227744" aria-label="WhatsApp"><svg viewBox="0 0 24 24"><path d="M21 15.5a2 2 0 0 1-2 2 16 16 0 0 1-13-13 2 2 0 0 1 2-2h2l1 4-2 1a12 12 0 0 0 5 5l1-2 4 1z"/></svg></a>
+      </div>
+    </div>
+  </aside>
+</nav>
+
+<!-- search overlay -->
+<div class="search-ov" id="searchOv">
+  <div class="wrap">
+    <div class="so-row">
+      <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+      <input type="search" id="searchInput" placeholder="Search tiles, sizes, brands…" aria-label="Search the site"/>
+      <button class="so-close" id="searchClose" aria-label="Close search">&times;</button>
+    </div>
+    <div class="so-sug">
+      <span>Popular:</span>
+      <a href="#method">Tile Method</a><a href="#curated">Residential</a><a href="#curated">Commercial</a><a href="#trust">Brands</a><a href="#journal">Journal</a>
+    </div>
+  </div>
+</div>
+
+<span id="top"></span>
+
+<!-- ============ HERO + 3D SLIDER ============ -->
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-top reveal">
+      <span class="eyebrow">Tiles</span>
+      <h1>Tiles That Live With You.<br><em>Not Just Under You.</em></h1>
+      <p class="sub">Tiles are not chosen once — they're lived with every day.</p>
+      <div class="hero-cta">
+        <a href="#method" class="btn-primary">Start My Tile Decision
+          <svg viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
+        </a>
+        <a href="#curated" class="btn-ghost">Explore Collections</a>
+      </div>
+    </div>
+
+    <div class="stage reveal" id="stage">
+      <div class="coverflow" id="coverflow">
+        <!-- slides injected/animated by JS -->
+        <div class="cf-slide"><div class="img" style="background-image:linear-gradient(135deg,#3a2a22,#1c1410)"></div><div class="cf-cap"><div class="k">Residential</div><div class="t">Living Room Floors</div></div></div>
+        <div class="cf-slide"><div class="img" style="background-image:linear-gradient(135deg,#2c3a3d,#13201f)"></div><div class="cf-cap"><div class="k">Wet Areas</div><div class="t">Bathroom Walls</div></div></div>
+        <div class="cf-slide"><div class="img" style="background-image:linear-gradient(135deg,#4a3326,#241410)"></div><div class="cf-cap"><div class="k">Heart of Home</div><div class="t">Kitchen Surfaces</div></div></div>
+        <div class="cf-slide"><div class="img" style="background-image:linear-gradient(135deg,#3d3140,#1d1622)"></div><div class="cf-cap"><div class="k">High Traffic</div><div class="t">Commercial Lobbies</div></div></div>
+        <div class="cf-slide"><div class="img" style="background-image:linear-gradient(135deg,#46201f,#22100f)"></div><div class="cf-cap"><div class="k">Open Air</div><div class="t">Outdoor &amp; Facades</div></div></div>
+      </div>
+    </div>
+    <div class="cf-nav">
+      <button class="cf-arrow" id="cfPrev" aria-label="Previous"><svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg></button>
+      <div class="cf-dots" id="cfDots"></div>
+      <button class="cf-arrow" id="cfNext" aria-label="Next"><svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg></button>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SHIFT THE MINDSET ============ -->
+<section class="mindset" id="mindset">
+  <div class="wrap mindset-grid">
+    <div class="mindset-left reveal">
+      <span class="eyebrow">Shift the mindset</span>
+      <h2>Most People Choose Tiles <span class="red">Backwards.</span></h2>
+      <div class="q-block">
+        <div class="q-card bad">
+          <div class="lab">They ask</div>
+          <div class="q">"Which design looks good?"</div>
+        </div>
+        <div class="q-card good">
+          <div class="lab">The better question</div>
+          <div class="q">"Will this survive my life?"</div>
+        </div>
+      </div>
+      <div class="fail-line">
+        <div class="small">Because tiles don't fail immediately.</div>
+        <div class="big">They fail <em>quietly.</em></div>
+      </div>
+    </div>
+    <div class="mindset-right reveal">
+      <div class="factors-card">
+        <h4>We help you choose based on</h4>
+        <p class="lead">Five forces that decide whether a tile lasts — or quietly gives up.</p>
+        <div class="factor"><div class="ico"><svg viewBox="0 0 24 24"><path d="M4 20h16"/><path d="M7 20V8l5-4 5 4v12"/><path d="M10 20v-5h4v5"/></svg></div><div class="fx">Foot Traffic</div></div>
+        <div class="factor"><div class="ico"><svg viewBox="0 0 24 24"><path d="M12 3s6 6 6 11a6 6 0 0 1-12 0c0-5 6-11 6-11z"/></svg></div><div class="fx">Water Exposure</div></div>
+        <div class="factor"><div class="ico"><svg viewBox="0 0 24 24"><path d="M12 2c1 3-1 4-1 6a3 3 0 0 0 6 0c0-1-1-2-1-2 2 1 4 3 4 7a8 8 0 0 1-16 0c0-5 5-7 8-11z"/></svg></div><div class="fx">Heat</div></div>
+        <div class="factor"><div class="ico"><svg viewBox="0 0 24 24"><path d="M4 12l4 4 12-12"/><path d="M4 20h16"/></svg></div><div class="fx">Cleaning Cycles</div></div>
+        <div class="factor"><div class="ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div><div class="fx">Time</div></div>
+        <a href="#method" class="btn-gold" style="margin-top:26px;display:inline-flex;align-items:center;gap:10px;background:linear-gradient(100deg,var(--gold),var(--gold-soft));color:var(--onyx);font-family:var(--display);font-weight:700;font-size:13px;padding:13px 24px;border-radius:100px">Get My Tile Recommendation
+          <svg viewBox="0 0 24 24" style="width:15px;height:15px;stroke:var(--onyx);fill:none;stroke-width:2"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ THE RAJASTHAN TILE METHOD™ (HIGHLIGHTED) ============ -->
+<section class="method" id="method">
+  <div class="wrap">
+    <div class="method-head reveal">
+      <span class="signature-badge"><span class="dot"></span>Our own method · Exclusive to Rajasthan Marbles</span>
+      <h2>The Rajasthan Tile Method<span class="tm">™</span></h2>
+      <div class="ours">performance first, then beauty</div>
+      <p>A four-part judgment system we built over four decades — so your tile is chosen for the life it has to survive, not just the showroom light it sits under.</p>
+    </div>
+    <div class="method-steps">
+      <div class="mstep reveal">
+        <div class="num">01</div>
+        <div class="m-ico"><svg viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 4 2 7L12 16l-6.5 4 2-7L2 9h7z"/></svg></div>
+        <h3>Impact</h3>
+        <p>How much weight, footfall and daily abuse the surface must absorb without chipping or cracking.</p>
+      </div>
+      <div class="mstep reveal">
+        <div class="num">02</div>
+        <div class="m-ico"><svg viewBox="0 0 24 24"><path d="M12 3s6 6 6 11a6 6 0 0 1-12 0c0-5 6-11 6-11z"/></svg></div>
+        <h3>Exposure</h3>
+        <p>Water, heat, sunlight, chemicals — the conditions the tile faces, and whether its body can take them.</p>
+      </div>
+      <div class="mstep reveal">
+        <div class="num">03</div>
+        <div class="m-ico"><svg viewBox="0 0 24 24"><path d="M4 12l4 4L20 4"/><path d="M4 20h16"/></svg></div>
+        <h3>Maintenance</h3>
+        <p>How easy it is to keep clean over years — stain resistance, grout behaviour and real cleaning cycles.</p>
+      </div>
+      <div class="mstep reveal">
+        <div class="num">04</div>
+        <div class="m-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div>
+        <h3>Longevity</h3>
+        <p>Whether it still looks intentional in ten years — or quietly ages into something you'll want to replace.</p>
+      </div>
+    </div>
+    <div class="method-foot reveal">
+      <a href="#connect" class="btn-gold">Run My Space Through The Method
+        <svg viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CURATED BY / USE CASES ============ -->
+<section class="curated" id="curated">
+  <div class="wrap">
+    <div class="curated-head reveal">
+      <span class="eyebrow">Performance first, then beauty</span>
+      <h2>Tiles, curated by how you'll use them</h2>
+      <p>We don't sort tiles by trend. We sort them by the job they have to do — so you start from the right shelf.</p>
+    </div>
+    <div class="use-grid">
+      <div class="use-card reveal"><div class="img" style="background-image:linear-gradient(160deg,#3a2a22,#1c1410)"></div><div class="use3d"><div class="obj3d" data-kind="house"></div></div><h3>Residential Living</h3><a href="rajasthan-marbles-residential.html" class="go">Explore <svg viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a></div>
+      <div class="use-card reveal"><div class="img" style="background-image:linear-gradient(160deg,#2c3a3d,#13201f)"></div><div class="use3d"><div class="obj3d" data-kind="tower"></div></div><h3>Commercial Load</h3><a href="#" class="go">Explore <svg viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a></div>
+      <div class="use-card reveal"><div class="img" style="background-image:linear-gradient(160deg,#3d3140,#1d1622)"></div><div class="use3d"><div class="obj3d" data-kind="clinic"></div></div><h3>Institutional Use</h3><a href="#" class="go">Explore <svg viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a></div>
+      <div class="use-card reveal"><div class="img" style="background-image:linear-gradient(160deg,#46201f,#22100f)"></div><div class="use3d"><div class="obj3d" data-kind="toolbox"></div></div><h3>Project Supply</h3><a href="#connect" class="go">Explore <svg viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TRUST / BRANDS ============ -->
+<section class="trust" id="trust">
+  <div class="wrap">
+    <div class="trust-head reveal">
+      <span class="eyebrow">Trust without noise</span>
+      <h2>The names we stand behind</h2>
+      <p>A short, deliberate list — chosen for consistency, not catalogue size.</p>
+    </div>
+    <div class="brand-row reveal">
+      <span class="brand-item">Kajaria</span>
+      <span class="brand-item">Johnson</span>
+      <span class="brand-item">Somany</span>
+      <span class="brand-item">Simpolo</span>
+      <span class="brand-item">RAK</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ JOURNAL ============ -->
+<section class="journal" id="journal">
+  <div class="wrap">
+    <div class="journal-card reveal">
+      <div class="journal-media"><div class="img" style="background-image:linear-gradient(140deg,#3a2a22,#140d0b)"></div></div>
+      <div class="journal-body">
+        <span class="tag">The Journal</span>
+        <h2>Where Tile Decisions Go Wrong</h2>
+        <p>The most expensive tile mistakes aren't about price — they're about choosing for the showroom instead of for the room. Here's how good choices quietly fail, and how to avoid it.</p>
+        <a href="#" class="read">Read the journal
+          <svg viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CLOSING CTA ============ -->
+<section class="closing" id="connect">
+  <div class="wrap reveal">
+    <h2>You Don't Need More Options.<br>You Need <span class="red">Better Judgment.</span></h2>
+    <p>Talk to a tile advisor who'll choose with you — based on your space, not the showroom light.</p>
+    <a href="https://wa.me/919895227744?text=Hi%2C%20I'd%20like%20to%20talk%20to%20a%20Tile%20Advisor." class="btn-primary">Talk to a Tile Advisor
+      <svg viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
+    </a>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site">
+  <div class="wrap">
+    <div class="crest">
+      <span class="hair"></span>
+      <span class="mono">RM</span>
+      <span class="hair"></span>
+    </div>
+    <div class="foot-cols">
+      <div class="foot-brand">
+        <h4>Rajasthan Marbles</h4>
+        <div class="since">Since 1984</div>
+        <p>A complete construction partner since 1984 — tiles, sanitaryware, wellness and more, chosen with judgment and built to last.</p>
+        <div class="foot-contact">
+          <a href="tel:+919895227744"><svg viewBox="0 0 24 24"><path d="M21 15.5a2 2 0 0 1-2 2 16 16 0 0 1-13-13 2 2 0 0 1 2-2h2l1 4-2 1a12 12 0 0 0 5 5l1-2 4 1z"/></svg>+91 98952 27744</a>
+          <a href="mailto:Sales@rajasthanmarbles.com"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>Sales@rajasthanmarbles.com</a>
+          <a href="#connect"><svg viewBox="0 0 24 24"><path d="M12 21s-7-5.5-7-11a7 7 0 0 1 14 0c0 5.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>Kothamangalam · Kadamattom · Kalamassery · Adimali</a>
+        </div>
+        <div class="foot-socials">
+          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+          <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M14 9h3V5h-3a4 4 0 0 0-4 4v2H7v4h3v6h4v-6h3l1-4h-4V9a1 1 0 0 1 1-1z"/></svg></a>
+          <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="4"/><path d="M10 9l5 3-5 3z" fill="currentColor" stroke="none"/></svg></a>
+          <a href="https://wa.me/919895227744" aria-label="WhatsApp"><svg viewBox="0 0 24 24"><path d="M21 15.5a2 2 0 0 1-2 2 16 16 0 0 1-13-13 2 2 0 0 1 2-2h2l1 4-2 1a12 12 0 0 0 5 5l1-2 4 1z"/></svg></a>
+        </div>
+      </div>
+      <div class="foot-mid">
+        <span class="script">Arrival becomes belonging</span>
+        <span class="sub">Every space begins with a decision</span>
+      </div>
+      <div class="foot-news">
+        <h5>Join the Circle</h5>
+        <p>Quiet, useful notes on choosing materials that last. No noise.</p>
+        <div class="news-row">
+          <input type="email" placeholder="Your email address" aria-label="Email"/>
+          <button>Join</button>
+        </div>
+        <a href="#" class="foot-cat"><svg viewBox="0 0 24 24"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>Download Catalogue (PDF)</a>
+      </div>
+    </div>
+    <div class="foot-links">
+      <a href="rajasthan-marbles.html">Home</a>
+      <a href="rajasthan-marbles-residential.html">Residential</a>
+      <a href="#">Commercial &amp; Govt.</a>
+      <a href="tiles.html">Tiles</a>
+      <a href="#curated">Collections</a>
+      <a href="#journal">Journal</a>
+      <a href="#connect">Contact</a>
+    </div>
+    <div class="foot-end">
+      <p>© <span id="yr"></span> Rajasthan Marbles. All rights reserved.</p>
+      <p class="made">You bring the vision. We bring the judgment.</p>
+      <p>Kerala · India</p>
+    </div>
+  </div>
+</footer>
+
+<a href="https://wa.me/919895227744" class="wa-float" aria-label="WhatsApp">
+  <svg viewBox="0 0 32 32"><path d="M16 3C9 3 3.5 8.5 3.5 15.5c0 2.4.7 4.6 1.8 6.5L3 29l7.2-2.3c1.8 1 3.8 1.5 5.8 1.5 7 0 12.5-5.5 12.5-12.5S23 3 16 3zm0 22.7c-1.8 0-3.5-.5-5-1.3l-.4-.2-4.3 1.3 1.4-4.1-.3-.4a10 10 0 0 1-1.6-5.5C5.9 9.8 10.5 5.3 16 5.3s10.1 4.5 10.1 10.2S21.5 25.7 16 25.7zm5.6-7.6c-.3-.2-1.8-.9-2.1-1-.3-.1-.5-.2-.7.2s-.8 1-1 1.2c-.2.2-.4.2-.7 0-.3-.2-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.7l.5-.6c.2-.2.2-.3.3-.5.1-.2 0-.4 0-.6l-1-2.3c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.2.2 2.1 3.3 5.2 4.6.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.8-.7 2-1.4.3-.7.3-1.3.2-1.4-.1-.2-.3-.2-.6-.4z"/></svg>
+</a>
+
+<button class="to-top" id="toTop" aria-label="Back to top"><svg viewBox="0 0 24 24"><path d="M12 19V5"/><path d="m6 11 6-6 6 6"/></svg></button>
+
+<script>
+(function(){
+  "use strict";
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var body = document.body;
+
+  /* header dock */
+  var header = document.getElementById('header');
+  function onScroll(){ header.classList.toggle('docked', window.scrollY > 40); }
+  onScroll(); window.addEventListener('scroll', onScroll, {passive:true});
+
+  /* drawer */
+  var menuBtn=document.getElementById('menuBtn'), drawer=document.getElementById('drawer'), drawerClose=document.getElementById('drawerClose');
+  function openDrawer(){drawer.classList.add('open');drawer.setAttribute('aria-hidden','false');body.classList.add('locked');}
+  function closeDrawer(){drawer.classList.remove('open');drawer.setAttribute('aria-hidden','true');body.classList.remove('locked');}
+  menuBtn.addEventListener('click',openDrawer);
+  drawerClose.addEventListener('click',closeDrawer);
+  drawer.querySelectorAll('a').forEach(function(a){a.addEventListener('click',closeDrawer);});
+
+  /* search */
+  var searchBtn=document.getElementById('searchBtn'), searchOv=document.getElementById('searchOv'), searchClose=document.getElementById('searchClose'), searchInput=document.getElementById('searchInput');
+  function openSearch(){searchOv.classList.add('open');setTimeout(function(){searchInput.focus();},300);}
+  function closeSearch(){searchOv.classList.remove('open');}
+  searchBtn.addEventListener('click',openSearch);
+  searchClose.addEventListener('click',closeSearch);
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'){closeSearch();closeDrawer();}});
+  searchOv.querySelectorAll('.so-sug a').forEach(function(a){a.addEventListener('click',closeSearch);});
+
+  /* back to top */
+  var toTop=document.getElementById('toTop');
+  window.addEventListener('scroll',function(){toTop.classList.toggle('show',window.scrollY>600);},{passive:true});
+  toTop.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'});});
+
+  /* year */
+  document.getElementById('yr').textContent=new Date().getFullYear();
+
+  /* ===== 3D COVERFLOW ===== */
+  var cf=document.getElementById('coverflow');
+  var slides=Array.prototype.slice.call(cf.querySelectorAll('.cf-slide'));
+  var dotsWrap=document.getElementById('cfDots');
+  var n=slides.length, cur=0, auto=null;
+  var gap=Math.min(280, Math.max(150, window.innerWidth*0.18));
+  function dims(){ gap=Math.min(280, Math.max(150, window.innerWidth*0.18)); }
+  slides.forEach(function(s,i){
+    var b=document.createElement('button'); b.className='cf-dot'; b.setAttribute('aria-label','Go to slide '+(i+1));
+    b.addEventListener('click',function(){go(i);});
+    dotsWrap.appendChild(b);
+  });
+  var dots=Array.prototype.slice.call(dotsWrap.children);
+  function render(){
+    slides.forEach(function(s,i){
+      var off=i-cur;
+      // wrap to nearest
+      if(off> n/2) off-=n;
+      if(off< -n/2) off+=n;
+      var abs=Math.abs(off);
+      var tx=off*gap;
+      var rot=off* -32;
+      var tz=-abs*180;
+      var sc=1-abs*0.08;
+      s.style.transform='translateX('+tx+'px) translateZ('+tz+'px) rotateY('+rot+'deg) scale('+sc+')';
+      s.style.zIndex=String(100-abs);
+      s.style.opacity= abs>2 ? '0' : '1';
+      s.classList.toggle('active', off===0);
+      s.style.pointerEvents= abs>2 ? 'none':'auto';
+    });
+    dots.forEach(function(d,i){d.classList.toggle('on',i===cur);});
+  }
+  function go(i){ cur=(i%n+n)%n; render(); restart(); }
+  function next(){ go(cur+1); }
+  function prev(){ go(cur-1); }
+  document.getElementById('cfNext').addEventListener('click',next);
+  document.getElementById('cfPrev').addEventListener('click',prev);
+  slides.forEach(function(s,i){ s.addEventListener('click',function(){ if(i!==cur) go(i); }); });
+  function restart(){ if(reduce) return; clearInterval(auto); auto=setInterval(next,4200); }
+  // drag / swipe
+  var down=false,sx=0;
+  cf.addEventListener('pointerdown',function(e){down=true;sx=e.clientX;clearInterval(auto);});
+  window.addEventListener('pointerup',function(e){ if(!down)return; down=false; var dx=e.clientX-sx; if(Math.abs(dx)>50){ dx<0?next():prev(); } else { restart(); } });
+  window.addEventListener('resize',function(){dims();render();});
+  dims(); render(); restart();
+
+  /* ===== 3D OBJECTS (homepage CSS-3D builder) ===== */
+  (function(){
+    function el(t,c){var d=document.createElement(t);if(c)d.className=c;return d;}
+    function cuboid(w,h,d,o){
+      o=o||{}; var m1=o.m1||'#cdbf98', m2=o.m2||'#9c8f6c', rad=o.rad||'2px';
+      var g=el('div'); g.style.cssText='position:absolute;left:0;top:0;transform-style:preserve-3d;'+(o.t?'transform:'+o.t+';':'');
+      var grad='linear-gradient(150deg,'+m1+','+m2+')';
+      function side(W,H,tf,sh){
+        var f=el('div','cface'+(o.cls?' '+o.cls:''));
+        f.style.cssText+='width:'+W+'px;height:'+H+'px;margin-left:'+(-W/2)+'px;margin-top:'+(-H/2)+'px;border-radius:'+rad+';background:'+grad+';transform:'+tf+';filter:brightness('+sh+');';
+        return f;
+      }
+      g.appendChild(side(w,h,'translateZ('+(d/2)+'px)',1));
+      g.appendChild(side(w,h,'rotateY(180deg) translateZ('+(d/2)+'px)',.62));
+      g.appendChild(side(d,h,'rotateY(90deg) translateZ('+(w/2)+'px)',.8));
+      g.appendChild(side(d,h,'rotateY(-90deg) translateZ('+(w/2)+'px)',.8));
+      g.appendChild(side(w,d,'rotateX(90deg) translateZ('+(h/2)+'px)',1.18));
+      g.appendChild(side(w,d,'rotateX(-90deg) translateZ('+(h/2)+'px)',.5));
+      return g;
+    }
+    function face(w,h,tf,color){
+      var f=el('div'); f.style.cssText='position:absolute;left:50%;top:50%;width:'+w+'px;height:'+h+'px;background:'+color+';transform:'+tf+';backface-visibility:hidden;';
+      return f;
+    }
+    function tri(w,h,tf,color){
+      var f=el('div'); f.style.cssText='position:absolute;left:50%;top:50%;width:'+w+'px;height:'+h+'px;background:'+color+';transform:'+tf+';clip-path:polygon(50% 0,100% 100%,0 100%);backface-visibility:hidden;';
+      return f;
+    }
+    function arc(w,h,z){
+      z=z||0; var f=el('div');
+      f.style.cssText='position:absolute;left:50%;top:50%;width:'+w+'px;height:'+h+'px;margin-left:'+(-w/2)+'px;margin-top:'+(-h)+'px;border:6px solid #e8ce8c;border-bottom:none;border-radius:'+(w/2)+'px '+(w/2)+'px 0 0/'+h+'px '+h+'px 0 0;background:transparent;transform:translateZ('+z+'px);';
+      return f;
+    }
+    var BUILD={
+      house:function(g){
+        g.appendChild(cuboid(82,56,58,{t:'translateY(22px)',m1:'#e7ddc4',m2:'#bca987'}));
+        g.appendChild(face(20,26,'translate(-50%,-50%) translateY(30px) translateZ(29.5px)','#5e3a28'));
+        g.appendChild(face(92,50,'translate(-50%,-50%) translateY(-19px) translateZ(16px) rotateX(46deg)','#a5613e'));
+        g.appendChild(face(92,50,'translate(-50%,-50%) translateY(-19px) translateZ(-16px) rotateX(-46deg)','#7e472f'));
+        g.appendChild(tri(58,30,'translate(-50%,-50%) translateY(-21px) translateX(45px) rotateY(90deg)','#d6c8a1'));
+        g.appendChild(tri(58,30,'translate(-50%,-50%) translateY(-21px) translateX(-45px) rotateY(-90deg)','#c9bb94'));
+        g.appendChild(cuboid(9,18,9,{t:'translateY(-30px) translateX(22px) translateZ(-4px)',m1:'#8a4f33',m2:'#5c3422'}));
+      },
+      tower:function(g){
+        g.appendChild(cuboid(52,112,46,{t:'translateX(-17px) translateY(2px)',m1:'#3c463e',m2:'#1c241f',cls:'win'}));
+        g.appendChild(cuboid(46,78,42,{t:'translateX(27px) translateY(19px)',m1:'#4a544b',m2:'#222a25',cls:'win'}));
+        g.appendChild(cuboid(54,6,48,{t:'translateX(-17px) translateY(-54px)',m1:'#5a655b',m2:'#39433b'}));
+      },
+      clinic:function(g){
+        g.appendChild(cuboid(88,72,56,{t:'translateY(16px)',m1:'#ece4cf',m2:'#bcb39c'}));
+        g.appendChild(cuboid(92,10,60,{t:'translateY(-22px)',m1:'#cdbf98',m2:'#9c8f6c'}));
+        g.appendChild(face(60,9,'translate(-50%,-50%) translateY(34px) translateZ(28.6px)','#46504733'));
+        g.appendChild(face(60,9,'translate(-50%,-50%) translateY(18px) translateZ(28.6px)','#5b6b6e'));
+        /* crimson cross badge */
+        g.appendChild(face(26,26,'translate(-50%,-50%) translateY(2px) translateZ(28.7px)','#ffffff'));
+        g.appendChild(face(18,6,'translate(-50%,-50%) translateY(2px) translateZ(29.2px)','#c92140'));
+        g.appendChild(face(6,18,'translate(-50%,-50%) translateY(2px) translateZ(29.2px)','#c92140'));
+      },
+      toolbox:function(g){
+        g.appendChild(cuboid(94,46,58,{t:'translateY(22px)',m1:'#c92140',m2:'#7a1322'}));
+        g.appendChild(cuboid(98,14,62,{t:'translateY(-4px)',m1:'#9e172f',m2:'#5e1320'}));
+        g.appendChild(arc(66,34,-24));
+        g.appendChild(cuboid(16,9,5,{t:'translateY(4px) translateZ(30px)',m1:'#e8ce8c',m2:'#b8923f'}));
+      }
+    };
+    document.querySelectorAll('.obj3d').forEach(function(m){
+      var k=m.getAttribute('data-kind'), fn=BUILD[k]; if(!fn)return;
+      var g=el('div','objspin'); fn(g); m.appendChild(g);
+    });
+  })();
+
+  /* ===== REVEAL ===== */
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  },{threshold:.14,rootMargin:'0px 0px -8% 0px'});
+  document.querySelectorAll('.reveal').forEach(function(el,i){ el.style.transitionDelay=(Math.min(i,6)*60)+'ms'; io.observe(el); });
+  // safety net
+  window.addEventListener('load',function(){ setTimeout(function(){ document.querySelectorAll('.reveal:not(.in)').forEach(function(el){ var r=el.getBoundingClientRect(); if(r.top<window.innerHeight){el.classList.add('in');} }); },400); });
+})();
+</script>
+</body>
+</html>
