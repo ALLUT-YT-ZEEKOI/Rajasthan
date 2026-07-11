@@ -910,15 +910,15 @@
     @media (max-width: 900px) {
       .drawer-in {
         grid-template-columns: 1fr;
-        gap: 2rem;
+        gap: 1.75rem;
         align-content: start;
-        padding: 5rem 1.5rem 3rem !important;
-        /* side padding to prevent cutoff */
+        padding: clamp(4.5rem, 11vh, 5.5rem) 1.5rem clamp(2rem, 4vh, 3rem) !important;
         width: 100% !important;
       }
 
       .drawer-nav {
         gap: 0.5rem;
+        padding: 0;
       }
 
       .drawer-nav a {
@@ -987,7 +987,7 @@
       }
 
       .drawer-in {
-        padding: 5rem 1.2rem 3rem !important;
+        padding: clamp(4.5rem, 11vh, 5.5rem) 1.25rem 2.5rem !important;
       }
     }
 
@@ -3265,7 +3265,7 @@
         grid-template-columns: 1fr;
         gap: 2rem;
         align-content: start;
-        padding-top: 5.5rem
+        padding: clamp(4.5rem, 11vh, 5.5rem) 1.5rem clamp(2rem, 4vh, 3rem) !important;
       }
 
       .drawer-aside {
@@ -3435,8 +3435,8 @@
           <a href="#paths"><span class="dn">02</span>Applications</a>
           <div class="drawer-sub">
             <a href="rajasthan-marbles-residential.html">Residential</a>
-            <a href="#connect">Commercial &amp; Govt. Institutions</a>
-            <a href="#connect">Hospitality <span class="sub-note">(hotels, resorts, restaurants)</span></a>
+            <a href="Commercial-&-Govt-Institutions.html">Commercial &amp; Govt. Institutions</a>
+            <a href="Hospitality.html">Hospitality <span class="sub-note">(hotels, resorts, restaurants)</span></a>
           </div>
         </div>
         <div class="drawer-group">
