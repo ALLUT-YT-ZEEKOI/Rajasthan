@@ -776,14 +776,18 @@
     .drawer-group>a::after {
       content: '+';
       font-family: var(--body);
-      font-size: .6em;
+      font-size: .7em;
       font-weight: 300;
       margin-left: auto;
       color: var(--fog-dim);
-      transition: transform .4s var(--ease), color .4s var(--ease)
+      transition: transform .4s var(--ease), color .4s var(--ease);
+      align-self: center;
+      transform-origin: center;
+      margin-bottom: 0.1em;
     }
 
-    .drawer-group:hover>a::after {
+    .drawer-group:hover>a::after,
+    .drawer-group.active>a::after {
       transform: rotate(45deg);
       color: var(--gold)
     }
@@ -812,7 +816,8 @@
       transition: max-height .6s var(--ease), opacity .4s var(--ease), padding .6s var(--ease), visibility .6s var(--ease)
     }
 
-    .drawer-group:hover .drawer-sub {
+    .drawer-group:hover .drawer-sub,
+    .drawer-group.active .drawer-sub {
       max-height: 400px;
       padding-top: .4rem;
       padding-bottom: .35rem;
@@ -898,6 +903,92 @@
     .da-social svg {
       width: 16px;
       height: 16px
+    }
+
+
+    /* mobile drawer overrides */
+    @media (max-width: 900px) {
+      .drawer-in {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        align-content: start;
+        padding: 5rem 1.5rem 3rem !important;
+        /* side padding to prevent cutoff */
+        width: 100% !important;
+      }
+
+      .drawer-nav {
+        gap: 0.5rem;
+      }
+
+      .drawer-nav a {
+        font-size: clamp(1.6rem, 7vw, 2.2rem) !important;
+        gap: 0.8rem;
+      }
+
+
+
+      .drawer-nav a .dn {
+        font-size: 0.7rem;
+      }
+
+      .drawer-sub {
+        padding-left: 2.2rem !important;
+        gap: 1.2rem !important;
+      }
+
+      .drawer-group .drawer-sub {
+        max-height: 0 !important;
+        opacity: 0 !important;
+        visibility: hidden !important;
+        padding-top: 0 !important;
+        padding-bottom: 0 !important;
+      }
+
+      .drawer-group.active .drawer-sub {
+        max-height: 400px !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        padding-top: 1rem !important;
+        padding-bottom: 0.5rem !important;
+      }
+
+      .drawer-group>a::after {
+        margin-left: 1rem !important;
+        transform: none !important;
+        color: var(--fog-dim) !important;
+        align-self: center !important;
+        margin-bottom: 0.1em !important;
+      }
+
+      .drawer-group.active>a::after {
+        transform: rotate(45deg) !important;
+        color: var(--gold) !important;
+      }
+
+      .drawer-sub a {
+        font-size: clamp(1.1rem, 4.5vw, 1.3rem) !important;
+      }
+
+      .drawer-aside {
+        border-left: 0 !important;
+        border-top: 1px solid var(--ink-3);
+        padding-left: 0 !important;
+        padding-top: 2rem;
+        display: grid !important;
+        grid-template-columns: 1fr 1fr;
+        gap: 1.5rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .drawer-aside {
+        grid-template-columns: 1fr !important;
+      }
+
+      .drawer-in {
+        padding: 5rem 1.2rem 3rem !important;
+      }
     }
 
     /* ============================== HERO ============================== */
@@ -4085,7 +4176,19 @@
       function setMenu(open) { drawer.classList.toggle('open', open); burger.setAttribute('aria-expanded', open); body.classList.toggle('locked', open); }
       burger.addEventListener('click', function () { setMenu(!drawer.classList.contains('open')); });
       if (drawerClose) drawerClose.addEventListener('click', function () { setMenu(false); });
-      drawer.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', function () { setMenu(false); }); });
+      drawer.querySelectorAll('.drawer-group > a').forEach(function (a) {
+        a.addEventListener('click', function (e) {
+          if (window.innerWidth <= 900) {
+            e.preventDefault();
+            a.parentElement.classList.toggle('active');
+          }
+        });
+      });
+      drawer.querySelectorAll('.drawer-sub a, .drawer-nav > a').forEach(function (a) {
+        a.addEventListener('click', function () {
+          if (typeof setMenu === 'function') setMenu(false); else drawer.classList.remove('open');
+        });
+      });
 
       /* ---------- SEARCH ---------- */
       var searchBtn = document.getElementById('searchBtn'), searchOv = document.getElementById('search'),
