@@ -2072,30 +2072,6 @@
     }
 
     @media(max-width:880px) {
-      .util {
-        display: none
-      }
-
-      .brand {
-        position: static;
-        transform: none;
-        flex-direction: row;
-        gap: 10px
-      }
-
-      .brand .word,
-      .brand .since {
-        display: none
-      }
-
-      .bar {
-        justify-content: space-between
-      }
-
-      .btn-showroom {
-        display: none
-      }
-
       .drawer {
         grid-template-columns: 1fr
       }
@@ -2167,6 +2143,43 @@
       .hero-cta .btn-primary,
       .hero-cta .btn-ghost {
         justify-content: center
+      }
+    }
+
+    /* ============================================================ MOBILE HEADER (exact match index.html) */
+    @media(max-width:980px) {
+      .drawer-in {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        align-content: start;
+        padding: clamp(4.5rem, 11vh, 5.5rem) 1.5rem clamp(2rem, 4vh, 3rem) !important
+      }
+
+      .drawer-aside {
+        border-left: 0;
+        border-top: 1px solid var(--ink-3);
+        padding-left: 0;
+        padding-top: 2rem
+      }
+    }
+
+    @media(max-width:760px) {
+      .util {
+        display: none
+      }
+
+      .nav-cta {
+        display: none
+      }
+
+      .menu-btn em {
+        display: none
+      }
+
+      .brand-center .wm b {
+        font-size: .82rem;
+        letter-spacing: .22em;
+        text-indent: .22em
       }
     }
   </style>

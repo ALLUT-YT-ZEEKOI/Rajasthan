@@ -1,109 +1,118 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Contact Us — Rajasthan Marbles | Visit Our Showrooms</title>
-  <meta name="description" content="Get in touch with Rajasthan Marbles. Four experience centres across Kerala. Call, WhatsApp, or visit us for expert guidance on tiles, sanitaryware, paints and more." />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=Hanken+Grotesk:wght@300;400;500;600;700&family=Pinyon+Script&display=swap" rel="stylesheet" />
+  <meta name="description" content="Get in touch with Rajasthan Marbles. Four experience centres across Ernakulam and Kochi. Call, email or visit us for expert building material guidance."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=Hanken+Grotesk:wght@300;400;500;600;700&family=Pinyon+Script&display=swap" rel="stylesheet"/>
   <style>
-    :root {
-      --ink:#0B0A09;--ink-1:#100E0C;--ink-2:#17130F;--ink-3:#211A14;
-      --crimson:#C92140;--crimson-deep:#9E172F;--gold:#C9A24A;--gold-lit:#E8CE8C;
-      --white:#FFF;--beige:#E9DEBC;--moss:#3D4A3F;--terracotta:#8F684E;
-      --paper:#F3EEE2;--paper-ink:#221C14;
-      --fog:rgba(233,222,188,.62);--fog-dim:rgba(233,222,188,.40);--line-dark:rgba(233,222,188,.14);
-      --display:'Archivo',system-ui,sans-serif;--body:'Hanken Grotesk',system-ui,sans-serif;--script:'Pinyon Script',cursive;
-      --shell:min(1280px,92vw);--ease:cubic-bezier(.22,.61,.36,1);--ease-out:cubic-bezier(.16,1,.3,1);
-    }
+    :root{--ink:#0B0A09;--ink-1:#100E0C;--ink-2:#17130F;--ink-3:#211A14;--crimson:#C92140;--crimson-deep:#9E172F;--gold:#C9A24A;--gold-lit:#E8CE8C;--white:#FFFFFF;--beige:#E9DEBC;--beige-deep:#D8C79C;--moss:#3D4A3F;--terracotta:#8F684E;--paper:#F3EEE2;--paper-ink:#221C14;--fog:rgba(233,222,188,.62);--fog-dim:rgba(233,222,188,.40);--line-dark:rgba(233,222,188,.14);--display:'Archivo',system-ui,sans-serif;--body:'Hanken Grotesk',system-ui,sans-serif;--script:'Pinyon Script',cursive;--shell:min(1280px,92vw);--ease:cubic-bezier(.22,.61,.36,1);--ease-out:cubic-bezier(.16,1,.3,1)}
     *{margin:0;padding:0;box-sizing:border-box}
     html{scroll-behavior:smooth}
-    body{background:var(--ink);color:var(--fog);font-family:var(--body);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+    body{background:var(--ink);color:var(--fog);font-family:var(--body);font-weight:400;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
     body.locked{overflow:hidden;height:100vh}
+    img{max-width:100%;display:block}
     a{color:inherit;text-decoration:none}
     ::selection{background:var(--crimson);color:#fff}
     body::after{content:"";position:fixed;inset:0;z-index:9990;pointer-events:none;opacity:.045;mix-blend-mode:overlay;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
 
+    /* TYPE */
     .eyebrow{font-family:var(--body);font-weight:600;font-size:.72rem;letter-spacing:.34em;text-transform:uppercase;color:var(--gold);display:inline-flex;align-items:center;gap:.8em}
     .eyebrow::before{content:"";width:26px;height:1px;background:var(--gold);opacity:.6}
-    .eyebrow.center::after{content:"";width:26px;height:1px;background:var(--gold);opacity:.6}
     .display{font-family:var(--display);font-weight:800;line-height:.96;letter-spacing:-.01em;text-transform:uppercase;color:var(--white)}
-    .script{font-family:var(--script);text-transform:none;letter-spacing:0;color:var(--gold-lit)}
+    .script{font-family:var(--script);text-transform:none;letter-spacing:0;color:var(--gold-lit);font-weight:400}
     h1.display{font-size:clamp(2.6rem,7.4vw,6.4rem)}
     h2.display{font-size:clamp(2rem,4.6vw,3.9rem)}
+    p.lead{font-size:clamp(1.05rem,1.5vw,1.3rem);line-height:1.6;color:var(--fog)}
+
+    /* LAYOUT */
     .shell{width:var(--shell);margin-inline:auto}
     .band{padding-block:clamp(5rem,11vh,9rem)}
-    [id]{scroll-margin-top:94px}
+    .band--tight{padding-block:clamp(3.5rem,7vh,5.5rem)}
 
+    /* REVEAL */
     .rise{opacity:0;transform:translateY(30px);transition:opacity .85s var(--ease-out),transform .85s var(--ease-out)}
     .rise.in{opacity:1;transform:none}
-    .rise.d1{transition-delay:.08s}.rise.d2{transition-delay:.16s}.rise.d3{transition-delay:.24s}.rise.d4{transition-delay:.32s}
+    .rise.d1{transition-delay:.08s}.rise.d2{transition-delay:.16s}.rise.d3{transition-delay:.24s}
+    .rise.d4{transition-delay:.32s}.rise.d5{transition-delay:.40s}.rise.d6{transition-delay:.48s}
+    [id]{scroll-margin-top:94px}
 
     /* HEADER */
     header{position:fixed;top:0;left:0;right:0;z-index:900}
-    .util{background:rgba(8,7,6,.96);border-bottom:1px solid var(--line-dark);backdrop-filter:blur(8px);overflow:hidden;max-height:46px;transition:max-height .45s var(--ease),opacity .35s ease}
+    .util{background:rgba(8,7,6,.96);border-bottom:1px solid var(--line-dark);backdrop-filter:blur(8px);overflow:hidden;max-height:46px;transition:max-height .45s var(--ease),opacity .35s ease,border-color .4s ease}
     header.docked .util{max-height:0;opacity:0;border-color:transparent}
     .util-in{display:flex;align-items:center;justify-content:space-between;height:46px}
     .util-left{font-size:.62rem;letter-spacing:.26em;text-transform:uppercase;color:var(--fog-dim)}
     .util-right{display:flex;align-items:center;gap:1.7rem}
-    .util-right a{font-size:.64rem;letter-spacing:.16em;text-transform:uppercase;color:var(--fog);display:inline-flex;align-items:center;gap:.55em;transition:color .3s}
+    .util-right a{font-size:.64rem;letter-spacing:.16em;text-transform:uppercase;color:var(--fog);display:inline-flex;align-items:center;gap:.55em;transition:color .3s ease}
     .util-right a:hover{color:var(--gold)}
     .util-right svg{width:13px;height:13px;color:var(--gold)}
-    .bar{background:rgba(11,10,9,.96);backdrop-filter:blur(14px);border-bottom:1px solid var(--line-dark);transition:background .4s}
+    .bar{background:rgba(11,10,9,.96);backdrop-filter:blur(14px);transition:background .4s ease;border-bottom:1px solid var(--line-dark)}
     header.docked .bar{background:rgba(11,10,9,.88)}
-    .bar-in{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:1.15rem 0;transition:padding .4s}
+    .bar-in{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:1.15rem 0;transition:padding .4s ease}
     header.docked .bar-in{padding:.66rem 0}
     .menu-btn{justify-self:start;display:inline-flex;align-items:center;gap:.75rem;background:none;border:0;cursor:pointer;color:var(--beige);padding:.4rem 0}
     .menu-btn .ml{display:flex;flex-direction:column;gap:4px;width:22px}
     .menu-btn .ml span{height:1.5px;background:var(--beige);transition:.35s var(--ease)}
     .menu-btn .ml span:nth-child(2){width:64%}
     .menu-btn:hover .ml span{background:var(--gold)}
+    .menu-btn:hover .ml span:nth-child(2){width:100%}
     .menu-btn em{font-style:normal;font-size:.7rem;letter-spacing:.24em;text-transform:uppercase;font-weight:600}
-    .brand-center{justify-self:center;display:flex;flex-direction:column;align-items:center;gap:.5rem;color:#fff}
-    .brand-center svg{width:30px;height:30px;color:var(--crimson);transition:color .4s}
+    .brand-center{justify-self:center;display:flex;flex-direction:column;align-items:center;gap:.5rem;text-align:center;color:#fff}
+    .brand-center svg{width:30px;height:30px;color:var(--crimson);transition:color .4s ease}
     header.docked .brand-center svg{color:var(--gold)}
+    .brand-center .wm{display:flex;flex-direction:column;align-items:center;line-height:1}
     .brand-center .wm b{font-family:var(--display);font-weight:800;font-size:1rem;letter-spacing:.34em;text-indent:.34em;text-transform:uppercase}
     .brand-center .wm span{font-size:.5rem;letter-spacing:.5em;text-indent:.5em;color:var(--gold);margin-top:.42rem}
     .bar-right{justify-self:end;display:flex;align-items:center;gap:1.2rem}
-    .ic-btn{background:none;border:0;cursor:pointer;color:var(--beige);padding:.3rem;transition:color .3s}
+    .ic-btn{background:none;border:0;cursor:pointer;color:var(--beige);display:grid;place-items:center;padding:.3rem;transition:color .3s ease}
     .ic-btn:hover{color:var(--gold)}
     .ic-btn svg{width:19px;height:19px}
-    .nav-cta{font-weight:600;font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:#fff;border:1px solid var(--crimson);background:var(--crimson);padding:.7rem 1.3rem;border-radius:2px;transition:.35s var(--ease);white-space:nowrap}
+    .nav-cta{font-family:var(--body);font-weight:600;font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:var(--white);border:1px solid var(--crimson);background:var(--crimson);padding:.7rem 1.3rem;border-radius:2px;transition:.35s var(--ease);white-space:nowrap}
     .nav-cta:hover{background:transparent;color:var(--crimson)}
 
+    /* SEARCH */
     #search{position:fixed;top:0;left:0;right:0;z-index:905;background:rgba(11,10,9,.97);backdrop-filter:blur(16px);border-bottom:1px solid var(--line-dark);transform:translateY(-100%);transition:transform .45s var(--ease);padding:2.2rem 0 1.8rem}
     #search.open{transform:none}
     .search-in{display:flex;align-items:center;gap:1rem;border-bottom:1px solid var(--ink-3);padding-bottom:1rem}
-    .search-in svg{width:22px;height:22px;color:var(--gold);flex:none}
-    .search-in input{flex:1;background:none;border:0;color:#fff;font-family:var(--display);font-weight:700;font-size:clamp(1.1rem,3vw,1.9rem);text-transform:uppercase}
+    .search-in>svg{width:22px;height:22px;color:var(--gold);flex:none}
+    .search-in input{flex:1;background:none;border:0;color:#fff;font-family:var(--display);font-weight:700;font-size:clamp(1.1rem,3vw,1.9rem);text-transform:uppercase;letter-spacing:.01em}
+    .search-in input::placeholder{color:var(--fog-dim)}
     .search-in input:focus{outline:none}
-    .search-close{background:none;border:0;color:var(--fog);cursor:pointer;font-size:1.5rem}
+    .search-close{background:none;border:0;color:var(--fog);cursor:pointer;font-size:1.5rem;line-height:1;transition:color .3s ease}
+    .search-close:hover{color:var(--gold)}
     .search-hint{margin-top:.9rem;font-size:.64rem;letter-spacing:.2em;text-transform:uppercase;color:var(--fog-dim)}
 
+    /* DRAWER */
     #drawer{position:fixed;inset:0;z-index:950;background:radial-gradient(120% 90% at 50% 0%,#15110c,#080706 70%);transform:translateY(-100%);transition:transform .6s var(--ease);overflow:auto}
     #drawer.open{transform:none}
-    .drawer-close{position:absolute;top:1.4rem;right:clamp(1.1rem,3vw,2.4rem);width:46px;height:46px;border:1px solid var(--line-dark);border-radius:50%;background:none;color:var(--beige);font-size:1.4rem;cursor:pointer;z-index:2}
+    .drawer-close{position:absolute;top:1.4rem;right:clamp(1.1rem,3vw,2.4rem);width:46px;height:46px;border:1px solid var(--line-dark);border-radius:50%;background:none;color:var(--beige);font-size:1.4rem;line-height:1;cursor:pointer;transition:.4s var(--ease);z-index:2}
+    .drawer-close:hover{border-color:var(--gold);color:var(--gold);transform:rotate(90deg)}
     .drawer-in{min-height:100%;display:grid;grid-template-columns:1.6fr 1fr;gap:3rem;align-items:center;width:var(--shell);margin-inline:auto;padding:6.5rem 0 3rem}
     .drawer-nav{display:flex;flex-direction:column;gap:.25rem}
-    .drawer-nav a{display:flex;align-items:baseline;gap:1.2rem;font-family:var(--display);font-weight:800;text-transform:uppercase;font-size:clamp(1.7rem,4.4vw,3rem);color:var(--beige);transition:.4s var(--ease)}
+    .drawer-nav a{display:flex;align-items:baseline;gap:1.2rem;font-family:var(--display);font-weight:800;text-transform:uppercase;font-size:clamp(1.7rem,4.4vw,3rem);line-height:1.12;color:var(--beige);letter-spacing:-.01em;transition:.4s var(--ease)}
     .drawer-nav a .dn{font-family:var(--body);font-size:.78rem;font-weight:600;letter-spacing:.2em;color:var(--gold)}
-    .drawer-group>a::after{content:'+';margin-left:auto;color:var(--fog-dim);transition:transform .4s}
+    .drawer-group>a::after{content:'+';font-family:var(--body);font-size:.7em;font-weight:300;margin-left:auto;color:var(--fog-dim);transition:transform .4s var(--ease),color .4s var(--ease);align-self:center;transform-origin:center;margin-bottom:.1em}
     .drawer-group:hover>a::after,.drawer-group.active>a::after{transform:rotate(45deg);color:var(--gold)}
-    .drawer-nav a:hover{color:#fff;padding-left:.7rem}
-    .drawer-sub{display:flex;flex-direction:column;gap:.12rem;padding:0 0 0 3.35rem;max-height:0;overflow:hidden;opacity:0;transition:max-height .6s var(--ease),opacity .4s,padding .6s}
-    .drawer-group:hover .drawer-sub,.drawer-group.active .drawer-sub{max-height:400px;padding-top:.4rem;padding-bottom:.35rem;opacity:1}
-    .drawer-sub a{font-size:clamp(1.4rem,3.5vw,2.4rem);color:var(--fog)}
-    .drawer-sub a .sub-note{font-family:var(--body);font-size:.45em;color:var(--fog-dim);font-weight:600;text-transform:none;display:block}
-    .drawer-aside{border-left:1px solid var(--ink-3);padding-left:clamp(1.5rem,3vw,3rem);display:grid;gap:1.5rem}
-    .da-block b{display:block;font-size:.6rem;letter-spacing:.24em;text-transform:uppercase;color:var(--fog-dim);margin-bottom:.4rem}
-    .da-block a,.da-block span{color:#fff;font-size:1.02rem}
+    .drawer-nav a:hover,.drawer-group:hover>a{color:var(--white);padding-left:.7rem}
+    .drawer-group{display:flex;flex-direction:column;gap:.15rem}
+    .drawer-sub{display:flex;flex-direction:column;gap:.12rem;padding:0 0 0 3.35rem;max-height:0;overflow:hidden;opacity:0;visibility:hidden;transition:max-height .6s var(--ease),opacity .4s var(--ease),padding .6s var(--ease),visibility .6s var(--ease)}
+    .drawer-group:hover .drawer-sub,.drawer-group.active .drawer-sub{max-height:400px;padding-top:.4rem;padding-bottom:.35rem;opacity:1;visibility:visible}
+    .drawer-sub a{font-family:var(--display);font-size:clamp(1.4rem,3.5vw,2.4rem);font-weight:800;text-transform:uppercase;line-height:1.12;letter-spacing:-.01em;color:var(--fog);gap:.6rem;transition:.4s var(--ease)}
+    .drawer-sub a:hover{color:var(--gold);padding-left:.6rem}
+    .drawer-sub a .sub-note{font-family:var(--body);font-size:.45em;color:var(--fog-dim);font-weight:600;text-transform:none;letter-spacing:0;display:block;margin-top:-.2rem}
+    .drawer-aside{border-left:1px solid var(--ink-3);padding-left:clamp(1.5rem,3vw,3rem);display:grid;gap:1.5rem;align-content:center}
+    .da-block b{display:block;font-size:.6rem;letter-spacing:.24em;text-transform:uppercase;color:var(--fog-dim);margin-bottom:.4rem;font-weight:600}
+    .da-block a,.da-block span{color:#fff;font-size:1.02rem;font-weight:500}
     .da-social{display:flex;gap:.7rem;margin-top:.2rem}
-    .da-social a{width:40px;height:40px;border:1px solid var(--line-dark);border-radius:50%;display:grid;place-items:center;color:var(--beige);transition:.3s}
+    .da-social a{width:40px;height:40px;border:1px solid var(--line-dark);border-radius:50%;display:grid;place-items:center;color:var(--beige);transition:.3s var(--ease)}
     .da-social a:hover{border-color:var(--gold);color:var(--gold)}
     .da-social svg{width:16px;height:16px}
 
+    /* BUTTONS */
     .btn{display:inline-flex;align-items:center;gap:.7rem;font-weight:600;font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;padding:1rem 1.7rem;border-radius:2px;transition:.4s var(--ease);cursor:pointer;border:1px solid transparent}
     .btn-primary{background:var(--crimson);color:#fff}
     .btn-primary:hover{background:var(--crimson-deep)}
@@ -113,146 +122,199 @@
     .btn:hover .arrow{transform:translateX(5px)}
 
     /* PAGE HERO */
-    .page-hero{position:relative;padding-top:clamp(9rem,18vh,13rem);padding-bottom:clamp(3rem,7vh,5rem);overflow:hidden;isolation:isolate}
-    .page-hero-bg{position:absolute;inset:0;z-index:-2;background:radial-gradient(90% 60% at 50% -6%,rgba(201,162,74,.18),transparent 55%),radial-gradient(70% 50% at 78% 18%,rgba(201,33,64,.10),transparent 60%),linear-gradient(180deg,#0d0b09,#0b0a09 46%,#070605)}
+    .page-hero{position:relative;padding-top:clamp(9rem,18vh,13rem);padding-bottom:clamp(4rem,8vh,7rem);overflow:hidden;isolation:isolate}
+    .page-hero-bg{position:absolute;inset:0;z-index:-2;background:radial-gradient(80% 60% at 80% 0%,rgba(201,33,64,.16),transparent 55%),radial-gradient(60% 50% at 10% 100%,rgba(201,162,74,.12),transparent 60%),linear-gradient(180deg,#0d0b09 0%,#0b0a09 50%,#070605 100%)}
     .page-hero-marble{position:absolute;inset:0;z-index:-1;opacity:.4;mix-blend-mode:screen;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1200' height='800'%3E%3Cfilter id='v'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.006 .016' numOctaves='5' seed='3'/%3E%3CfeColorMatrix values='0 0 0 0 .9 0 0 0 0 .78 0 0 0 0 .5 0 0 0 .6 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23v)' opacity='.10'/%3E%3C/svg%3E")}
-    .page-hero-arch{position:absolute;top:50%;left:50%;translate:-50% -50%;z-index:-1;width:min(1100px,150vw);opacity:.35}
+    .page-hero-arch{position:absolute;top:50%;left:50%;translate:-50% -50%;z-index:-1;width:min(1100px,150vw);height:auto;opacity:.35}
     .page-hero-arch path{fill:none;stroke:var(--line-dark);stroke-width:1.5}
     .page-hero-arch .lit{stroke:rgba(201,162,74,.25)}
-    .ph-label{font-size:.68rem;letter-spacing:.4em;text-transform:uppercase;color:var(--gold);display:flex;align-items:center;gap:.8em;margin-bottom:1.5rem}
+    .ph-label{font-family:var(--body);font-weight:600;font-size:.68rem;letter-spacing:.4em;text-transform:uppercase;color:var(--gold);display:flex;align-items:center;gap:.8em;margin-bottom:1.5rem}
     .ph-label::before{content:"";width:26px;height:1px;background:var(--gold);opacity:.6}
-    .page-hero h1{max-width:16ch}
-    .page-hero .sub{margin-top:1.8rem;max-width:46ch;color:var(--fog);font-size:clamp(1rem,1.5vw,1.2rem);line-height:1.7}
-    .scrollcue{display:inline-flex;flex-direction:column;align-items:center;gap:.7rem;font-size:.6rem;letter-spacing:.4em;text-transform:uppercase;color:var(--fog-dim);margin-top:3rem}
-    .scrollcue .rail{width:1px;height:46px;background:linear-gradient(var(--gold),transparent);position:relative;overflow:hidden}
-    .scrollcue .rail::after{content:"";position:absolute;top:-50%;left:0;width:100%;height:50%;background:var(--gold);animation:fall 2s var(--ease) infinite}
-    @keyframes fall{0%{top:-50%}100%{top:120%}}
+    .page-hero h1{max-width:14ch}
+    .page-hero .sub{margin-top:1.8rem;max-width:42ch;color:var(--fog);font-size:clamp(1rem,1.5vw,1.2rem);line-height:1.7}
+    .hero-pills{display:flex;gap:1rem;margin-top:2.5rem;flex-wrap:wrap}
+    .pill{display:inline-flex;align-items:center;gap:.6rem;padding:.65rem 1.2rem;border:1px solid var(--ink-3);background:var(--ink-2);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--fog);transition:.4s var(--ease)}
+    .pill svg{width:14px;height:14px;color:var(--gold);flex:none}
+    .pill:hover{border-color:rgba(201,162,74,.4);color:var(--white)}
 
-    /* QUICK CONTACT */
-    .quick-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--ink-3);border:1px solid var(--ink-3);margin-top:-2rem;position:relative;z-index:2}
-    .quick-card{background:var(--ink-1);padding:2rem 1.6rem;text-align:center;transition:.45s var(--ease)}
-    .quick-card:hover{background:var(--ink-2);transform:translateY(-4px)}
-    .quick-card .ico{width:44px;height:44px;border:1px solid var(--line-dark);border-radius:50%;display:grid;place-items:center;margin:0 auto 1rem;color:var(--gold);font-size:1.1rem}
-    .quick-card .lab{font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--fog-dim);margin-bottom:.4rem}
-    .quick-card b{font-family:var(--display);font-size:.85rem;font-weight:700;color:#fff;letter-spacing:.04em}
+    /* CONTACT SPLIT */
+    .contact-section{background:radial-gradient(80% 60% at 80% 0%,rgba(201,33,64,.10),transparent 55%),radial-gradient(60% 50% at 10% 100%,rgba(201,162,74,.08),transparent 60%),var(--ink);position:relative;overflow:hidden}
+    .contact-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(3rem,6vw,5rem)}
 
-    /* FORM + INFO */
-    .contact-split{display:grid;grid-template-columns:1fr 1.05fr;gap:clamp(2rem,4vw,3.5rem);align-items:start}
-    .form-card{background:var(--ink-1);border:1px solid var(--ink-3);padding:clamp(2rem,3vw,2.8rem)}
-    .form-card h3{font-family:var(--display);font-weight:800;text-transform:uppercase;color:#fff;font-size:1.2rem;margin-bottom:.5rem}
-    .form-card .hint{font-size:.88rem;color:var(--fog-dim);margin-bottom:1.8rem;line-height:1.65}
-    .field{margin-bottom:1.15rem}
-    .field label{display:block;font-size:.65rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--fog-dim);margin-bottom:.5rem}
-    .field input,.field textarea,.field select{width:100%;background:rgba(255,255,255,.03);border:1px solid var(--ink-3);border-radius:2px;padding:.95rem 1rem;color:#fff;font-family:var(--body);font-size:.95rem;transition:border-color .3s,box-shadow .3s}
-    .field input:focus,.field textarea:focus,.field select:focus{outline:none;border-color:rgba(201,162,74,.45);box-shadow:0 0 0 3px rgba(201,162,74,.08)}
-    .field-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+    /* INFO COLUMN */
+    .info-block{margin-top:3rem;display:grid;gap:1.4rem}
+    .info-row{display:flex;gap:1.2rem;align-items:flex-start;padding:1.4rem;border:1px solid var(--ink-3);background:var(--ink-2);transition:.45s var(--ease);position:relative;overflow:hidden}
+    .info-row::before{content:"";position:absolute;left:0;top:0;bottom:0;width:2px;background:linear-gradient(180deg,var(--gold),transparent);opacity:0;transition:opacity .4s ease}
+    .info-row:hover{border-color:rgba(201,162,74,.3);transform:translateX(4px)}
+    .info-row:hover::before{opacity:1}
+    .info-ic{width:44px;height:44px;flex:none;border:1px solid var(--line-dark);border-radius:50%;display:grid;place-items:center;color:var(--gold);transition:.4s var(--ease)}
+    .info-ic svg{width:18px;height:18px}
+    .info-row:hover .info-ic{border-color:rgba(201,162,74,.5);background:rgba(201,162,74,.08)}
+    .info-label{font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;color:var(--fog-dim);font-weight:600;margin-bottom:.3rem}
+    .info-val{color:var(--white);font-size:1rem;font-weight:500;line-height:1.4}
+    .info-val a{color:var(--white);transition:color .3s ease}
+    .info-val a:hover{color:var(--gold)}
+    .info-hours{margin-top:1.4rem;padding:1.2rem 1.4rem;background:var(--ink-1);border:1px solid var(--ink-3)}
+    .info-hours h4{font-family:var(--display);font-weight:700;text-transform:uppercase;color:#fff;font-size:.82rem;letter-spacing:.08em;margin-bottom:.8rem}
+    .hours-row{display:flex;justify-content:space-between;align-items:center;padding:.3rem 0;border-bottom:1px solid var(--ink-3);font-size:.84rem}
+    .hours-row:last-child{border-bottom:0}
+    .hours-row .day{color:var(--fog-dim)}
+    .hours-row .time{color:var(--white);font-weight:500}
+    .hours-row .closed{color:rgba(201,33,64,.8)}
+
+    /* FORM CARD */
+    .form-card{background:var(--ink-2);border:1px solid var(--ink-3);padding:clamp(2rem,3.5vw,3rem)}
+    .form-card h3{font-family:var(--display);font-weight:800;text-transform:uppercase;color:#fff;font-size:1.3rem;margin-bottom:.5rem}
+    .form-card .ctxt{font-size:.88rem;color:var(--fog-dim);margin-bottom:2rem;line-height:1.6}
     .chips{display:flex;flex-wrap:wrap;gap:.5rem}
-    .chip{padding:.55rem 1rem;border:1px solid var(--ink-3);border-radius:100px;font-size:.68rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--fog-dim);cursor:pointer;transition:.35s var(--ease);background:transparent}
-    .chip.sel,.chip:hover{border-color:var(--gold);color:var(--gold);background:rgba(201,162,74,.08)}
-    .form-note{margin-top:1rem;font-size:.78rem;color:var(--fog-dim);text-align:center}
+    .opt{font-size:.78rem;padding:.55rem 1rem;border:1px solid var(--ink-3);border-radius:2px;color:var(--fog);cursor:pointer;transition:.3s ease;user-select:none}
+    .opt.sel,.opt:hover{border-color:var(--gold);color:var(--gold)}
+    .field{margin-bottom:1.2rem}
+    .field label{display:block;font-size:.64rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:.5rem;font-weight:600}
+    .field input,.field select,.field textarea{width:100%;background:var(--ink-1);border:1px solid var(--ink-3);color:var(--white);padding:.9rem 1rem;font-family:var(--body);font-size:.95rem;border-radius:2px;transition:border-color .3s ease}
+    .field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--gold)}
+    .field textarea{resize:vertical;min-height:110px}
+    .field-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+    .submit-btn{width:100%;background:var(--crimson);color:#fff;border:1px solid var(--crimson);padding:1.1rem;font-family:var(--body);font-weight:700;font-size:.82rem;letter-spacing:.16em;text-transform:uppercase;cursor:pointer;transition:.4s var(--ease);border-radius:2px;display:flex;align-items:center;justify-content:center;gap:.7rem}
+    .submit-btn:hover{background:var(--crimson-deep);border-color:var(--crimson-deep)}
+    .submit-btn .arrow{transition:transform .4s var(--ease)}
+    .submit-btn:hover .arrow{transform:translateX(5px)}
+    .form-note{margin-top:1rem;font-size:.72rem;color:var(--fog-dim);text-align:center}
 
-    .info-panel h2{font-size:clamp(1.4rem,3vw,2rem);margin-bottom:1.5rem}
-    .info-box{background:var(--ink-1);border:1px solid var(--ink-3);padding:1.8rem;margin-bottom:1.5rem}
-    .info-row{display:flex;gap:1rem;padding:1rem 0;border-bottom:1px solid var(--ink-3)}
-    .info-row:last-child{border-bottom:0;padding-bottom:0}
-    .info-row .ic{flex:none;width:36px;height:36px;border:1px solid var(--ink-3);border-radius:50%;display:grid;place-items:center;color:var(--gold);font-size:.85rem}
-    .info-row b{display:block;font-family:var(--display);font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#fff;margin-bottom:.2rem}
-    .info-row p,.info-row a{font-size:.9rem;color:var(--fog-dim);line-height:1.6}
-    .info-row a:hover{color:var(--gold)}
+    /* SHOWROOMS GRID */
+    .showrooms-section{background:var(--ink-1);border-top:1px solid var(--ink-3)}
+    .sr-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--ink-3);border:1px solid var(--ink-3);margin-top:3rem}
+    .sr-card{background:var(--ink-2);padding:2.4rem 2rem;transition:.5s var(--ease);position:relative;overflow:hidden}
+    .sr-card::after{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--gold),transparent);transform:scaleX(0);transition:transform .5s var(--ease);transform-origin:left}
+    .sr-card:hover{background:var(--ink-3)}
+    .sr-card:hover::after{transform:scaleX(1)}
+    .sr-num{font-family:var(--display);font-weight:700;font-size:.65rem;letter-spacing:.22em;color:var(--gold);margin-bottom:.8rem}
+    .sr-card h4{font-family:var(--display);font-weight:800;text-transform:uppercase;color:#fff;font-size:1.05rem;margin-bottom:.8rem;line-height:1.1}
+    .sr-card .sr-addr{font-size:.86rem;color:var(--fog);line-height:1.7;margin-bottom:1rem}
+    .sr-card .sr-hours{font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--fog-dim);margin-bottom:.8rem}
+    .sr-card .sr-cta{display:inline-flex;align-items:center;gap:.4rem;font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);font-weight:600;transition:.3s ease}
+    .sr-card .sr-cta:hover{color:var(--gold-lit)}
 
-    /* SHOWROOMS */
-    .showrooms-section{background:var(--ink-1);border-block:1px solid var(--ink-3)}
-    .sr-head{text-align:center;margin-bottom:3rem}
-    .sr-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem}
-    .sr-card{padding:2.5rem;border:1px solid var(--ink-3);background:var(--ink-2);transition:.5s var(--ease);cursor:pointer;position:relative;overflow:hidden}
-    .sr-card::before{content:"";position:absolute;top:0;left:0;width:3px;height:100%;background:linear-gradient(180deg,var(--gold),transparent);opacity:0;transition:opacity .5s}
-    .sr-card:hover,.sr-card.active{border-color:rgba(201,162,74,.4);transform:translateX(4px)}
-    .sr-card:hover::before,.sr-card.active::before{opacity:1}
-    .sr-card .sr-num{font-family:var(--display);font-weight:700;font-size:.68rem;letter-spacing:.22em;color:var(--gold);margin-bottom:1rem}
-    .sr-card h4{font-family:var(--display);font-weight:800;text-transform:uppercase;color:#fff;font-size:1.2rem;margin-bottom:.6rem}
-    .sr-card .sr-addr{font-size:.9rem;color:var(--fog);line-height:1.6;margin-bottom:1rem}
-    .sr-card .sr-hours{font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;color:var(--fog-dim)}
-    .sr-card .sr-tag{display:inline-block;margin-top:1rem;font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--crimson);border:1px solid rgba(201,33,64,.3);padding:.3rem .8rem}
+    /* MAP SECTION */
+    .map-section{background:var(--ink);position:relative;overflow:hidden}
+    .map-wrap{border:1px solid var(--ink-3);position:relative;overflow:hidden;background:var(--ink-1)}
+    .map-placeholder{height:480px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:1.5rem;position:relative}
+    .map-grid-overlay{position:absolute;inset:0;background-image:linear-gradient(var(--ink-3) 1px,transparent 1px),linear-gradient(90deg,var(--ink-3) 1px,transparent 1px);background-size:60px 60px;opacity:.6}
+    .map-pin-group{position:relative;z-index:2;text-align:center}
+    .map-pin{width:52px;height:52px;border:1px solid var(--gold);border-radius:50%;display:grid;place-items:center;color:var(--gold);margin:0 auto 1rem;animation:pulse-pin 2.5s ease infinite;background:rgba(201,162,74,.08)}
+    @keyframes pulse-pin{0%,100%{box-shadow:0 0 0 0 rgba(201,162,74,.4)}50%{box-shadow:0 0 0 12px rgba(201,162,74,0)}}
+    .map-pin svg{width:22px;height:22px}
+    .map-label{font-family:var(--display);font-weight:700;text-transform:uppercase;font-size:.78rem;letter-spacing:.16em;color:var(--beige);margin-bottom:.4rem}
+    .map-sub{font-size:.72rem;color:var(--fog-dim);letter-spacing:.1em;text-transform:uppercase}
+    .map-dots{position:absolute;inset:0;pointer-events:none;z-index:1}
+    .map-dot{position:absolute;width:8px;height:8px;border-radius:50%;background:var(--gold);opacity:.5;animation:blink 3s ease infinite}
+    .map-dot:nth-child(1){top:35%;left:42%;animation-delay:0s}
+    .map-dot:nth-child(2){top:48%;left:55%;animation-delay:.6s}
+    .map-dot:nth-child(3){top:58%;left:38%;animation-delay:1.2s}
+    .map-dot:nth-child(4){top:30%;left:65%;animation-delay:1.8s}
+    @keyframes blink{0%,100%{opacity:.5;transform:scale(1)}50%{opacity:1;transform:scale(1.6)}}
+    .map-cta{position:absolute;bottom:2rem;left:50%;translate:-50% 0;z-index:3}
+    .map-btn{display:inline-flex;align-items:center;gap:.6rem;background:var(--ink);border:1px solid var(--gold);color:var(--gold);padding:.8rem 1.5rem;font-family:var(--body);font-weight:600;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;cursor:pointer;transition:.4s var(--ease);backdrop-filter:blur(8px)}
+    .map-btn:hover{background:var(--gold);color:var(--ink)}
+    .map-btn svg{width:14px;height:14px}
 
-    /* MAP */
-    .map-wrap{width:100%;height:clamp(280px,40vw,420px);border:1px solid var(--ink-3);overflow:hidden;position:relative;background:var(--ink-1)}
-    .map-wrap iframe{width:100%;height:100%;border:0;filter:grayscale(.85) contrast(1.1) brightness(.75)}
-    .map-overlay{position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(11,10,9,.12),transparent 30%,transparent 70%,rgba(11,10,9,.2))}
-
-    /* FAQ */
-    .faq-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:2.5rem}
-    .faq-item{border:1px solid var(--ink-3);background:var(--ink-1);padding:1.5rem 1.6rem;transition:.4s var(--ease)}
-    .faq-item:hover{border-color:rgba(201,162,74,.3)}
-    .faq-item h4{font-family:var(--display);font-weight:700;font-size:.9rem;color:#fff;text-transform:uppercase;letter-spacing:.04em;margin-bottom:.5rem}
-    .faq-item p{font-size:.86rem;color:var(--fog-dim);line-height:1.65}
+    /* WHATSAPP FLOAT */
+    .wa-float{position:fixed;left:clamp(1rem,3vw,2rem);bottom:clamp(1rem,3vw,2rem);z-index:800;display:flex;align-items:center;gap:.7rem;background:#25D366;color:#fff;padding:.85rem 1.3rem;border-radius:3rem;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;font-weight:600;font-family:var(--body);transition:.4s var(--ease);box-shadow:0 8px 28px rgba(37,211,102,.35)}
+    .wa-float:hover{background:#1da851;transform:translateY(-3px);box-shadow:0 12px 40px rgba(37,211,102,.45)}
+    .wa-float svg{width:18px;height:18px;flex:none}
+    .wa-text{max-width:0;overflow:hidden;opacity:0;transition:.4s var(--ease);white-space:nowrap}
+    .wa-float:hover .wa-text{max-width:150px;opacity:1;margin-left:.2rem}
 
     /* FOOTER */
     footer{position:relative;background:var(--ink-1);border-top:1px solid var(--ink-3);padding-block:3.4rem 2rem}
     .foot-crest{display:flex;align-items:center;gap:1.6rem;margin-bottom:3rem}
     .foot-crest .fc-line{flex:1;height:1px;background:var(--line-dark)}
-    .foot-crest .fc-mark{width:86px;height:86px;border:1px solid var(--line-dark);border-radius:50%;display:grid;place-items:center;background:radial-gradient(closest-side,rgba(201,162,74,.10),transparent)}
+    .foot-crest .fc-mark{width:86px;height:86px;border:1px solid var(--line-dark);border-radius:50%;display:grid;place-items:center;flex:none;background:radial-gradient(closest-side,rgba(201,162,74,.10),transparent);transition:.4s var(--ease)}
+    .foot-crest .fc-mark:hover{border-color:var(--gold)}
     .foot-crest .fc-mark svg{width:40px;height:40px;color:var(--gold)}
-    .foot-main{display:grid;grid-template-columns:1fr 1fr 1fr;gap:2.4rem;padding-bottom:2.6rem}
+    .foot-main{display:grid;grid-template-columns:1fr 1fr 1fr;gap:2.4rem;padding-bottom:2.6rem;align-items:start}
     .fm-contact{display:grid;gap:1.4rem}
-    .fm-phone{display:flex;gap:.9rem}
-    .fm-phone .ic{width:38px;height:38px;border:1px solid var(--line-dark);border-radius:50%;display:grid;place-items:center;color:var(--gold);flex:none}
+    .fm-phone{display:flex;gap:.9rem;align-items:flex-start}
+    .fm-phone .ic{width:38px;height:38px;flex:none;border:1px solid var(--line-dark);border-radius:50%;display:grid;place-items:center;color:var(--gold)}
     .fm-phone .ic svg{width:16px;height:16px}
-    .fm-phone b{display:block;font-size:.6rem;letter-spacing:.22em;text-transform:uppercase;color:var(--fog-dim);margin-bottom:.25rem}
-    .fm-phone a{color:#fff;font-size:1.02rem}
+    .fm-phone b{display:block;font-size:.6rem;letter-spacing:.22em;text-transform:uppercase;color:var(--fog-dim);font-weight:600;margin-bottom:.25rem}
+    .fm-phone a{color:#fff;font-size:1.02rem;font-weight:500;transition:color .3s ease}
     .fm-phone a:hover{color:var(--gold)}
-    .fm-social{display:flex;gap:.65rem}
-    .fm-social a{width:38px;height:38px;border:1px solid var(--line-dark);border-radius:50%;display:grid;place-items:center;color:var(--beige);transition:.3s}
-    .fm-social a:hover{border-color:var(--gold);color:var(--gold)}
+    .fm-social{display:flex;gap:.65rem;margin-top:.2rem}
+    .fm-social a{width:38px;height:38px;border:1px solid var(--line-dark);border-radius:50%;display:grid;place-items:center;color:var(--beige);transition:.3s var(--ease)}
+    .fm-social a:hover{border-color:var(--gold);color:var(--gold);transform:translateY(-2px)}
     .fm-social svg{width:15px;height:15px}
     .fm-mid{text-align:center;align-self:center;padding:0 1.2rem;border-inline:1px solid var(--ink-3)}
-    .fm-mid .script{font-size:clamp(1.6rem,3vw,2.2rem);line-height:1.05;display:block}
+    .fm-mid .script{font-family:var(--script);color:#E8CE8C;font-size:clamp(1.6rem,3vw,2.2rem);line-height:1.05;display:block}
     .fm-mid small{display:block;margin-top:.7rem;font-size:.6rem;letter-spacing:.26em;text-transform:uppercase;color:var(--fog-dim)}
-    .fm-news h5{font-family:var(--display);font-weight:800;text-transform:uppercase;color:#fff;font-size:1rem;margin-bottom:.5rem}
-    .fm-news p{font-size:.82rem;color:var(--fog-dim);margin-bottom:1rem}
+    .fm-news h5{font-family:var(--display);font-weight:800;text-transform:uppercase;color:#fff;font-size:1rem;letter-spacing:.04em;margin-bottom:.5rem}
+    .fm-news p{font-size:.82rem;color:var(--fog-dim);margin-bottom:1rem;max-width:34ch}
     .news-form{display:flex;border:1px solid var(--ink-3);border-radius:3px;overflow:hidden;background:var(--ink-2)}
-    .news-form input{flex:1;background:none;border:0;color:#fff;padding:.8rem 1rem;font-family:var(--body)}
-    .news-form button{background:var(--crimson);border:0;color:#fff;padding:0 1.15rem;cursor:pointer}
-    .brochure{display:inline-flex;margin-top:1rem;font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);font-weight:600}
+    .news-form input{flex:1;min-width:0;background:none;border:0;color:#fff;padding:.8rem 1rem;font-family:var(--body);font-size:.9rem}
+    .news-form input::placeholder{color:var(--fog-dim)}
+    .news-form input:focus{outline:none}
+    .news-form button{background:var(--crimson);border:0;color:#fff;padding:0 1.15rem;cursor:pointer;font-size:1.05rem;transition:background .3s ease}
+    .news-form button:hover{background:#9e172f}
+    .brochure{display:inline-flex;align-items:center;gap:.5rem;margin-top:1rem;font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);font-weight:600;transition:color .3s ease}
+    .brochure:hover{color:#E8CE8C}
     .foot-nav{display:flex;flex-wrap:wrap;justify-content:center;gap:.6rem 1.8rem;padding:2.1rem 0 1.1rem;border-top:1px solid var(--ink-3)}
-    .foot-nav a{font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;color:var(--fog);transition:color .3s}
+    .foot-nav a{font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;color:var(--fog);font-weight:500;transition:color .3s ease}
     .foot-nav a:hover{color:var(--gold)}
     .foot-sub{display:flex;flex-wrap:wrap;justify-content:center;gap:.5rem 1.4rem;padding-bottom:1.5rem}
-    .foot-sub a{font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;color:var(--fog-dim)}
-    .foot-end{display:flex;justify-content:space-between;align-items:center;padding-top:1.5rem;border-top:1px solid var(--ink-3);flex-wrap:wrap;gap:1rem}
-    .foot-end p{font-size:.72rem;color:var(--fog-dim)}
-    .foot-end .region{font-size:.64rem;letter-spacing:.2em;text-transform:uppercase;color:var(--beige);border:1px solid var(--line-dark);padding:.45rem .9rem}
-    .to-top{position:fixed;right:clamp(1rem,3vw,2rem);bottom:clamp(1rem,3vw,2rem);z-index:800;width:46px;height:46px;border-radius:50%;border:1px solid var(--line-dark);background:rgba(11,10,9,.82);color:var(--gold);cursor:pointer;opacity:0;transform:translateY(12px);transition:.4s var(--ease)}
+    .foot-sub a{font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;color:var(--fog-dim);transition:color .3s ease}
+    .foot-sub a:hover{color:var(--beige)}
+    .foot-end{display:flex;justify-content:space-between;align-items:center;gap:1rem;padding-top:1.5rem;border-top:1px solid var(--ink-3);flex-wrap:wrap}
+    .foot-end p{font-size:.72rem;color:var(--fog-dim);letter-spacing:.05em}
+    .foot-end .region{font-size:.64rem;letter-spacing:.2em;text-transform:uppercase;color:var(--beige);border:1px solid var(--line-dark);padding:.45rem .9rem;border-radius:2px}
+    .to-top{position:fixed;right:clamp(1rem,3vw,2rem);bottom:clamp(1rem,3vw,2rem);z-index:800;width:46px;height:46px;border-radius:50%;border:1px solid var(--line-dark);background:rgba(11,10,9,.82);backdrop-filter:blur(8px);color:var(--gold);cursor:pointer;display:grid;place-items:center;font-size:1.1rem;opacity:0;transform:translateY(12px);transition:.4s var(--ease)}
     .to-top.show{opacity:1;transform:none}
     .to-top:hover{border-color:var(--gold);background:var(--gold);color:var(--ink)}
 
-    @media(max-width:1024px){
-      .quick-grid{grid-template-columns:repeat(2,1fr)}
-      .contact-split{grid-template-columns:1fr}
-      .sr-grid,.faq-grid{grid-template-columns:1fr}
-      .foot-main{grid-template-columns:1fr 1fr}
-    }
+    /* RESPONSIVE */
+    @media(max-width:1024px){.sr-grid{grid-template-columns:1fr 1fr}.contact-grid{grid-template-columns:1fr}}
     @media(max-width:760px){
       .util,.nav-cta{display:none}
-      .quick-grid{grid-template-columns:1fr}
+      .menu-btn em{display:none}
       .field-row{grid-template-columns:1fr}
-      .foot-main{grid-template-columns:1fr}
+      .sr-grid{grid-template-columns:1fr}
+      .hero-pills{display:none}
+      .foot-main{grid-template-columns:1fr;gap:1.8rem}
       .fm-mid{border-inline:0;border-block:1px solid var(--ink-3);padding-block:1.5rem}
-      .drawer-in{grid-template-columns:1fr;padding:5rem 1.5rem 2rem!important}
+      .foot-end{justify-content:center;text-align:center}
+      .brand-center .wm b{font-size:.82rem;letter-spacing:.22em;text-indent:.22em}
+      .map-placeholder{height:300px}
+    }
+    @media(max-width:980px){
+      .foot-main{grid-template-columns:1fr 1fr;gap:2rem}
+      .fm-mid{grid-column:1/-1;order:3;border-inline:0;border-top:1px solid var(--ink-3);padding:1.6rem 0 0;margin-top:.2rem}
+      .drawer-in{grid-template-columns:1fr;gap:2rem;align-content:start;padding:clamp(4.5rem,11vh,5.5rem) 1.5rem clamp(2rem,4vh,3rem)!important}
       .drawer-aside{border-left:0;border-top:1px solid var(--ink-3);padding-left:0;padding-top:2rem}
+    }
+    @media(max-width:900px){
+      .drawer-in{grid-template-columns:1fr!important;width:100%!important;padding:clamp(4.5rem,11vh,5.5rem) 1.5rem clamp(2rem,4vh,3rem)!important}
+      .drawer-nav a{font-size:clamp(1.6rem,7vw,2.2rem)!important}
+      .drawer-aside{border-left:0!important;border-top:1px solid var(--ink-3);padding-left:0!important;padding-top:2rem;display:grid!important;grid-template-columns:1fr 1fr;gap:1.5rem}
     }
     @media(prefers-reduced-motion:reduce){*{animation-duration:.001s!important;transition-duration:.001s!important}.rise{opacity:1;transform:none}}
   </style>
 </head>
 <body>
 
+  <!-- WHATSAPP FLOAT -->
+  <a class="wa-float" href="https://wa.me/919895227744" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+    <span class="wa-text">WhatsApp Us</span>
+  </a>
+
+  <!-- HEADER -->
   <header id="header">
     <div class="util">
       <div class="shell util-in">
         <span class="util-left">Four experience centres across Kochi &amp; Ernakulam</span>
         <div class="util-right">
-          <a href="contact.html">Request a Call Back</a>
+          <a href="#contact-form">Request a Consultation</a>
           <a href="tel:9895227744"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 4h3l2 5-2.2 1.1a11 11 0 0 0 5.1 5.1L14 13l5 2v3a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg>Call Us · 98952 27744</a>
-          <a href="contact.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 22s7-6.5 7-12A7 7 0 0 0 5 10c0 5.5 7 12 7 12z"/><circle cx="12" cy="10" r="2.4"/></svg>Store Locator</a>
+          <a href="#showrooms"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 22s7-6.5 7-12A7 7 0 0 0 5 10c0 5.5 7 12 7 12z"/><circle cx="12" cy="10" r="2.4"/></svg>Store Locator</a>
         </div>
       </div>
     </div>
@@ -262,15 +324,12 @@
           <span class="ml"><span></span><span></span><span></span></span><em>Menu</em>
         </button>
         <a class="brand brand-center" href="index.html" aria-label="Rajasthan Marbles home">
-          <svg viewBox="0 0 120 120" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="9" stroke-linejoin="miter">
-            <path d="M14 14 H106 V92 L88 110"/><path d="M14 14 V92 L32 110 H88"/>
-            <path d="M40 92 V44 H62 a14 14 0 0 1 0 28 H40"/><path d="M58 70 L80 96"/><path d="M70 50 L86 70 V96"/>
-          </svg>
+          <svg viewBox="0 0 120 120" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="9" stroke-linejoin="miter"><path d="M14 14 H106 V92 L88 110"/><path d="M14 14 V92 L32 110 H88"/><path d="M40 92 V44 H62 a14 14 0 0 1 0 28 H40"/><path d="M58 70 L80 96"/><path d="M70 50 L86 70 V96"/></svg>
           <span class="wm"><b>Rajasthan Marbles</b><span>Since 1984</span></span>
         </a>
         <div class="bar-right">
           <button class="ic-btn" id="searchBtn" aria-label="Search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg></button>
-          <a href="contact.html" class="nav-cta">Visit Showroom</a>
+          <a href="tel:9895227744" class="nav-cta">Call Now</a>
         </div>
       </div>
     </div>
@@ -283,7 +342,7 @@
         <input id="searchInput" type="text" placeholder="Search collections, brands, showrooms…"/>
         <button class="search-close" id="searchClose" aria-label="Close">&times;</button>
       </div>
-      <p class="search-hint">Try &ldquo;showroom&rdquo;, &ldquo;Kadamattom&rdquo;, &ldquo;tiles&rdquo;, &ldquo;contact&rdquo;</p>
+      <p class="search-hint">Try &ldquo;tiles&rdquo;, &ldquo;Jaquar&rdquo;, &ldquo;bathroom&rdquo;, &ldquo;store locator&rdquo;</p>
     </div>
   </div>
 
@@ -296,7 +355,7 @@
           <a href="index.html#paths"><span class="dn">02</span>Applications</a>
           <div class="drawer-sub">
             <a href="rajasthan-marbles-residential.html">Residential</a>
-            <a href="Commercial-&-Govt-Institutions.html">Commercial &amp; Govt.</a>
+            <a href="Commercial-&-Govt-Institutions.html">Commercial &amp; Govt. Institutions</a>
             <a href="Hospitality.html">Hospitality<span class="sub-note">(hotels, resorts, restaurants)</span></a>
           </div>
         </div>
@@ -320,7 +379,7 @@
         <div class="da-block"><b>Visit</b><span>Kadamattom, Ernakulam, Kerala</span></div>
         <div class="da-block"><b>Follow</b>
           <div class="da-social">
-            <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/></svg></a>
+            <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/></svg></a>
             <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M13.2 22v-8h2.6l.5-3h-3.1V9c0-.9.3-1.5 1.6-1.5h1.6V5c-.3 0-1.3-.1-2.3-.1-2.2 0-3.6 1.3-3.6 3.9V11H8v3h2.5v8z"/></svg></a>
           </div>
         </div>
@@ -330,120 +389,109 @@
 
   <main id="top">
 
-    <!-- HERO -->
+    <!-- PAGE HERO -->
     <section class="page-hero">
       <div class="page-hero-bg"></div>
       <div class="page-hero-marble"></div>
-      <svg class="page-hero-arch" viewBox="0 0 1200 760" aria-hidden="true">
+      <svg class="page-hero-arch" viewBox="0 0 1200 760" aria-hidden="true" preserveAspectRatio="xMidYMax meet">
         <path class="lit" d="M150 760 V360 a450 450 0 0 1 900 0 V760"/>
         <path d="M270 760 V370 a330 330 0 0 1 660 0 V760"/>
         <path d="M390 760 V380 a210 210 0 0 1 420 0 V760"/>
       </svg>
       <div class="shell">
-        <p class="ph-label rise in">Contact Us</p>
-        <h1 class="display rise in d1" style="margin-top:1rem">Let's discuss your<br><span style="color:var(--gold)">next project.</span></h1>
-        <p class="sub rise in d2">Every project begins with a decision — and the right material makes all the difference. Reach out and we'll connect you with the right advisor.</p>
-        <a href="#form" class="scrollcue rise in d3" aria-label="Scroll down">
-          <span>Get in touch</span><span class="rail"></span>
-        </a>
-      </div>
-    </section>
-
-    <!-- QUICK CONTACT -->
-    <section class="band" style="padding-top:0;padding-bottom:0">
-      <div class="shell">
-        <div class="quick-grid">
-          <a href="tel:9895227744" class="quick-card rise">
-            <div class="ico">☎</div>
-            <div class="lab">Call us</div>
-            <b>98952 27744</b>
-          </a>
-          <a href="https://wa.me/919895227744" class="quick-card rise d1" target="_blank" rel="noopener">
-            <div class="ico">💬</div>
-            <div class="lab">WhatsApp</div>
-            <b>Chat with us</b>
-          </a>
-          <a href="mailto:Sales@rajasthanmarbles.com" class="quick-card rise d2">
-            <div class="ico">✉</div>
-            <div class="lab">Email</div>
-            <b>Sales@rajasthanmarbles.com</b>
-          </a>
-          <a href="#showrooms" class="quick-card rise d3">
-            <div class="ico">◷</div>
-            <div class="lab">Visit</div>
-            <b>4 showrooms</b>
-          </a>
+        <p class="ph-label rise in">Let's connect</p>
+        <h1 class="display rise in d1" style="margin-top:1rem">Let's build<br><span style="color:var(--gold)">together.</span></h1>
+        <p class="sub rise in d2">Whether you are conceptualizing a new build, renovating a space, or sourcing at scale — our team is ready to assist with clarity and four decades of experience behind every recommendation.</p>
+        <div class="hero-pills rise in d3">
+          <a class="pill" href="tel:9895227744"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 4h3l2 5-2.2 1.1a11 11 0 0 0 5.1 5.1L14 13l5 2v3a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg>+91 98952 27744</a>
+          <a class="pill" href="mailto:Sales@rajasthanmarbles.com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3.5 7l8.5 6 8.5-6"/></svg>Sales@rajasthanmarbles.com</a>
+          <a class="pill" href="#showrooms"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 22s7-6.5 7-12A7 7 0 0 0 5 10c0 5.5 7 12 7 12z"/><circle cx="12" cy="10" r="2.4"/></svg>Find a Showroom</a>
         </div>
       </div>
     </section>
 
-    <!-- FORM -->
-    <section class="band" id="form">
-      <div class="shell contact-split">
-        <div class="form-card rise">
-          <h3>Tell us what you're building</h3>
-          <p class="hint">Share a few details and the right advisor will be in touch — no pressure, just guidance.</p>
-          <form id="contactForm" onsubmit="return false">
-            <div class="field">
-              <label>I am</label>
-              <div class="chips" id="roleChips">
-                <span class="chip sel" data-role="home">Building a home</span>
-                <span class="chip" data-role="reno">Renovating</span>
-                <span class="chip" data-role="project">A project</span>
-                <span class="chip" data-role="trade">Trade / Contractor</span>
+    <!-- CONTACT SPLIT -->
+    <section class="contact-section band" id="contact">
+      <div class="shell">
+        <div class="contact-grid">
+
+          <!-- LEFT: INFO -->
+          <div>
+            <p class="eyebrow rise">Get in touch</p>
+            <h2 class="display rise d1" style="margin-top:1.2rem;font-size:clamp(1.8rem,3.5vw,3rem)">We're here<br>to help.</h2>
+            <p class="rise d2" style="margin-top:1.2rem;color:var(--fog);line-height:1.8;max-width:44ch">Every project begins with a conversation. Share what you're working on and we'll connect you with the right advisor — no pressure, just honest guidance.</p>
+
+            <div class="info-block">
+              <div class="info-row rise d2">
+                <div class="info-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 4h3l2 5-2.2 1.1a11 11 0 0 0 5.1 5.1L14 13l5 2v3a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg></div>
+                <div><div class="info-label">Sales &amp; Guidance</div><div class="info-val"><a href="tel:9895227744">+91 98952 27744</a></div></div>
+              </div>
+              <div class="info-row rise d3">
+                <div class="info-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3.5 7l8.5 6 8.5-6"/></svg></div>
+                <div><div class="info-label">Email Us</div><div class="info-val"><a href="mailto:Sales@rajasthanmarbles.com">Sales@rajasthanmarbles.com</a></div></div>
+              </div>
+              <div class="info-row rise d4">
+                <div class="info-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 22s7-6.5 7-12A7 7 0 0 0 5 10c0 5.5 7 12 7 12z"/><circle cx="12" cy="10" r="2.4"/></svg></div>
+                <div><div class="info-label">Corporate Office</div><div class="info-val">Rajasthan Marbles, Kadamattom<br>Ernakulam, Kerala — 682311</div></div>
+              </div>
+              <div class="info-row rise d5">
+                <div class="info-ic"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg></div>
+                <div><div class="info-label">WhatsApp</div><div class="info-val"><a href="https://wa.me/919895227744" target="_blank">+91 98952 27744</a></div></div>
               </div>
             </div>
-            <div class="field"><label>Full name</label><input type="text" placeholder="e.g. Arun Nair" required /></div>
-            <div class="field-row">
-              <div class="field"><label>Email</label><input type="email" placeholder="you@email.com" /></div>
-              <div class="field"><label>Phone</label><input type="tel" placeholder="+91 98XXX XXXXX" required /></div>
-            </div>
-            <div class="field"><label>Preferred showroom</label>
-              <select>
-                <option>Kadamattom (Head Office)</option>
-                <option>Kothamangalam</option>
-                <option>Kalamassery</option>
-                <option>Adimali</option>
-              </select>
-            </div>
-            <div class="field"><label>What do you need help with?</label>
-              <textarea rows="4" placeholder="Tiles for a 3BHK, full bathroom fit-out, exterior paint for a villa…"></textarea>
-            </div>
-            <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;border:none">Request guidance <span class="arrow">→</span></button>
-            <p class="form-note">Dummy form — connects to your backend later. We aim to respond within 24 hours.</p>
-          </form>
-        </div>
 
-        <div class="info-panel">
-          <h2 class="display rise">Head office</h2>
-          <div class="info-box rise d1">
-            <div class="info-row">
-              <span class="ic">◷</span>
-              <div><b>Address</b><p>Rajasthan Marbles<br>MC Road, Kadamattom<br>Ernakulam, Kerala — 682311</p></div>
-            </div>
-            <div class="info-row">
-              <span class="ic">☎</span>
-              <div><b>Phone</b><a href="tel:9895227744">+91 98952 27744</a></div>
-            </div>
-            <div class="info-row">
-              <span class="ic">✉</span>
-              <div><b>Email</b><a href="mailto:Sales@rajasthanmarbles.com">Sales@rajasthanmarbles.com</a></div>
-            </div>
-            <div class="info-row">
-              <span class="ic">⌚</span>
-              <div><b>Hours</b><p>Monday – Saturday: 9:00 AM – 7:00 PM<br>Sunday: Closed</p></div>
+            <div class="info-hours rise d6">
+              <h4>Business Hours</h4>
+              <div class="hours-row"><span class="day">Monday – Friday</span><span class="time">9:00 AM – 7:00 PM</span></div>
+              <div class="hours-row"><span class="day">Saturday</span><span class="time">9:00 AM – 7:00 PM</span></div>
+              <div class="hours-row"><span class="day">Sunday</span><span class="closed">Closed</span></div>
             </div>
           </div>
-          <div class="info-box rise d2">
-            <div class="info-row">
-              <span class="ic">👤</span>
-              <div><b>Your advisor</b><p>Rahul Menon — Senior Material Consultant<br>Specialises in tiles &amp; wet-area planning</p></div>
-            </div>
-            <div class="info-row">
-              <span class="ic">📋</span>
-              <div><b>Trade enquiries</b><p>projects@rajasthanmarbles.com<br>For bulk orders &amp; site supply</p></div>
-            </div>
+
+          <!-- RIGHT: FORM -->
+          <div class="form-card rise d1" id="contact-form">
+            <h3>Request a Consultation</h3>
+            <p class="ctxt">Share a few details and the right advisor will be in touch — no pressure, just guidance tailored to your project.</p>
+
+            <form onsubmit="handleSubmit(event)">
+              <div class="field">
+                <label>I am</label>
+                <div class="chips" id="roleChips">
+                  <span class="opt sel" onclick="selectOpt(this)">Building a home</span>
+                  <span class="opt" onclick="selectOpt(this)">Renovating</span>
+                  <span class="opt" onclick="selectOpt(this)">A project</span>
+                  <span class="opt" onclick="selectOpt(this)">Trade / Contractor</span>
+                </div>
+              </div>
+
+              <div class="field-row">
+                <div class="field"><label>Full Name</label><input type="text" id="cName" placeholder="Your full name" required/></div>
+                <div class="field"><label>Phone Number</label><input type="tel" id="cPhone" placeholder="+91 XXXXX XXXXX" required/></div>
+              </div>
+
+              <div class="field"><label>Email Address</label><input type="email" id="cEmail" placeholder="your@email.com"/></div>
+
+              <div class="field">
+                <label>Nearest Showroom</label>
+                <select id="cShowroom">
+                  <option value="">Select a location…</option>
+                  <option>Kadamattom (Flagship)</option>
+                  <option>Kochi Hub – Edappally</option>
+                  <option>Kakkanad Studio</option>
+                  <option>Aluva Centre</option>
+                </select>
+              </div>
+
+              <div class="field"><label>Project Details</label><textarea id="cMsg" placeholder="Tell us about the spaces you are working on — tile choices, bathroom fixtures, paint colours, or anything else on your mind…"></textarea></div>
+
+              <button type="submit" class="submit-btn" id="submitBtn">
+                <span id="submitText">Send Your Inquiry</span>
+                <span class="arrow" id="submitArrow">→</span>
+              </button>
+              <p class="form-note">We respond to all inquiries within one business day.</p>
+            </form>
           </div>
+
         </div>
       </div>
     </section>
@@ -451,75 +499,67 @@
     <!-- SHOWROOMS -->
     <section class="showrooms-section band" id="showrooms">
       <div class="shell">
-        <div class="sr-head">
-          <p class="eyebrow center rise">Experience centres</p>
-          <h2 class="display rise d1" style="margin-top:1.2rem">Visit us in person.</h2>
-          <p class="sub rise d2" style="margin:1rem auto 0;max-width:48ch;text-align:center">See, touch, and compare — guided by people who help you decide with confidence.</p>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:end;margin-bottom:0;flex-wrap:wrap">
+          <div class="rise">
+            <p class="eyebrow">Four locations</p>
+            <h2 class="display" style="margin-top:1.2rem;font-size:clamp(1.8rem,3.5vw,3rem)">Experience centres<br>near you.</h2>
+          </div>
+          <p class="lead rise d1">See, feel, and decide in person. Our showrooms are designed to immerse you in materials, guided by expert advisors.</p>
         </div>
         <div class="sr-grid">
-          <div class="sr-card rise active" data-map="https://maps.google.com/maps?q=Kadamattom,Ernakulam,Kerala&output=embed">
-            <div class="sr-num">01 — Flagship</div>
+          <div class="sr-card rise">
+            <div class="sr-num">01 — Flagship Centre</div>
             <h4>Kadamattom</h4>
-            <p class="sr-addr">MC Road, Kadamattom<br>Ernakulam District, Kerala</p>
+            <p class="sr-addr">Rajasthan Marbles, NH-85<br>Kadamattom, Ernakulam<br>Kerala — 682311</p>
             <div class="sr-hours">Mon – Sat · 9 AM – 7 PM</div>
-            <span class="sr-tag">Head showroom</span>
+            <a href="tel:9895227744" class="sr-cta">Call this centre →</a>
           </div>
-          <div class="sr-card rise d1" data-map="https://maps.google.com/maps?q=Kothamangalam,Kerala&output=embed">
+          <div class="sr-card rise d1">
             <div class="sr-num">02</div>
-            <h4>Kothamangalam</h4>
-            <p class="sr-addr">Main Road, Kothamangalam<br>Eastern Ernakulam</p>
+            <h4>Kochi Hub</h4>
+            <p class="sr-addr">Edappally Junction<br>NH Bypass, Kochi<br>Kerala</p>
             <div class="sr-hours">Mon – Sat · 9 AM – 7 PM</div>
-            <a href="tel:9895227744" class="sr-tag">+91 98952 27744</a>
+            <a href="tel:9895227744" class="sr-cta">Call this centre →</a>
           </div>
-          <div class="sr-card rise d2" data-map="https://maps.google.com/maps?q=Kalamassery,Kerala&output=embed">
+          <div class="sr-card rise d2">
             <div class="sr-num">03</div>
-            <h4>Kalamassery</h4>
-            <p class="sr-addr">NH Bypass, Kalamassery<br>Kochi Metro Region</p>
+            <h4>Kakkanad Studio</h4>
+            <p class="sr-addr">Seaport–Airport Road<br>Kakkanad, Kochi<br>Kerala</p>
             <div class="sr-hours">Mon – Sat · 9 AM – 7 PM</div>
-            <a href="tel:9895227744" class="sr-tag">+91 98952 27744</a>
+            <a href="tel:9895227744" class="sr-cta">Call this centre →</a>
           </div>
-          <div class="sr-card rise d3" data-map="https://maps.google.com/maps?q=Adimali,Kerala&output=embed">
+          <div class="sr-card rise d3">
             <div class="sr-num">04</div>
-            <h4>Adimali</h4>
-            <p class="sr-addr">Adimali Town, Idukki<br>High Range Region</p>
+            <h4>Aluva Centre</h4>
+            <p class="sr-addr">Bypass Junction<br>Aluva, Ernakulam<br>Kerala</p>
             <div class="sr-hours">Mon – Sat · 9 AM – 7 PM</div>
-            <a href="tel:9895227744" class="sr-tag">+91 98952 27744</a>
+            <a href="tel:9895227744" class="sr-cta">Call this centre →</a>
           </div>
         </div>
       </div>
     </section>
 
     <!-- MAP -->
-    <section class="band" style="padding-top:0">
+    <section class="map-section band--tight">
       <div class="shell">
         <div class="map-wrap rise">
-          <iframe id="mapFrame" title="Rajasthan Marbles showroom map" loading="lazy" src="https://maps.google.com/maps?q=Kadamattom,Ernakulam,Kerala&output=embed"></iframe>
-          <span class="map-overlay"></span>
-        </div>
-      </div>
-    </section>
-
-    <!-- FAQ -->
-    <section class="band" style="background:var(--ink-1);border-top:1px solid var(--ink-3)">
-      <div class="shell">
-        <p class="eyebrow center rise">Common questions</p>
-        <h2 class="display rise d1" style="margin-top:1.2rem;text-align:center">Before you visit.</h2>
-        <div class="faq-grid">
-          <div class="faq-item rise">
-            <h4>Do I need an appointment?</h4>
-            <p>No — walk-ins are welcome. For large projects or trade enquiries, calling ahead helps us assign the right advisor.</p>
-          </div>
-          <div class="faq-item rise d1">
-            <h4>Can you deliver to my site?</h4>
-            <p>Yes. We supply across Ernakulam and neighbouring districts. Delivery timelines depend on product availability.</p>
-          </div>
-          <div class="faq-item rise d2">
-            <h4>Do you offer design advice?</h4>
-            <p>Our advisors help you choose materials for your space — not full interior design, but honest guidance on what works.</p>
-          </div>
-          <div class="faq-item rise d3">
-            <h4>What should I bring?</h4>
-            <p>Floor plans, room dimensions, and photos of your space help us recommend faster. Samples of existing finishes are useful too.</p>
+          <div class="map-placeholder">
+            <div class="map-grid-overlay"></div>
+            <div class="map-dots">
+              <div class="map-dot"></div><div class="map-dot"></div>
+              <div class="map-dot"></div><div class="map-dot"></div>
+            </div>
+            <div class="map-pin-group">
+              <div class="map-pin"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 22s7-6.5 7-12A7 7 0 0 0 5 10c0 5.5 7 12 7 12z"/><circle cx="12" cy="10" r="2.4"/></svg></div>
+              <p class="map-label">Four Locations Across Ernakulam</p>
+              <p class="map-sub">Kerala, India</p>
+            </div>
+            <div class="map-cta">
+              <a class="map-btn" href="https://maps.google.com/?q=Rajasthan+Marbles+Kadamattom+Ernakulam" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 22s7-6.5 7-12A7 7 0 0 0 5 10c0 5.5 7 12 7 12z"/><circle cx="12" cy="10" r="2.4"/></svg>
+                Open in Google Maps
+              </a>
+            </div>
           </div>
         </div>
       </div>
@@ -527,41 +567,26 @@
 
   </main>
 
+  <!-- FOOTER -->
   <footer>
     <div class="shell">
       <div class="foot-crest">
         <span class="fc-line"></span>
-        <a class="fc-mark" href="index.html" aria-label="Rajasthan Marbles"><svg viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="9" stroke-linejoin="miter"><path d="M14 14 H106 V92 L88 110"/><path d="M14 14 V92 L32 110 H88"/><path d="M40 92 V44 H62 a14 14 0 0 1 0 28 H40"/><path d="M58 70 L80 96"/><path d="M70 50 L86 70 V96"/></svg></a>
+        <a class="fc-mark" href="index.html" aria-label="Rajasthan Marbles"><svg viewBox="0 0 120 120" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="9" stroke-linejoin="miter"><path d="M14 14 H106 V92 L88 110"/><path d="M14 14 V92 L32 110 H88"/><path d="M40 92 V44 H62 a14 14 0 0 1 0 28 H40"/><path d="M58 70 L80 96"/><path d="M70 50 L86 70 V96"/></svg></a>
         <span class="fc-line"></span>
       </div>
       <div class="foot-main">
         <div class="fm-contact">
           <div class="fm-phone"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 4h3l2 5-2.2 1.1a11 11 0 0 0 5.1 5.1L14 13l5 2v3a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg></span><div><b>Sales &amp; Guidance</b><a href="tel:9895227744">+91 98952 27744</a></div></div>
           <div class="fm-phone"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3.5 7l8.5 6 8.5-6"/></svg></span><div><b>Email</b><a href="mailto:Sales@rajasthanmarbles.com">Sales@rajasthanmarbles.com</a></div></div>
-          <div class="fm-social">
-            <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/></svg></a>
-            <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M13.2 22v-8h2.6l.5-3h-3.1V9c0-.9.3-1.5 1.6-1.5h1.6V5c-.3 0-1.3-.1-2.3-.1-2.2 0-3.6 1.3-3.6 3.9V11H8v3h2.5v8z"/></svg></a>
-          </div>
+          <div class="fm-social"><a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/></svg></a><a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M13.2 22v-8h2.6l.5-3h-3.1V9c0-.9.3-1.5 1.6-1.5h1.6V5c-.3 0-1.3-.1-2.3-.1-2.2 0-3.6 1.3-3.6 3.9V11H8v3h2.5v8z"/></svg></a></div>
         </div>
-        <div class="fm-mid">
-          <span class="script">Arrival becomes belonging</span>
-          <small>Premium building materials · Since 1984</small>
-        </div>
-        <div class="fm-news">
-          <h5>Join the circle</h5>
-          <p>Seasonal collections and showroom news — a few times a year.</p>
-          <form class="news-form" onsubmit="return false"><input type="email" placeholder="Your email address"/><button type="submit">&rarr;</button></form>
-          <a class="brochure" href="#">Download catalogue (PDF) &rarr;</a>
-        </div>
+        <div class="fm-mid"><span class="script">Arrival becomes belonging</span><small>Premium building materials · Since 1984</small></div>
+        <div class="fm-news"><h5>Join the circle</h5><p>A few times a year, never more.</p><form class="news-form" onsubmit="return false"><input type="email" placeholder="Your email address"/><button type="submit">&rarr;</button></form><a class="brochure" href="#">Download catalogue (PDF) &rarr;</a></div>
       </div>
-      <nav class="foot-nav">
-        <a href="index.html">Home</a><a href="index.html#categories">Collections</a><a href="blog.html">Journal</a><a href="about.html">About</a><a href="contact.html">Contact</a>
-      </nav>
-      <nav class="foot-sub"><a href="#">Disclaimer</a><a href="#">Privacy Policy</a><a href="#">Terms</a></nav>
-      <div class="foot-end">
-        <p>&copy; <span id="yr"></span> Rajasthan Marbles. All rights reserved.</p>
-        <span class="region">Kerala · India</span>
-      </div>
+      <nav class="foot-nav" aria-label="Footer"><a href="index.html">Home</a><a href="index.html#categories">Collections</a><a href="index.html#brands">Brands</a><a href="blog.html">Journal</a><a href="about.html">About</a><a href="contact.html">Contact</a></nav>
+      <nav class="foot-sub" aria-label="Legal"><a href="#">Disclaimer</a><a href="#">Privacy Policy</a><a href="#">Terms</a><a href="#">Sitemap</a></nav>
+      <div class="foot-end"><p>&copy; <span id="yr"></span> Rajasthan Marbles. All rights reserved.</p><span class="region">Kerala · India</span></div>
     </div>
     <button class="to-top" id="toTop" aria-label="Back to top">&uarr;</button>
   </footer>
@@ -578,9 +603,7 @@
       function setMenu(open){drawer.classList.toggle('open',open);burger.setAttribute('aria-expanded',open);document.body.classList.toggle('locked',open);}
       burger.addEventListener('click',function(){setMenu(!drawer.classList.contains('open'));});
       if(drawerClose)drawerClose.addEventListener('click',function(){setMenu(false);});
-      drawer.querySelectorAll('.drawer-group>a').forEach(function(a){
-        a.addEventListener('click',function(e){if(window.innerWidth<=900){e.preventDefault();a.parentElement.classList.toggle('active');}});
-      });
+      drawer.querySelectorAll('.drawer-group>a').forEach(function(a){a.addEventListener('click',function(e){if(window.innerWidth<=900){e.preventDefault();a.parentElement.classList.toggle('active');}});});
       drawer.querySelectorAll('.drawer-sub a,.drawer-nav>a').forEach(function(a){a.addEventListener('click',function(){setMenu(false);});});
 
       var searchBtn=document.getElementById('searchBtn'),searchOv=document.getElementById('search'),searchClose=document.getElementById('searchClose'),searchInput=document.getElementById('searchInput');
@@ -598,32 +621,32 @@
       if('IntersectionObserver' in window&&!reduce){
         var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:0.05,rootMargin:'0px 0px -4% 0px'});
         rises.forEach(function(el){io.observe(el);});
+        function revealBottom(){if(window.innerHeight+window.scrollY>=document.documentElement.scrollHeight-8){document.querySelectorAll('.rise:not(.in)').forEach(function(el){el.classList.add('in');});}}
+        window.addEventListener('scroll',revealBottom,{passive:true});revealBottom();
       } else {rises.forEach(function(el){el.classList.add('in');});}
-
-      // Role chips
-      document.querySelectorAll('#roleChips .chip').forEach(function(chip){
-        chip.addEventListener('click',function(){
-          document.querySelectorAll('#roleChips .chip').forEach(function(c){c.classList.remove('sel');});
-          chip.classList.add('sel');
-        });
-      });
-
-      // Form dummy submit
-      document.getElementById('contactForm').addEventListener('submit',function(){
-        alert('Thank you! This is a dummy form — your message would be sent to our team.');
-      });
-
-      // Showroom map switch
-      var cards=document.querySelectorAll('.sr-card'),mapFrame=document.getElementById('mapFrame');
-      cards.forEach(function(card){
-        card.addEventListener('click',function(){
-          cards.forEach(function(c){c.classList.remove('active');});
-          card.classList.add('active');
-          var src=card.getAttribute('data-map');
-          if(src&&mapFrame)mapFrame.src=src;
-        });
-      });
     })();
+
+    function selectOpt(el){
+      el.closest('.chips').querySelectorAll('.opt').forEach(function(o){o.classList.remove('sel');});
+      el.classList.add('sel');
+    }
+
+    function handleSubmit(e){
+      e.preventDefault();
+      var btn=document.getElementById('submitBtn'),txt=document.getElementById('submitText'),arr=document.getElementById('submitArrow');
+      btn.style.opacity='.6';txt.textContent='Sending…';arr.textContent='';
+      setTimeout(function(){
+        btn.style.opacity='1';
+        btn.style.background='var(--moss)';
+        btn.style.borderColor='var(--moss)';
+        txt.textContent='Message Sent!';
+        arr.textContent=' ✓';
+        setTimeout(function(){
+          btn.style.background='';btn.style.borderColor='';
+          txt.textContent='Send Your Inquiry';arr.textContent='→';
+        },4000);
+      },1200);
+    }
   </script>
 </body>
 </html>
