@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Journal — Rajasthan Marbles | Building Material Guides &amp; Ideas</title>
+  <meta name="description" content="Plain-spoken guidance on tiles, sanitaryware, paints, and plumbing — field notes from four decades of helping Kerala build with confidence." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=Hanken+Grotesk:wght@300;400;500;600;700&family=Pinyon+Script&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --ink:#0B0A09;--ink-1:#100E0C;--ink-2:#17130F;--ink-3:#211A14;
+      --crimson:#C92140;--crimson-deep:#9E172F;--gold:#C9A24A;--gold-lit:#E8CE8C;
+      --white:#FFF;--beige:#E9DEBC;--moss:#3D4A3F;--terracotta:#8F684E;
+      --paper:#F3EEE2;--paper-ink:#221C14;
+      --fog:rgba(233,222,188,.62);--fog-dim:rgba(233,222,188,.40);--line-dark:rgba(233,222,188,.14);
+      --display:'Archivo',system-ui,sans-serif;--body:'Hanken Grotesk',system-ui,sans-serif;--script:'Pinyon Script',cursive;
+      --shell:min(1280px,92vw);--ease:cubic-bezier(.22,.61,.36,1);--ease-out:cubic-bezier(.16,1,.3,1);
+    }
+    *{margin:0;padding:0;box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{background:var(--ink);color:var(--fog);font-family:var(--body);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+    body.locked{overflow:hidden;height:100vh}
+    a{color:inherit;text-decoration:none}
+    ::selection{background:var(--crimson);color:#fff}
+    body::after{content:"";position:fixed;inset:0;z-index:9990;pointer-events:none;opacity:.045;mix-blend-mode:overlay;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+
+    .eyebrow{font-family:var(--body);font-weight:600;font-size:.72rem;letter-spacing:.34em;text-transform:uppercase;color:var(--gold);display:inline-flex;align-items:center;gap:.8em}
+    .eyebrow::before{content:"";width:26px;height:1px;background:var(--gold);opacity:.6}
+    .eyebrow.center::after{content:"";width:26px;height:1px;background:var(--gold);opacity:.6}
+    .display{font-family:var(--display);font-weight:800;line-height:.96;letter-spacing:-.01em;text-transform:uppercase;color:var(--white)}
+    .script{font-family:var(--script);text-transform:none;letter-spacing:0;color:var(--gold-lit)}
+    h1.display{font-size:clamp(2.6rem,7.4vw,6.4rem)}
+    h2.display{font-size:clamp(2rem,4.6vw,3.9rem)}
+    .lead{font-size:clamp(1rem,1.5vw,1.2rem);line-height:1.7;color:var(--fog)}
+    .shell{width:var(--shell);margin-inline:auto}
+    .band{padding-block:clamp(5rem,11vh,9rem)}
+    [id]{scroll-margin-top:94px}
+
+    .rise{opacity:0;transform:translateY(30px);transition:opacity .85s var(--ease-out),transform .85s var(--ease-out)}
+    .rise.in{opacity:1;transform:none}
+    .rise.d1{transition-delay:.08s}.rise.d2{transition-delay:.16s}.rise.d3{transition-delay:.24s}.rise.d4{transition-delay:.32s}
+
+    /* HEADER */
+    header{position:fixed;top:0;left:0;right:0;z-index:900}
+    .util{background:rgba(8,7,6,.96);border-bottom:1px solid var(--line-dark);backdrop-filter:blur(8px);overflow:hidden;max-height:46px;transition:max-height .45s var(--ease),opacity .35s ease}
+    header.docked .util{max-height:0;opacity:0;border-color:transparent}
+    .util-in{display:flex;align-items:center;justify-content:space-between;height:46px}
+    .util-left{font-size:.62rem;letter-spacing:.26em;text-transform:uppercase;color:var(--fog-dim)}
+    .util-right{display:flex;align-items:center;gap:1.7rem}
+    .util-right a{font-size:.64rem;letter-spacing:.16em;text-transform:uppercase;color:var(--fog);display:inline-flex;align-items:center;gap:.55em;transition:color .3s}
+    .util-right a:hover{color:var(--gold)}
+    .util-right svg{width:13px;height:13px;color:var(--gold)}
+    .bar{background:rgba(11,10,9,.96);backdrop-filter:blur(14px);border-bottom:1px solid var(--line-dark);transition:background .4s}
+    header.docked .bar{background:rgba(11,10,9,.88)}
+    .bar-in{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:1.15rem 0;transition:padding .4s}
+    header.docked .bar-in{padding:.66rem 0}
+    .menu-btn{justify-self:start;display:inline-flex;align-items:center;gap:.75rem;background:none;border:0;cursor:pointer;color:var(--beige);padding:.4rem 0}
+    .menu-btn .ml{display:flex;flex-direction:column;gap:4px;width:22px}
+    .menu-btn .ml span{height:1.5px;background:var(--beige);transition:.35s var(--ease)}
+    .menu-btn .ml span:nth-child(2){width:64%}
+    .menu-btn:hover .ml span{background:var(--gold)}
+    .menu-btn em{font-style:normal;font-size:.7rem;letter-spacing:.24em;text-transform:uppercase;font-weight:600}
+    .brand-center{justify-self:center;display:flex;flex-direction:column;align-items:center;gap:.5rem;color:#fff}
+    .brand-center svg{width:30px;height:30px;color:var(--crimson);transition:color .4s}
+    header.docked .brand-center svg{color:var(--gold)}
+    .brand-center .wm b{font-family:var(--display);font-weight:800;font-size:1rem;letter-spacing:.34em;text-indent:.34em;text-transform:uppercase}
+    .brand-center .wm span{font-size:.5rem;letter-spacing:.5em;text-indent:.5em;color:var(--gold);margin-top:.42rem}
+    .bar-right{justify-self:end;display:flex;align-items:center;gap:1.2rem}
+    .ic-btn{background:none;border:0;cursor:pointer;color:var(--beige);padding:.3rem;transition:color .3s}
+    .ic-btn:hover{color:var(--gold)}
+    .ic-btn svg{width:19px;height:19px}
+    .nav-cta{font-weight:600;font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:#fff;border:1px solid var(--crimson);background:var(--crimson);padding:.7rem 1.3rem;border-radius:2px;transition:.35s var(--ease);white-space:nowrap}
+    .nav-cta:hover{background:transparent;color:var(--crimson)}
+
+    #search{position:fixed;top:0;left:0;right:0;z-index:905;background:rgba(11,10,9,.97);backdrop-filter:blur(16px);border-bottom:1px solid var(--line-dark);transform:translateY(-100%);transition:transform .45s var(--ease);padding:2.2rem 0 1.8rem}
+    #search.open{transform:none}
+    .search-in{display:flex;align-items:center;gap:1rem;border-bottom:1px solid var(--ink-3);padding-bottom:1rem}
+    .search-in svg{width:22px;height:22px;color:var(--gold);flex:none}
+    .search-in input{flex:1;background:none;border:0;color:#fff;font-family:var(--display);font-weight:700;font-size:clamp(1.1rem,3vw,1.9rem);text-transform:uppercase}
+    .search-in input:focus{outline:none}
+    .search-close{background:none;border:0;color:var(--fog);cursor:pointer;font-size:1.5rem}
+    .search-hint{margin-top:.9rem;font-size:.64rem;letter-spacing:.2em;text-transform:uppercase;color:var(--fog-dim)}
+
+    #drawer{position:fixed;inset:0;z-index:950;background:radial-gradient(120% 90% at 50% 0%,#15110c,#080706 70%);transform:translateY(-100%);transition:transform .6s var(--ease);overflow:auto}
+    #drawer.open{transform:none}
+    .drawer-close{position:absolute;top:1.4rem;right:clamp(1.1rem,3vw,2.4rem);width:46px;height:46px;border:1px solid var(--line-dark);border-radius:50%;background:none;color:var(--beige);font-size:1.4rem;cursor:pointer;z-index:2}
+    .drawer-in{min-height:100%;display:grid;grid-template-columns:1.6fr 1fr;gap:3rem;align-items:center;width:var(--shell);margin-inline:auto;padding:6.5rem 0 3rem}
+    .drawer-nav{display:flex;flex-direction:column;gap:.25rem}
+    .drawer-nav a{display:flex;align-items:baseline;gap:1.2rem;font-family:var(--display);font-weight:800;text-transform:uppercase;font-size:clamp(1.7rem,4.4vw,3rem);color:var(--beige);transition:.4s var(--ease)}
+    .drawer-nav a .dn{font-family:var(--body);font-size:.78rem;font-weight:600;letter-spacing:.2em;color:var(--gold)}
+    .drawer-group>a::after{content:'+';margin-left:auto;color:var(--fog-dim);transition:transform .4s}
+    .drawer-group:hover>a::after,.drawer-group.active>a::after{transform:rotate(45deg);color:var(--gold)}
+    .drawer-nav a:hover{color:#fff;padding-left:.7rem}
+    .drawer-sub{display:flex;flex-direction:column;gap:.12rem;padding:0 0 0 3.35rem;max-height:0;overflow:hidden;opacity:0;transition:max-height .6s var(--ease),opacity .4s,padding .6s}
+    .drawer-group:hover .drawer-sub,.drawer-group.active .drawer-sub{max-height:400px;padding-top:.4rem;padding-bottom:.35rem;opacity:1}
+    .drawer-sub a{font-size:clamp(1.4rem,3.5vw,2.4rem);color:var(--fog)}
+    .drawer-sub a .sub-note{font-family:var(--body);font-size:.45em;color:var(--fog-dim);font-weight:600;text-transform:none;display:block}
+    .drawer-aside{border-left:1px solid var(--ink-3);padding-left:clamp(1.5rem,3vw,3rem);display:grid;gap:1.5rem}
+    .da-block b{display:block;font-size:.6rem;letter-spacing:.24em;text-transform:uppercase;color:var(--fog-dim);margin-bottom:.4rem}
+    .da-block a,.da-block span{color:#fff;font-size:1.02rem}
+    .da-social{display:flex;gap:.7rem;margin-top:.2rem}
+    .da-social a{width:40px;height:40px;border:1px solid var(--line-dark);border-radius:50%;display:grid;place-items:center;color:var(--beige);transition:.3s}
+    .da-social a:hover{border-color:var(--gold);color:var(--gold)}
+    .da-social svg{width:16px;height:16px}
+
+    .btn{display:inline-flex;align-items:center;gap:.7rem;font-weight:600;font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;padding:1rem 1.7rem;border-radius:2px;transition:.4s var(--ease);cursor:pointer;border:1px solid transparent}
+    .btn-primary{background:var(--crimson);color:#fff}
+    .btn-primary:hover{background:var(--crimson-deep)}
+    .btn-ghost{border-color:var(--line-dark);color:var(--beige);background:transparent}
+    .btn-ghost:hover{border-color:var(--gold);color:var(--gold)}
+    .btn .arrow{transition:transform .4s var(--ease)}
+    .btn:hover .arrow{transform:translateX(5px)}
+
+    /* PAGE HERO */
+    .page-hero{position:relative;padding-top:clamp(9rem,18vh,13rem);padding-bottom:clamp(3rem,7vh,5rem);overflow:hidden}
+    .page-hero-bg{position:absolute;inset:0;z-index:-2;background:radial-gradient(90% 60% at 15% 20%,rgba(201,33,64,.12),transparent 55%),radial-gradient(70% 50% at 85% 75%,rgba(201,162,74,.08),transparent 50%),linear-gradient(180deg,#0d0b09,#0b0a09 46%,#070605)}
+    .page-hero-arch{position:absolute;right:-4%;bottom:-8%;width:min(52vw,620px);opacity:.07;pointer-events:none}
+    .page-hero-arch path{fill:none;stroke:var(--gold);stroke-width:1.2}
+    .page-hero-arch path.lit{stroke:var(--crimson);opacity:.5}
+    .page-hero-inner{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(2rem,5vw,4rem);align-items:end;position:relative;z-index:1}
+    .page-hero-copy h1{max-width:14ch;margin-top:1.2rem}
+    .page-hero-copy .accent{color:var(--crimson)}
+    .page-hero-copy .lead{margin-top:1.6rem;max-width:42ch}
+    .hero-pills{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:2rem}
+    .hero-pill{display:inline-flex;align-items:center;gap:.55rem;padding:.55rem 1rem;border:1px solid var(--line-dark);border-radius:100px;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--fog-dim);background:rgba(23,19,15,.55);backdrop-filter:blur(8px)}
+    .hero-pill b{color:var(--gold);font-weight:600}
+    .page-scroll{display:inline-flex;align-items:center;gap:.8rem;margin-top:2.5rem;font-size:.68rem;letter-spacing:.28em;text-transform:uppercase;color:var(--fog-dim)}
+    .page-scroll .rail{width:48px;height:1px;background:linear-gradient(90deg,var(--gold),transparent);animation:pagePulse 2.2s ease infinite}
+    @keyframes pagePulse{0%,100%{opacity:.35;transform:scaleX(.7);transform-origin:left}50%{opacity:1;transform:scaleX(1)}}
+    .page-hero-visual{position:relative;min-height:280px;border:1px solid var(--line-dark);border-radius:4px;overflow:hidden;background:var(--ink-1)}
+    .page-hero-visual .tex{position:absolute;inset:0}
+    .page-hero-visual-frame{position:absolute;inset:14px;border:1px solid rgba(201,162,74,.25);pointer-events:none;z-index:2}
+    .page-hero-visual-cap{position:absolute;left:0;right:0;bottom:0;padding:1.4rem 1.6rem;background:linear-gradient(180deg,transparent,rgba(11,10,9,.92));z-index:3}
+    .page-hero-visual-cap .script{font-size:clamp(1.4rem,3vw,2rem);color:var(--beige);display:block}
+    .page-hero-visual-cap small{font-size:.68rem;letter-spacing:.22em;text-transform:uppercase;color:var(--fog-dim)}
+
+    /* TEXTURES */
+    .tex{position:relative;display:block}
+    .tex::after{content:"";position:absolute;inset:0;opacity:.4;mix-blend-mode:overlay;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='600'%3E%3Cfilter id='rm'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.008 .02' numOctaves='5' seed='5'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23rm)'/%3E%3C/svg%3E")}
+    .tex-onyx{background:linear-gradient(135deg,#16120d,#241a12 60%,#0d0b09)}
+    .tex-beige{background:linear-gradient(135deg,#b6a578,#e3d4a8 60%,#8a7a52)}
+    .tex-terra{background:linear-gradient(135deg,#5a3f2c,#8f684e 55%,#3a281c)}
+    .tex-moss{background:linear-gradient(135deg,#27302a,#3d4a3f 55%,#1a201c)}
+
+    /* BLOG */
+    .blog-featured{display:grid;grid-template-columns:1.05fr .95fr;min-height:420px;border:1px solid var(--ink-3);border-radius:4px;overflow:hidden;background:var(--ink-1);transition:border-color .45s var(--ease),transform .55s var(--ease-out),box-shadow .55s var(--ease)}
+    .blog-featured:hover{border-color:rgba(201,162,74,.35);transform:translateY(-4px);box-shadow:0 28px 60px rgba(0,0,0,.35)}
+    .blog-featured__media{position:relative;min-height:280px}
+    .blog-featured__media .tex{position:absolute;inset:0}
+    .blog-featured__body{padding:clamp(2rem,4vw,3.5rem);display:flex;flex-direction:column;justify-content:center}
+    .blog-featured__body h2{font-family:var(--display);font-size:clamp(1.6rem,3vw,2.2rem);font-weight:700;line-height:1.15;color:var(--white);margin:.8rem 0 1rem;text-transform:none;letter-spacing:0}
+    .blog-featured__body p{color:var(--fog);line-height:1.75;margin-bottom:1.6rem}
+    .blog-featured__meta{font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--fog-dim);margin-bottom:.6rem}
+    .blog-featured__link{display:inline-flex;align-items:center;gap:.5rem;color:var(--gold);font-size:.72rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase}
+
+    .blog-filters{display:flex;flex-wrap:wrap;gap:.6rem;margin:3rem 0 2.5rem}
+    .blog-filter{padding:.65rem 1.15rem;border:1px solid var(--ink-3);border-radius:100px;background:transparent;color:var(--fog-dim);font-family:var(--body);font-size:.72rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;cursor:pointer;transition:border-color .35s,color .35s,background .35s,transform .35s}
+    .blog-filter:hover,.blog-filter.active{border-color:rgba(201,162,74,.45);color:var(--beige);background:rgba(201,162,74,.08)}
+    .blog-filter.active{transform:translateY(-1px)}
+
+    .blog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+    .blog-card{display:flex;flex-direction:column;border:1px solid var(--ink-3);border-radius:4px;overflow:hidden;background:var(--ink-1);transition:border-color .4s var(--ease),transform .5s var(--ease-out),box-shadow .5s var(--ease),opacity .4s}
+    .blog-card.hidden{display:none}
+    .blog-card:hover{border-color:rgba(201,162,74,.3);transform:translateY(-6px);box-shadow:0 22px 48px rgba(0,0,0,.28)}
+    .blog-card__cover{position:relative;aspect-ratio:16/10;overflow:hidden}
+    .blog-card__cover .tex{position:absolute;inset:0;transition:transform .7s var(--ease-out)}
+    .blog-card:hover .blog-card__cover .tex{transform:scale(1.06)}
+    .blog-card__body{padding:1.4rem 1.35rem 1.5rem;flex:1;display:flex;flex-direction:column}
+    .blog-card__kicker{font-size:.65rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:.65rem}
+    .blog-card__body h3{font-family:var(--display);font-size:1.05rem;font-weight:700;line-height:1.35;color:var(--white);margin-bottom:.55rem;text-transform:none;letter-spacing:0}
+    .blog-card__body p{font-size:.88rem;color:var(--fog-dim);line-height:1.65;flex:1}
+    .blog-card__foot{display:flex;justify-content:space-between;align-items:center;margin-top:1rem;padding-top:.8rem;border-top:1px solid var(--ink-3)}
+    .blog-card__date{font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:var(--fog-dim)}
+    .blog-card__read{font-size:.68rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);display:inline-flex;align-items:center;gap:.4rem}
+    .blog-load{text-align:center;margin-top:3.5rem}
+
+    /* NEWSLETTER STRIP */
+    .news-strip{background:var(--ink-1);border:1px solid var(--ink-3);padding:clamp(2rem,4vw,3rem);display:grid;grid-template-columns:1fr auto;gap:2rem;align-items:center;margin-top:4rem}
+    .news-strip h3{font-family:var(--display);font-weight:800;text-transform:uppercase;color:#fff;font-size:1.1rem;margin-bottom:.4rem}
+    .news-strip p{font-size:.88rem;color:var(--fog-dim);max-width:42ch}
+    .news-strip-form{display:flex;border:1px solid var(--ink-3);border-radius:3px;overflow:hidden;background:var(--ink-2);min-width:min(100%,340px)}
+    .news-strip-form input{flex:1;background:none;border:0;color:#fff;padding:.85rem 1rem;font-family:var(--body);font-size:.9rem}
+    .news-strip-form button{background:var(--crimson);border:0;color:#fff;padding:0 1.2rem;cursor:pointer;font-weight:600}
+
+    /* CTA */
+    .page-cta{text-align:center;padding:clamp(3rem,7vw,5rem) 0;position:relative;background:var(--ink-1);border-top:1px solid var(--ink-3)}
+    .page-cta::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 60% 80% at 50% 50%,rgba(201,162,74,.06),transparent 70%);pointer-events:none}
+    .page-cta h2{font-family:var(--display);font-size:clamp(1.8rem,4vw,2.6rem);font-weight:700;margin-bottom:1rem;position:relative}
+    .page-cta p{color:var(--fog);max-width:48ch;margin:0 auto 2rem;line-height:1.75;position:relative}
+
+    /* FOOTER */
+    footer{position:relative;background:var(--ink-1);border-top:1px solid var(--ink-3);padding-block:3.4rem 2rem}
+    .foot-crest{display:flex;align-items:center;gap:1.6rem;margin-bottom:3rem}
+    .foot-crest .fc-line{flex:1;height:1px;background:var(--line-dark)}
+    .foot-crest .fc-mark{width:86px;height:86px;border:1px solid var(--line-dark);border-radius:50%;display:grid;place-items:center;background:radial-gradient(closest-side,rgba(201,162,74,.10),transparent)}
+    .foot-crest .fc-mark svg{width:40px;height:40px;color:var(--gold)}
+    .foot-main{display:grid;grid-template-columns:1fr 1fr 1fr;gap:2.4rem;padding-bottom:2.6rem}
+    .fm-contact{display:grid;gap:1.4rem}
+    .fm-phone{display:flex;gap:.9rem}
+    .fm-phone .ic{width:38px;height:38px;border:1px solid var(--line-dark);border-radius:50%;display:grid;place-items:center;color:var(--gold);flex:none}
+    .fm-phone .ic svg{width:16px;height:16px}
+    .fm-phone b{display:block;font-size:.6rem;letter-spacing:.22em;text-transform:uppercase;color:var(--fog-dim);margin-bottom:.25rem}
+    .fm-phone a{color:#fff;font-size:1.02rem}
+    .fm-phone a:hover{color:var(--gold)}
+    .fm-social{display:flex;gap:.65rem}
+    .fm-social a{width:38px;height:38px;border:1px solid var(--line-dark);border-radius:50%;display:grid;place-items:center;color:var(--beige);transition:.3s}
+    .fm-social a:hover{border-color:var(--gold);color:var(--gold)}
+    .fm-social svg{width:15px;height:15px}
+    .fm-mid{text-align:center;align-self:center;padding:0 1.2rem;border-inline:1px solid var(--ink-3)}
+    .fm-mid .script{font-size:clamp(1.6rem,3vw,2.2rem);line-height:1.05;display:block}
+    .fm-mid small{display:block;margin-top:.7rem;font-size:.6rem;letter-spacing:.26em;text-transform:uppercase;color:var(--fog-dim)}
+    .fm-news h5{font-family:var(--display);font-weight:800;text-transform:uppercase;color:#fff;font-size:1rem;margin-bottom:.5rem}
+    .fm-news p{font-size:.82rem;color:var(--fog-dim);margin-bottom:1rem}
+    .news-form{display:flex;border:1px solid var(--ink-3);border-radius:3px;overflow:hidden;background:var(--ink-2)}
+    .news-form input{flex:1;background:none;border:0;color:#fff;padding:.8rem 1rem;font-family:var(--body)}
+    .news-form button{background:var(--crimson);border:0;color:#fff;padding:0 1.15rem;cursor:pointer}
+    .brochure{display:inline-flex;margin-top:1rem;font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);font-weight:600}
+    .foot-nav{display:flex;flex-wrap:wrap;justify-content:center;gap:.6rem 1.8rem;padding:2.1rem 0 1.1rem;border-top:1px solid var(--ink-3)}
+    .foot-nav a{font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;color:var(--fog);transition:color .3s}
+    .foot-nav a:hover{color:var(--gold)}
+    .foot-sub{display:flex;flex-wrap:wrap;justify-content:center;gap:.5rem 1.4rem;padding-bottom:1.5rem}
+    .foot-sub a{font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;color:var(--fog-dim)}
+    .foot-end{display:flex;justify-content:space-between;align-items:center;padding-top:1.5rem;border-top:1px solid var(--ink-3);flex-wrap:wrap;gap:1rem}
+    .foot-end p{font-size:.72rem;color:var(--fog-dim)}
+    .foot-end .region{font-size:.64rem;letter-spacing:.2em;text-transform:uppercase;color:var(--beige);border:1px solid var(--line-dark);padding:.45rem .9rem}
+    .to-top{position:fixed;right:clamp(1rem,3vw,2rem);bottom:clamp(1rem,3vw,2rem);z-index:800;width:46px;height:46px;border-radius:50%;border:1px solid var(--line-dark);background:rgba(11,10,9,.82);color:var(--gold);cursor:pointer;opacity:0;transform:translateY(12px);transition:.4s var(--ease)}
+    .to-top.show{opacity:1;transform:none}
+    .to-top:hover{border-color:var(--gold);background:var(--gold);color:var(--ink)}
+
+    @media(max-width:1024px){
+      .page-hero-inner,.blog-featured{grid-template-columns:1fr}
+      .blog-grid{grid-template-columns:repeat(2,1fr)}
+      .news-strip{grid-template-columns:1fr}
+      .foot-main{grid-template-columns:1fr 1fr}
+    }
+    @media(max-width:760px){
+      .util,.nav-cta{display:none}
+      .blog-grid{grid-template-columns:1fr}
+      .foot-main{grid-template-columns:1fr}
+      .fm-mid{border-inline:0;border-block:1px solid var(--ink-3);padding-block:1.5rem}
+      .drawer-in{grid-template-columns:1fr;padding:5rem 1.5rem 2rem!important}
+      .drawer-aside{border-left:0;border-top:1px solid var(--ink-3);padding-left:0;padding-top:2rem}
+    }
+    @media(prefers-reduced-motion:reduce){*{animation-duration:.001s!important;transition-duration:.001s!important}.rise{opacity:1;transform:none}.page-scroll .rail{animation:none}}
+  </style>
+</head>
+<body>
+
+  <header id="header">
+    <div class="util">
+      <div class="shell util-in">
+        <span class="util-left">Field notes from four decades of building in Kerala</span>
+        <div class="util-right">
+          <a href="contact.html">Request a Call Back</a>
+          <a href="tel:9895227744"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 4h3l2 5-2.2 1.1a11 11 0 0 0 5.1 5.1L14 13l5 2v3a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg>Call Us · 98952 27744</a>
+          <a href="contact.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 22s7-6.5 7-12A7 7 0 0 0 5 10c0 5.5 7 12 7 12z"/><circle cx="12" cy="10" r="2.4"/></svg>Store Locator</a>
+        </div>
+      </div>
+    </div>
+    <div class="bar">
+      <div class="shell bar-in">
+        <button class="menu-btn" id="burger" aria-label="Open menu" aria-expanded="false">
+          <span class="ml"><span></span><span></span><span></span></span><em>Menu</em>
+        </button>
+        <a class="brand brand-center" href="index.html" aria-label="Rajasthan Marbles home">
+          <svg viewBox="0 0 120 120" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="9" stroke-linejoin="miter">
+            <path d="M14 14 H106 V92 L88 110"/><path d="M14 14 V92 L32 110 H88"/>
+            <path d="M40 92 V44 H62 a14 14 0 0 1 0 28 H40"/><path d="M58 70 L80 96"/><path d="M70 50 L86 70 V96"/>
+          </svg>
+          <span class="wm"><b>Rajasthan Marbles</b><span>Since 1984</span></span>
+        </a>
+        <div class="bar-right">
+          <button class="ic-btn" id="searchBtn" aria-label="Search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg></button>
+          <a href="contact.html" class="nav-cta">Visit Showroom</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div id="search">
+    <div class="shell">
+      <div class="search-in">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+        <input id="searchInput" type="text" placeholder="Search articles, topics, materials…"/>
+        <button class="search-close" id="searchClose" aria-label="Close">&times;</button>
+      </div>
+      <p class="search-hint">Try &ldquo;tiles&rdquo;, &ldquo;bathroom&rdquo;, &ldquo;PVC&rdquo;, &ldquo;primer&rdquo;</p>
+    </div>
+  </div>
+
+  <div id="drawer">
+    <button class="drawer-close" id="drawerClose" aria-label="Close menu">&times;</button>
+    <div class="drawer-in">
+      <nav class="drawer-nav" aria-label="Menu">
+        <a href="index.html"><span class="dn">01</span>Home</a>
+        <div class="drawer-group">
+          <a href="index.html#paths"><span class="dn">02</span>Applications</a>
+          <div class="drawer-sub">
+            <a href="rajasthan-marbles-residential.html">Residential</a>
+            <a href="Commercial-&-Govt-Institutions.html">Commercial &amp; Govt.</a>
+            <a href="Hospitality.html">Hospitality<span class="sub-note">(hotels, resorts, restaurants)</span></a>
+          </div>
+        </div>
+        <div class="drawer-group">
+          <a href="index.html#categories"><span class="dn">03</span>Materials</a>
+          <div class="drawer-sub">
+            <a href="rajasthan-marbles-tiles.html">Tiles</a>
+            <a href="Sanitaryware.html">Sanitaryware</a>
+            <a href="Paints-Coatings.html">Paints &amp; Coatings</a>
+            <a href="Kitchen-Accessories.html">Kitchen Accessories</a>
+            <a href="PVC-Pipes.html">PVC Pipes</a>
+          </div>
+        </div>
+        <a href="blog.html" style="color:var(--gold)"><span class="dn">04</span>Blog</a>
+        <a href="about.html"><span class="dn">05</span>About Us</a>
+        <a href="contact.html"><span class="dn">06</span>Contact Us</a>
+      </nav>
+      <aside class="drawer-aside">
+        <div class="da-block"><b>Call</b><a href="tel:9895227744">+91 98952 27744</a></div>
+        <div class="da-block"><b>Email</b><a href="mailto:Sales@rajasthanmarbles.com">Sales@rajasthanmarbles.com</a></div>
+        <div class="da-block"><b>Visit</b><span>Kadamattom, Ernakulam, Kerala</span></div>
+        <div class="da-block"><b>Follow</b>
+          <div class="da-social">
+            <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/></svg></a>
+            <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M13.2 22v-8h2.6l.5-3h-3.1V9c0-.9.3-1.5 1.6-1.5h1.6V5c-.3 0-1.3-.1-2.3-.1-2.2 0-3.6 1.3-3.6 3.9V11H8v3h2.5v8z"/></svg></a>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </div>
+
+  <main id="top">
+
+    <!-- HERO -->
+    <section class="page-hero">
+      <div class="page-hero-bg"></div>
+      <svg class="page-hero-arch" viewBox="0 0 1200 760" aria-hidden="true">
+        <path class="lit" d="M150 760 V360 a450 450 0 0 1 900 0 V760"/>
+        <path d="M270 760 V370 a330 330 0 0 1 660 0 V760"/>
+        <path d="M390 760 V380 a210 210 0 0 1 420 0 V760"/>
+      </svg>
+      <div class="shell page-hero-inner">
+        <div class="page-hero-copy">
+          <p class="eyebrow rise in">The Journal</p>
+          <h1 class="display rise in d1">Decide with<br><span class="accent">confidence.</span></h1>
+          <p class="lead rise in d2">Plain-spoken guidance on the choices that quietly shape a home — from tiles and sanitaryware to paints, pipes, and the decisions most people get backwards.</p>
+          <div class="hero-pills rise in d3">
+            <span class="hero-pill"><b>40+</b> years of field notes</span>
+            <span class="hero-pill">Updated monthly</span>
+          </div>
+          <span class="page-scroll rise in d4">Scroll <span class="rail"></span></span>
+        </div>
+        <div class="page-hero-visual rise in d2">
+          <span class="tex tex-onyx"></span>
+          <span class="page-hero-visual-frame"></span>
+          <div class="page-hero-visual-cap">
+            <span class="script">Judgment over noise</span>
+            <small>The Rajasthan Journal</small>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ARTICLES -->
+    <section class="band" id="articles">
+      <div class="shell">
+        <a href="#" class="blog-featured rise">
+          <div class="blog-featured__media"><span class="tex tex-terra"></span></div>
+          <div class="blog-featured__body">
+            <span class="eyebrow">Featured</span>
+            <p class="blog-featured__meta">12 min read · Tiles · Mar 2026</p>
+            <h2>Where Tile Decisions Go Wrong — And How to Avoid Them</h2>
+            <p>The most expensive tile mistakes aren't about price. They're about choosing for the showroom instead of for the room. Here's how good choices quietly fail, and how to avoid it.</p>
+            <span class="blog-featured__link">Read the feature <span class="arrow">→</span></span>
+          </div>
+        </a>
+
+        <div class="blog-filters rise d1">
+          <button class="blog-filter active" data-filter="all" type="button">All</button>
+          <button class="blog-filter" data-filter="tiles" type="button">Tiles</button>
+          <button class="blog-filter" data-filter="wellness" type="button">Wellness</button>
+          <button class="blog-filter" data-filter="paints" type="button">Paints</button>
+          <button class="blog-filter" data-filter="plumbing" type="button">Plumbing</button>
+          <button class="blog-filter" data-filter="guides" type="button">Guides</button>
+        </div>
+
+        <div class="blog-grid" id="blogGrid">
+          <a class="blog-card rise" href="#" data-category="tiles">
+            <span class="blog-card__cover"><span class="tex tex-onyx"></span></span>
+            <span class="blog-card__body">
+              <span class="blog-card__kicker">Tiles</span>
+              <h3>Porcelain or vitrified? A buyer's guide</h3>
+              <p>How to read a tile's spec sheet and pick for the room it'll actually live in.</p>
+              <span class="blog-card__foot">
+                <span class="blog-card__date">Feb 2026</span>
+                <span class="blog-card__read">Read <span class="arrow">→</span></span>
+              </span>
+            </span>
+          </a>
+          <a class="blog-card rise d1" href="#" data-category="wellness">
+            <span class="blog-card__cover"><span class="tex tex-moss"></span></span>
+            <span class="blog-card__body">
+              <span class="blog-card__kicker">Wellness</span>
+              <h3>Designing a bathroom that ages well</h3>
+              <p>The fittings worth spending on, and the ones where restraint pays off.</p>
+              <span class="blog-card__foot">
+                <span class="blog-card__date">Jan 2026</span>
+                <span class="blog-card__read">Read <span class="arrow">→</span></span>
+              </span>
+            </span>
+          </a>
+          <a class="blog-card rise d2" href="#" data-category="paints">
+            <span class="blog-card__cover"><span class="tex tex-beige"></span></span>
+            <span class="blog-card__body">
+              <span class="blog-card__kicker">Paints</span>
+              <h3>Why the right primer matters more than the colour</h3>
+              <p>What endures behind a finish, and the questions to ask before you commit.</p>
+              <span class="blog-card__foot">
+                <span class="blog-card__date">Jan 2026</span>
+                <span class="blog-card__read">Read <span class="arrow">→</span></span>
+              </span>
+            </span>
+          </a>
+          <a class="blog-card rise d3" href="#" data-category="plumbing">
+            <span class="blog-card__cover"><span class="tex tex-terra"></span></span>
+            <span class="blog-card__body">
+              <span class="blog-card__kicker">Plumbing</span>
+              <h3>Not all PVC pipes are meant for hot water</h3>
+              <p>Choosing the wrong pipe for the wrong application is the most common — and expensive — plumbing mistake.</p>
+              <span class="blog-card__foot">
+                <span class="blog-card__date">Dec 2025</span>
+                <span class="blog-card__read">Read <span class="arrow">→</span></span>
+              </span>
+            </span>
+          </a>
+          <a class="blog-card rise d4" href="#" data-category="guides">
+            <span class="blog-card__cover"><span class="tex tex-moss"></span></span>
+            <span class="blog-card__body">
+              <span class="blog-card__kicker">Guides</span>
+              <h3>Keeping natural stone pristine</h3>
+              <p>The gentle approach to cleaning and sealing marble, granite, and slate over decades.</p>
+              <span class="blog-card__foot">
+                <span class="blog-card__date">Nov 2025</span>
+                <span class="blog-card__read">Read <span class="arrow">→</span></span>
+              </span>
+            </span>
+          </a>
+          <a class="blog-card rise d5" href="#" data-category="tiles">
+            <span class="blog-card__cover"><span class="tex tex-onyx"></span></span>
+            <span class="blog-card__body">
+              <span class="blog-card__kicker">Tiles</span>
+              <h3>The return of terracotta</h3>
+              <p>Warmth, texture, and why earthy tones are making a sophisticated comeback in Kerala homes.</p>
+              <span class="blog-card__foot">
+                <span class="blog-card__date">Oct 2025</span>
+                <span class="blog-card__read">Read <span class="arrow">→</span></span>
+              </span>
+            </span>
+          </a>
+          <a class="blog-card rise hidden extra" href="#" data-category="wellness">
+            <span class="blog-card__cover"><span class="tex tex-beige"></span></span>
+            <span class="blog-card__body">
+              <span class="blog-card__kicker">Wellness</span>
+              <h3>Walk-in showers vs. bathtubs in Kerala</h3>
+              <p>Drainage, humidity, and the fittings that hold up in a tropical climate.</p>
+              <span class="blog-card__foot">
+                <span class="blog-card__date">Sep 2025</span>
+                <span class="blog-card__read">Read <span class="arrow">→</span></span>
+              </span>
+            </span>
+          </a>
+          <a class="blog-card rise hidden extra" href="#" data-category="paints">
+            <span class="blog-card__cover"><span class="tex tex-terra"></span></span>
+            <span class="blog-card__body">
+              <span class="blog-card__kicker">Paints</span>
+              <h3>Exterior paint that survives monsoon</h3>
+              <p>What to look for in elastomeric coatings and why surface prep matters more outdoors.</p>
+              <span class="blog-card__foot">
+                <span class="blog-card__date">Aug 2025</span>
+                <span class="blog-card__read">Read <span class="arrow">→</span></span>
+              </span>
+            </span>
+          </a>
+          <a class="blog-card rise hidden extra" href="#" data-category="guides">
+            <span class="blog-card__cover"><span class="tex tex-onyx"></span></span>
+            <span class="blog-card__body">
+              <span class="blog-card__kicker">Guides</span>
+              <h3>First visit to a tile showroom</h3>
+              <p>What to bring, what to ask, and how to leave with fewer regrets than samples.</p>
+              <span class="blog-card__foot">
+                <span class="blog-card__date">Jul 2025</span>
+                <span class="blog-card__read">Read <span class="arrow">→</span></span>
+              </span>
+            </span>
+          </a>
+        </div>
+
+        <div class="blog-load rise">
+          <button class="btn btn-ghost" id="loadMore" type="button">Load more articles</button>
+        </div>
+
+        <div class="news-strip rise">
+          <div>
+            <h3>Get the journal in your inbox</h3>
+            <p>One thoughtful note a month — no spam, just practical guidance from our advisors.</p>
+          </div>
+          <form class="news-strip-form" onsubmit="return false">
+            <input type="email" placeholder="Your email address" aria-label="Email"/>
+            <button type="submit">&rarr;</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="page-cta">
+      <div class="shell">
+        <h2 class="display rise">Need help deciding?</h2>
+        <p class="rise d1">Talk to an advisor who'll choose with you — based on your space, not the showroom light.</p>
+        <a href="contact.html" class="btn btn-primary rise d2">Get in touch <span class="arrow">→</span></a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="shell">
+      <div class="foot-crest">
+        <span class="fc-line"></span>
+        <a class="fc-mark" href="index.html" aria-label="Rajasthan Marbles"><svg viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="9" stroke-linejoin="miter"><path d="M14 14 H106 V92 L88 110"/><path d="M14 14 V92 L32 110 H88"/><path d="M40 92 V44 H62 a14 14 0 0 1 0 28 H40"/><path d="M58 70 L80 96"/><path d="M70 50 L86 70 V96"/></svg></a>
+        <span class="fc-line"></span>
+      </div>
+      <div class="foot-main">
+        <div class="fm-contact">
+          <div class="fm-phone"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 4h3l2 5-2.2 1.1a11 11 0 0 0 5.1 5.1L14 13l5 2v3a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg></span><div><b>Sales &amp; Guidance</b><a href="tel:9895227744">+91 98952 27744</a></div></div>
+          <div class="fm-phone"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3.5 7l8.5 6 8.5-6"/></svg></span><div><b>Email</b><a href="mailto:Sales@rajasthanmarbles.com">Sales@rajasthanmarbles.com</a></div></div>
+          <div class="fm-social">
+            <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/></svg></a>
+            <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M13.2 22v-8h2.6l.5-3h-3.1V9c0-.9.3-1.5 1.6-1.5h1.6V5c-.3 0-1.3-.1-2.3-.1-2.2 0-3.6 1.3-3.6 3.9V11H8v3h2.5v8z"/></svg></a>
+          </div>
+        </div>
+        <div class="fm-mid">
+          <span class="script">Arrival becomes belonging</span>
+          <small>Premium building materials · Since 1984</small>
+        </div>
+        <div class="fm-news">
+          <h5>Join the circle</h5>
+          <p>Seasonal collections and showroom news — a few times a year.</p>
+          <form class="news-form" onsubmit="return false"><input type="email" placeholder="Your email address"/><button type="submit">&rarr;</button></form>
+          <a class="brochure" href="#">Download catalogue (PDF) &rarr;</a>
+        </div>
+      </div>
+      <nav class="foot-nav">
+        <a href="index.html">Home</a><a href="index.html#categories">Collections</a><a href="blog.html">Journal</a><a href="about.html">About</a><a href="contact.html">Contact</a>
+      </nav>
+      <nav class="foot-sub"><a href="#">Disclaimer</a><a href="#">Privacy Policy</a><a href="#">Terms</a></nav>
+      <div class="foot-end">
+        <p>&copy; <span id="yr"></span> Rajasthan Marbles. All rights reserved.</p>
+        <span class="region">Kerala · India</span>
+      </div>
+    </div>
+    <button class="to-top" id="toTop" aria-label="Back to top">&uarr;</button>
+  </footer>
+
+  <script>
+    (function(){
+      "use strict";
+      var reduce=window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+      var header=document.getElementById('header');
+      function onScroll(){header.classList.toggle('docked',window.scrollY>40);}
+      onScroll();window.addEventListener('scroll',onScroll,{passive:true});
+
+      var burger=document.getElementById('burger'),drawer=document.getElementById('drawer'),drawerClose=document.getElementById('drawerClose');
+      function setMenu(open){drawer.classList.toggle('open',open);burger.setAttribute('aria-expanded',open);document.body.classList.toggle('locked',open);}
+      burger.addEventListener('click',function(){setMenu(!drawer.classList.contains('open'));});
+      if(drawerClose)drawerClose.addEventListener('click',function(){setMenu(false);});
+      drawer.querySelectorAll('.drawer-group>a').forEach(function(a){
+        a.addEventListener('click',function(e){if(window.innerWidth<=900){e.preventDefault();a.parentElement.classList.toggle('active');}});
+      });
+      drawer.querySelectorAll('.drawer-sub a,.drawer-nav>a').forEach(function(a){a.addEventListener('click',function(){setMenu(false);});});
+
+      var searchBtn=document.getElementById('searchBtn'),searchOv=document.getElementById('search'),searchClose=document.getElementById('searchClose'),searchInput=document.getElementById('searchInput');
+      if(searchBtn)searchBtn.addEventListener('click',function(){searchOv.classList.toggle('open');if(searchOv.classList.contains('open')&&searchInput)setTimeout(function(){searchInput.focus();},120);});
+      if(searchClose)searchClose.addEventListener('click',function(){searchOv.classList.remove('open');});
+      window.addEventListener('keydown',function(e){if(e.key==='Escape'){searchOv&&searchOv.classList.remove('open');setMenu(false);}});
+
+      var toTop=document.getElementById('toTop');
+      if(toTop){window.addEventListener('scroll',function(){toTop.classList.toggle('show',window.scrollY>600);},{passive:true});toTop.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'});});}
+
+      document.getElementById('yr').textContent=new Date().getFullYear();
+
+      // Scroll reveal
+      var rises=document.querySelectorAll('.rise:not(.in)');
+      if('IntersectionObserver' in window&&!reduce){
+        var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:0.05,rootMargin:'0px 0px -4% 0px'});
+        rises.forEach(function(el){io.observe(el);});
+      } else {rises.forEach(function(el){el.classList.add('in');});}
+
+      // Category filters
+      var filters=document.querySelectorAll('.blog-filter');
+      var cards=document.querySelectorAll('.blog-card[data-category]');
+      filters.forEach(function(btn){
+        btn.addEventListener('click',function(){
+          var cat=btn.getAttribute('data-filter');
+          filters.forEach(function(b){b.classList.toggle('active',b===btn);});
+          cards.forEach(function(card){
+            var show=cat==='all'||card.getAttribute('data-category')===cat;
+            if(show){card.classList.remove('hidden');card.classList.add('in');}
+            else{card.classList.add('hidden');}
+          });
+        });
+      });
+
+      // Load more
+      var loadBtn=document.getElementById('loadMore');
+      if(loadBtn){
+        loadBtn.addEventListener('click',function(){
+          document.querySelectorAll('.blog-card.extra').forEach(function(c){c.classList.remove('hidden','extra');c.classList.add('in');});
+          loadBtn.textContent='All articles loaded';
+          loadBtn.disabled=true;
+          loadBtn.style.opacity='.5';
+          loadBtn.style.cursor='default';
+        });
+      }
+    })();
+  </script>
+</body>
+</html>

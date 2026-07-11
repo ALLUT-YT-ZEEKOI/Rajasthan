@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Us — Rajasthan Marbles | Visit Our Showrooms</title>
+  <meta name="description" content="Get in touch with Rajasthan Marbles. Four experience centres across Kerala. Call, WhatsApp, or visit us for expert guidance on tiles, sanitaryware, paints and more." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=Hanken+Grotesk:wght@300;400;500;600;700&family=Pinyon+Script&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --ink:#0B0A09;--ink-1:#100E0C;--ink-2:#17130F;--ink-3:#211A14;
+      --crimson:#C92140;--crimson-deep:#9E172F;--gold:#C9A24A;--gold-lit:#E8CE8C;
+      --white:#FFF;--beige:#E9DEBC;--moss:#3D4A3F;--terracotta:#8F684E;
+      --paper:#F3EEE2;--paper-ink:#221C14;
+      --fog:rgba(233,222,188,.62);--fog-dim:rgba(233,222,188,.40);--line-dark:rgba(233,222,188,.14);
+      --display:'Archivo',system-ui,sans-serif;--body:'Hanken Grotesk',system-ui,sans-serif;--script:'Pinyon Script',cursive;
+      --shell:min(1280px,92vw);--ease:cubic-bezier(.22,.61,.36,1);--ease-out:cubic-bezier(.16,1,.3,1);
+    }
+    *{margin:0;padding:0;box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{background:var(--ink);color:var(--fog);font-family:var(--body);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+    body.locked{overflow:hidden;height:100vh}
+    a{color:inherit;text-decoration:none}
+    ::selection{background:var(--crimson);color:#fff}
+    body::after{content:"";position:fixed;inset:0;z-index:9990;pointer-events:none;opacity:.045;mix-blend-mode:overlay;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+
+    .eyebrow{font-family:var(--body);font-weight:600;font-size:.72rem;letter-spacing:.34em;text-transform:uppercase;color:var(--gold);display:inline-flex;align-items:center;gap:.8em}
+    .eyebrow::before{content:"";width:26px;height:1px;background:var(--gold);opacity:.6}
+    .eyebrow.center::after{content:"";width:26px;height:1px;background:var(--gold);opacity:.6}
+    .display{font-family:var(--display);font-weight:800;line-height:.96;letter-spacing:-.01em;text-transform:uppercase;color:var(--white)}
+    .script{font-family:var(--script);text-transform:none;letter-spacing:0;color:var(--gold-lit)}
+    h1.display{font-size:clamp(2.6rem,7.4vw,6.4rem)}
+    h2.display{font-size:clamp(2rem,4.6vw,3.9rem)}
+    .shell{width:var(--shell);margin-inline:auto}
+    .band{padding-block:clamp(5rem,11vh,9rem)}
+    [id]{scroll-margin-top:94px}
+
+    .rise{opacity:0;transform:translateY(30px);transition:opacity .85s var(--ease-out),transform .85s var(--ease-out)}
+    .rise.in{opacity:1;transform:none}
+    .rise.d1{transition-delay:.08s}.rise.d2{transition-delay:.16s}.rise.d3{transition-delay:.24s}.rise.d4{transition-delay:.32s}
+
+    /* HEADER */
+    header{position:fixed;top:0;left:0;right:0;z-index:900}
+    .util{background:rgba(8,7,6,.96);border-bottom:1px solid var(--line-dark);backdrop-filter:blur(8px);overflow:hidden;max-height:46px;transition:max-height .45s var(--ease),opacity .35s ease}
+    header.docked .util{max-height:0;opacity:0;border-color:transparent}
+    .util-in{display:flex;align-items:center;justify-content:space-between;height:46px}
+    .util-left{font-size:.62rem;letter-spacing:.26em;text-transform:uppercase;color:var(--fog-dim)}
+    .util-right{display:flex;align-items:center;gap:1.7rem}
+    .util-right a{font-size:.64rem;letter-spacing:.16em;text-transform:uppercase;color:var(--fog);display:inline-flex;align-items:center;gap:.55em;transition:color .3s}
+    .util-right a:hover{color:var(--gold)}
+    .util-right svg{width:13px;height:13px;color:var(--gold)}
+    .bar{background:rgba(11,10,9,.96);backdrop-filter:blur(14px);border-bottom:1px solid var(--line-dark);transition:background .4s}
+    header.docked .bar{background:rgba(11,10,9,.88)}
+    .bar-in{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:1.15rem 0;transition:padding .4s}
+    header.docked .bar-in{padding:.66rem 0}
+    .menu-btn{justify-self:start;display:inline-flex;align-items:center;gap:.75rem;background:none;border:0;cursor:pointer;color:var(--beige);padding:.4rem 0}
+    .menu-btn .ml{display:flex;flex-direction:column;gap:4px;width:22px}
+    .menu-btn .ml span{height:1.5px;background:var(--beige);transition:.35s var(--ease)}
+    .menu-btn .ml span:nth-child(2){width:64%}
+    .menu-btn:hover .ml span{background:var(--gold)}
+    .menu-btn em{font-style:normal;font-size:.7rem;letter-spacing:.24em;text-transform:uppercase;font-weight:600}
+    .brand-center{justify-self:center;display:flex;flex-direction:column;align-items:center;gap:.5rem;color:#fff}
+    .brand-center svg{width:30px;height:30px;color:var(--crimson);transition:color .4s}
+    header.docked .brand-center svg{color:var(--gold)}
+    .brand-center .wm b{font-family:var(--display);font-weight:800;font-size:1rem;letter-spacing:.34em;text-indent:.34em;text-transform:uppercase}
+    .brand-center .wm span{font-size:.5rem;letter-spacing:.5em;text-indent:.5em;color:var(--gold);margin-top:.42rem}
+    .bar-right{justify-self:end;display:flex;align-items:center;gap:1.2rem}
+    .ic-btn{background:none;border:0;cursor:pointer;color:var(--beige);padding:.3rem;transition:color .3s}
+    .ic-btn:hover{color:var(--gold)}
+    .ic-btn svg{width:19px;height:19px}
+    .nav-cta{font-weight:600;font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:#fff;border:1px solid var(--crimson);background:var(--crimson);padding:.7rem 1.3rem;border-radius:2px;transition:.35s var(--ease);white-space:nowrap}
+    .nav-cta:hover{background:transparent;color:var(--crimson)}
+
+    #search{position:fixed;top:0;left:0;right:0;z-index:905;background:rgba(11,10,9,.97);backdrop-filter:blur(16px);border-bottom:1px solid var(--line-dark);transform:translateY(-100%);transition:transform .45s var(--ease);padding:2.2rem 0 1.8rem}
+    #search.open{transform:none}
+    .search-in{display:flex;align-items:center;gap:1rem;border-bottom:1px solid var(--ink-3);padding-bottom:1rem}
+    .search-in svg{width:22px;height:22px;color:var(--gold);flex:none}
+    .search-in input{flex:1;background:none;border:0;color:#fff;font-family:var(--display);font-weight:700;font-size:clamp(1.1rem,3vw,1.9rem);text-transform:uppercase}
+    .search-in input:focus{outline:none}
+    .search-close{background:none;border:0;color:var(--fog);cursor:pointer;font-size:1.5rem}
+    .search-hint{margin-top:.9rem;font-size:.64rem;letter-spacing:.2em;text-transform:uppercase;color:var(--fog-dim)}
+
+    #drawer{position:fixed;inset:0;z-index:950;background:radial-gradient(120% 90% at 50% 0%,#15110c,#080706 70%);transform:translateY(-100%);transition:transform .6s var(--ease);overflow:auto}
+    #drawer.open{transform:none}
+    .drawer-close{position:absolute;top:1.4rem;right:clamp(1.1rem,3vw,2.4rem);width:46px;height:46px;border:1px solid var(--line-dark);border-radius:50%;background:none;color:var(--beige);font-size:1.4rem;cursor:pointer;z-index:2}
+    .drawer-in{min-height:100%;display:grid;grid-template-columns:1.6fr 1fr;gap:3rem;align-items:center;width:var(--shell);margin-inline:auto;padding:6.5rem 0 3rem}
+    .drawer-nav{display:flex;flex-direction:column;gap:.25rem}
+    .drawer-nav a{display:flex;align-items:baseline;gap:1.2rem;font-family:var(--display);font-weight:800;text-transform:uppercase;font-size:clamp(1.7rem,4.4vw,3rem);color:var(--beige);transition:.4s var(--ease)}
+    .drawer-nav a .dn{font-family:var(--body);font-size:.78rem;font-weight:600;letter-spacing:.2em;color:var(--gold)}
+    .drawer-group>a::after{content:'+';margin-left:auto;color:var(--fog-dim);transition:transform .4s}
+    .drawer-group:hover>a::after,.drawer-group.active>a::after{transform:rotate(45deg);color:var(--gold)}
+    .drawer-nav a:hover{color:#fff;padding-left:.7rem}
+    .drawer-sub{display:flex;flex-direction:column;gap:.12rem;padding:0 0 0 3.35rem;max-height:0;overflow:hidden;opacity:0;transition:max-height .6s var(--ease),opacity .4s,padding .6s}
+    .drawer-group:hover .drawer-sub,.drawer-group.active .drawer-sub{max-height:400px;padding-top:.4rem;padding-bottom:.35rem;opacity:1}
+    .drawer-sub a{font-size:clamp(1.4rem,3.5vw,2.4rem);color:var(--fog)}
+    .drawer-sub a .sub-note{font-family:var(--body);font-size:.45em;color:var(--fog-dim);font-weight:600;text-transform:none;display:block}
+    .drawer-aside{border-left:1px solid var(--ink-3);padding-left:clamp(1.5rem,3vw,3rem);display:grid;gap:1.5rem}
+    .da-block b{display:block;font-size:.6rem;letter-spacing:.24em;text-transform:uppercase;color:var(--fog-dim);margin-bottom:.4rem}
+    .da-block a,.da-block span{color:#fff;font-size:1.02rem}
+    .da-social{display:flex;gap:.7rem;margin-top:.2rem}
+    .da-social a{width:40px;height:40px;border:1px solid var(--line-dark);border-radius:50%;display:grid;place-items:center;color:var(--beige);transition:.3s}
+    .da-social a:hover{border-color:var(--gold);color:var(--gold)}
+    .da-social svg{width:16px;height:16px}
+
+    .btn{display:inline-flex;align-items:center;gap:.7rem;font-weight:600;font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;padding:1rem 1.7rem;border-radius:2px;transition:.4s var(--ease);cursor:pointer;border:1px solid transparent}
+    .btn-primary{background:var(--crimson);color:#fff}
+    .btn-primary:hover{background:var(--crimson-deep)}
+    .btn-ghost{border-color:var(--line-dark);color:var(--beige)}
+    .btn-ghost:hover{border-color:var(--gold);color:var(--gold)}
+    .btn .arrow{transition:transform .4s var(--ease)}
+    .btn:hover .arrow{transform:translateX(5px)}
+
+    /* PAGE HERO */
+    .page-hero{position:relative;padding-top:clamp(9rem,18vh,13rem);padding-bottom:clamp(3rem,7vh,5rem);overflow:hidden;isolation:isolate}
+    .page-hero-bg{position:absolute;inset:0;z-index:-2;background:radial-gradient(90% 60% at 50% -6%,rgba(201,162,74,.18),transparent 55%),radial-gradient(70% 50% at 78% 18%,rgba(201,33,64,.10),transparent 60%),linear-gradient(180deg,#0d0b09,#0b0a09 46%,#070605)}
+    .page-hero-marble{position:absolute;inset:0;z-index:-1;opacity:.4;mix-blend-mode:screen;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1200' height='800'%3E%3Cfilter id='v'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.006 .016' numOctaves='5' seed='3'/%3E%3CfeColorMatrix values='0 0 0 0 .9 0 0 0 0 .78 0 0 0 0 .5 0 0 0 .6 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23v)' opacity='.10'/%3E%3C/svg%3E")}
+    .page-hero-arch{position:absolute;top:50%;left:50%;translate:-50% -50%;z-index:-1;width:min(1100px,150vw);opacity:.35}
+    .page-hero-arch path{fill:none;stroke:var(--line-dark);stroke-width:1.5}
+    .page-hero-arch .lit{stroke:rgba(201,162,74,.25)}
+    .ph-label{font-size:.68rem;letter-spacing:.4em;text-transform:uppercase;color:var(--gold);display:flex;align-items:center;gap:.8em;margin-bottom:1.5rem}
+    .ph-label::before{content:"";width:26px;height:1px;background:var(--gold);opacity:.6}
+    .page-hero h1{max-width:16ch}
+    .page-hero .sub{margin-top:1.8rem;max-width:46ch;color:var(--fog);font-size:clamp(1rem,1.5vw,1.2rem);line-height:1.7}
+    .scrollcue{display:inline-flex;flex-direction:column;align-items:center;gap:.7rem;font-size:.6rem;letter-spacing:.4em;text-transform:uppercase;color:var(--fog-dim);margin-top:3rem}
+    .scrollcue .rail{width:1px;height:46px;background:linear-gradient(var(--gold),transparent);position:relative;overflow:hidden}
+    .scrollcue .rail::after{content:"";position:absolute;top:-50%;left:0;width:100%;height:50%;background:var(--gold);animation:fall 2s var(--ease) infinite}
+    @keyframes fall{0%{top:-50%}100%{top:120%}}
+
+    /* QUICK CONTACT */
+    .quick-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--ink-3);border:1px solid var(--ink-3);margin-top:-2rem;position:relative;z-index:2}
+    .quick-card{background:var(--ink-1);padding:2rem 1.6rem;text-align:center;transition:.45s var(--ease)}
+    .quick-card:hover{background:var(--ink-2);transform:translateY(-4px)}
+    .quick-card .ico{width:44px;height:44px;border:1px solid var(--line-dark);border-radius:50%;display:grid;place-items:center;margin:0 auto 1rem;color:var(--gold);font-size:1.1rem}
+    .quick-card .lab{font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--fog-dim);margin-bottom:.4rem}
+    .quick-card b{font-family:var(--display);font-size:.85rem;font-weight:700;color:#fff;letter-spacing:.04em}
+
+    /* FORM + INFO */
+    .contact-split{display:grid;grid-template-columns:1fr 1.05fr;gap:clamp(2rem,4vw,3.5rem);align-items:start}
+    .form-card{background:var(--ink-1);border:1px solid var(--ink-3);padding:clamp(2rem,3vw,2.8rem)}
+    .form-card h3{font-family:var(--display);font-weight:800;text-transform:uppercase;color:#fff;font-size:1.2rem;margin-bottom:.5rem}
+    .form-card .hint{font-size:.88rem;color:var(--fog-dim);margin-bottom:1.8rem;line-height:1.65}
+    .field{margin-bottom:1.15rem}
+    .field label{display:block;font-size:.65rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--fog-dim);margin-bottom:.5rem}
+    .field input,.field textarea,.field select{width:100%;background:rgba(255,255,255,.03);border:1px solid var(--ink-3);border-radius:2px;padding:.95rem 1rem;color:#fff;font-family:var(--body);font-size:.95rem;transition:border-color .3s,box-shadow .3s}
+    .field input:focus,.field textarea:focus,.field select:focus{outline:none;border-color:rgba(201,162,74,.45);box-shadow:0 0 0 3px rgba(201,162,74,.08)}
+    .field-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+    .chips{display:flex;flex-wrap:wrap;gap:.5rem}
+    .chip{padding:.55rem 1rem;border:1px solid var(--ink-3);border-radius:100px;font-size:.68rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--fog-dim);cursor:pointer;transition:.35s var(--ease);background:transparent}
+    .chip.sel,.chip:hover{border-color:var(--gold);color:var(--gold);background:rgba(201,162,74,.08)}
+    .form-note{margin-top:1rem;font-size:.78rem;color:var(--fog-dim);text-align:center}
+
+    .info-panel h2{font-size:clamp(1.4rem,3vw,2rem);margin-bottom:1.5rem}
+    .info-box{background:var(--ink-1);border:1px solid var(--ink-3);padding:1.8rem;margin-bottom:1.5rem}
+    .info-row{display:flex;gap:1rem;padding:1rem 0;border-bottom:1px solid var(--ink-3)}
+    .info-row:last-child{border-bottom:0;padding-bottom:0}
+    .info-row .ic{flex:none;width:36px;height:36px;border:1px solid var(--ink-3);border-radius:50%;display:grid;place-items:center;color:var(--gold);font-size:.85rem}
+    .info-row b{display:block;font-family:var(--display);font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#fff;margin-bottom:.2rem}
+    .info-row p,.info-row a{font-size:.9rem;color:var(--fog-dim);line-height:1.6}
+    .info-row a:hover{color:var(--gold)}
+
+    /* SHOWROOMS */
+    .showrooms-section{background:var(--ink-1);border-block:1px solid var(--ink-3)}
+    .sr-head{text-align:center;margin-bottom:3rem}
+    .sr-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem}
+    .sr-card{padding:2.5rem;border:1px solid var(--ink-3);background:var(--ink-2);transition:.5s var(--ease);cursor:pointer;position:relative;overflow:hidden}
+    .sr-card::before{content:"";position:absolute;top:0;left:0;width:3px;height:100%;background:linear-gradient(180deg,var(--gold),transparent);opacity:0;transition:opacity .5s}
+    .sr-card:hover,.sr-card.active{border-color:rgba(201,162,74,.4);transform:translateX(4px)}
+    .sr-card:hover::before,.sr-card.active::before{opacity:1}
+    .sr-card .sr-num{font-family:var(--display);font-weight:700;font-size:.68rem;letter-spacing:.22em;color:var(--gold);margin-bottom:1rem}
+    .sr-card h4{font-family:var(--display);font-weight:800;text-transform:uppercase;color:#fff;font-size:1.2rem;margin-bottom:.6rem}
+    .sr-card .sr-addr{font-size:.9rem;color:var(--fog);line-height:1.6;margin-bottom:1rem}
+    .sr-card .sr-hours{font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;color:var(--fog-dim)}
+    .sr-card .sr-tag{display:inline-block;margin-top:1rem;font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--crimson);border:1px solid rgba(201,33,64,.3);padding:.3rem .8rem}
+
+    /* MAP */
+    .map-wrap{width:100%;height:clamp(280px,40vw,420px);border:1px solid var(--ink-3);overflow:hidden;position:relative;background:var(--ink-1)}
+    .map-wrap iframe{width:100%;height:100%;border:0;filter:grayscale(.85) contrast(1.1) brightness(.75)}
+    .map-overlay{position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(11,10,9,.12),transparent 30%,transparent 70%,rgba(11,10,9,.2))}
+
+    /* FAQ */
+    .faq-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:2.5rem}
+    .faq-item{border:1px solid var(--ink-3);background:var(--ink-1);padding:1.5rem 1.6rem;transition:.4s var(--ease)}
+    .faq-item:hover{border-color:rgba(201,162,74,.3)}
+    .faq-item h4{font-family:var(--display);font-weight:700;font-size:.9rem;color:#fff;text-transform:uppercase;letter-spacing:.04em;margin-bottom:.5rem}
+    .faq-item p{font-size:.86rem;color:var(--fog-dim);line-height:1.65}
+
+    /* FOOTER */
+    footer{position:relative;background:var(--ink-1);border-top:1px solid var(--ink-3);padding-block:3.4rem 2rem}
+    .foot-crest{display:flex;align-items:center;gap:1.6rem;margin-bottom:3rem}
+    .foot-crest .fc-line{flex:1;height:1px;background:var(--line-dark)}
+    .foot-crest .fc-mark{width:86px;height:86px;border:1px solid var(--line-dark);border-radius:50%;display:grid;place-items:center;background:radial-gradient(closest-side,rgba(201,162,74,.10),transparent)}
+    .foot-crest .fc-mark svg{width:40px;height:40px;color:var(--gold)}
+    .foot-main{display:grid;grid-template-columns:1fr 1fr 1fr;gap:2.4rem;padding-bottom:2.6rem}
+    .fm-contact{display:grid;gap:1.4rem}
+    .fm-phone{display:flex;gap:.9rem}
+    .fm-phone .ic{width:38px;height:38px;border:1px solid var(--line-dark);border-radius:50%;display:grid;place-items:center;color:var(--gold);flex:none}
+    .fm-phone .ic svg{width:16px;height:16px}
+    .fm-phone b{display:block;font-size:.6rem;letter-spacing:.22em;text-transform:uppercase;color:var(--fog-dim);margin-bottom:.25rem}
+    .fm-phone a{color:#fff;font-size:1.02rem}
+    .fm-phone a:hover{color:var(--gold)}
+    .fm-social{display:flex;gap:.65rem}
+    .fm-social a{width:38px;height:38px;border:1px solid var(--line-dark);border-radius:50%;display:grid;place-items:center;color:var(--beige);transition:.3s}
+    .fm-social a:hover{border-color:var(--gold);color:var(--gold)}
+    .fm-social svg{width:15px;height:15px}
+    .fm-mid{text-align:center;align-self:center;padding:0 1.2rem;border-inline:1px solid var(--ink-3)}
+    .fm-mid .script{font-size:clamp(1.6rem,3vw,2.2rem);line-height:1.05;display:block}
+    .fm-mid small{display:block;margin-top:.7rem;font-size:.6rem;letter-spacing:.26em;text-transform:uppercase;color:var(--fog-dim)}
+    .fm-news h5{font-family:var(--display);font-weight:800;text-transform:uppercase;color:#fff;font-size:1rem;margin-bottom:.5rem}
+    .fm-news p{font-size:.82rem;color:var(--fog-dim);margin-bottom:1rem}
+    .news-form{display:flex;border:1px solid var(--ink-3);border-radius:3px;overflow:hidden;background:var(--ink-2)}
+    .news-form input{flex:1;background:none;border:0;color:#fff;padding:.8rem 1rem;font-family:var(--body)}
+    .news-form button{background:var(--crimson);border:0;color:#fff;padding:0 1.15rem;cursor:pointer}
+    .brochure{display:inline-flex;margin-top:1rem;font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);font-weight:600}
+    .foot-nav{display:flex;flex-wrap:wrap;justify-content:center;gap:.6rem 1.8rem;padding:2.1rem 0 1.1rem;border-top:1px solid var(--ink-3)}
+    .foot-nav a{font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;color:var(--fog);transition:color .3s}
+    .foot-nav a:hover{color:var(--gold)}
+    .foot-sub{display:flex;flex-wrap:wrap;justify-content:center;gap:.5rem 1.4rem;padding-bottom:1.5rem}
+    .foot-sub a{font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;color:var(--fog-dim)}
+    .foot-end{display:flex;justify-content:space-between;align-items:center;padding-top:1.5rem;border-top:1px solid var(--ink-3);flex-wrap:wrap;gap:1rem}
+    .foot-end p{font-size:.72rem;color:var(--fog-dim)}
+    .foot-end .region{font-size:.64rem;letter-spacing:.2em;text-transform:uppercase;color:var(--beige);border:1px solid var(--line-dark);padding:.45rem .9rem}
+    .to-top{position:fixed;right:clamp(1rem,3vw,2rem);bottom:clamp(1rem,3vw,2rem);z-index:800;width:46px;height:46px;border-radius:50%;border:1px solid var(--line-dark);background:rgba(11,10,9,.82);color:var(--gold);cursor:pointer;opacity:0;transform:translateY(12px);transition:.4s var(--ease)}
+    .to-top.show{opacity:1;transform:none}
+    .to-top:hover{border-color:var(--gold);background:var(--gold);color:var(--ink)}
+
+    @media(max-width:1024px){
+      .quick-grid{grid-template-columns:repeat(2,1fr)}
+      .contact-split{grid-template-columns:1fr}
+      .sr-grid,.faq-grid{grid-template-columns:1fr}
+      .foot-main{grid-template-columns:1fr 1fr}
+    }
+    @media(max-width:760px){
+      .util,.nav-cta{display:none}
+      .quick-grid{grid-template-columns:1fr}
+      .field-row{grid-template-columns:1fr}
+      .foot-main{grid-template-columns:1fr}
+      .fm-mid{border-inline:0;border-block:1px solid var(--ink-3);padding-block:1.5rem}
+      .drawer-in{grid-template-columns:1fr;padding:5rem 1.5rem 2rem!important}
+      .drawer-aside{border-left:0;border-top:1px solid var(--ink-3);padding-left:0;padding-top:2rem}
+    }
+    @media(prefers-reduced-motion:reduce){*{animation-duration:.001s!important;transition-duration:.001s!important}.rise{opacity:1;transform:none}}
+  </style>
+</head>
+<body>
+
+  <header id="header">
+    <div class="util">
+      <div class="shell util-in">
+        <span class="util-left">Four experience centres across Kochi &amp; Ernakulam</span>
+        <div class="util-right">
+          <a href="contact.html">Request a Call Back</a>
+          <a href="tel:9895227744"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 4h3l2 5-2.2 1.1a11 11 0 0 0 5.1 5.1L14 13l5 2v3a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg>Call Us · 98952 27744</a>
+          <a href="contact.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 22s7-6.5 7-12A7 7 0 0 0 5 10c0 5.5 7 12 7 12z"/><circle cx="12" cy="10" r="2.4"/></svg>Store Locator</a>
+        </div>
+      </div>
+    </div>
+    <div class="bar">
+      <div class="shell bar-in">
+        <button class="menu-btn" id="burger" aria-label="Open menu" aria-expanded="false">
+          <span class="ml"><span></span><span></span><span></span></span><em>Menu</em>
+        </button>
+        <a class="brand brand-center" href="index.html" aria-label="Rajasthan Marbles home">
+          <svg viewBox="0 0 120 120" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="9" stroke-linejoin="miter">
+            <path d="M14 14 H106 V92 L88 110"/><path d="M14 14 V92 L32 110 H88"/>
+            <path d="M40 92 V44 H62 a14 14 0 0 1 0 28 H40"/><path d="M58 70 L80 96"/><path d="M70 50 L86 70 V96"/>
+          </svg>
+          <span class="wm"><b>Rajasthan Marbles</b><span>Since 1984</span></span>
+        </a>
+        <div class="bar-right">
+          <button class="ic-btn" id="searchBtn" aria-label="Search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg></button>
+          <a href="contact.html" class="nav-cta">Visit Showroom</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div id="search">
+    <div class="shell">
+      <div class="search-in">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+        <input id="searchInput" type="text" placeholder="Search collections, brands, showrooms…"/>
+        <button class="search-close" id="searchClose" aria-label="Close">&times;</button>
+      </div>
+      <p class="search-hint">Try &ldquo;showroom&rdquo;, &ldquo;Kadamattom&rdquo;, &ldquo;tiles&rdquo;, &ldquo;contact&rdquo;</p>
+    </div>
+  </div>
+
+  <div id="drawer">
+    <button class="drawer-close" id="drawerClose" aria-label="Close menu">&times;</button>
+    <div class="drawer-in">
+      <nav class="drawer-nav" aria-label="Menu">
+        <a href="index.html"><span class="dn">01</span>Home</a>
+        <div class="drawer-group">
+          <a href="index.html#paths"><span class="dn">02</span>Applications</a>
+          <div class="drawer-sub">
+            <a href="rajasthan-marbles-residential.html">Residential</a>
+            <a href="Commercial-&-Govt-Institutions.html">Commercial &amp; Govt.</a>
+            <a href="Hospitality.html">Hospitality<span class="sub-note">(hotels, resorts, restaurants)</span></a>
+          </div>
+        </div>
+        <div class="drawer-group">
+          <a href="index.html#categories"><span class="dn">03</span>Materials</a>
+          <div class="drawer-sub">
+            <a href="rajasthan-marbles-tiles.html">Tiles</a>
+            <a href="Sanitaryware.html">Sanitaryware</a>
+            <a href="Paints-Coatings.html">Paints &amp; Coatings</a>
+            <a href="Kitchen-Accessories.html">Kitchen Accessories</a>
+            <a href="PVC-Pipes.html">PVC Pipes</a>
+          </div>
+        </div>
+        <a href="blog.html"><span class="dn">04</span>Blog</a>
+        <a href="about.html"><span class="dn">05</span>About Us</a>
+        <a href="contact.html" style="color:var(--gold)"><span class="dn">06</span>Contact Us</a>
+      </nav>
+      <aside class="drawer-aside">
+        <div class="da-block"><b>Call</b><a href="tel:9895227744">+91 98952 27744</a></div>
+        <div class="da-block"><b>Email</b><a href="mailto:Sales@rajasthanmarbles.com">Sales@rajasthanmarbles.com</a></div>
+        <div class="da-block"><b>Visit</b><span>Kadamattom, Ernakulam, Kerala</span></div>
+        <div class="da-block"><b>Follow</b>
+          <div class="da-social">
+            <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/></svg></a>
+            <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M13.2 22v-8h2.6l.5-3h-3.1V9c0-.9.3-1.5 1.6-1.5h1.6V5c-.3 0-1.3-.1-2.3-.1-2.2 0-3.6 1.3-3.6 3.9V11H8v3h2.5v8z"/></svg></a>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </div>
+
+  <main id="top">
+
+    <!-- HERO -->
+    <section class="page-hero">
+      <div class="page-hero-bg"></div>
+      <div class="page-hero-marble"></div>
+      <svg class="page-hero-arch" viewBox="0 0 1200 760" aria-hidden="true">
+        <path class="lit" d="M150 760 V360 a450 450 0 0 1 900 0 V760"/>
+        <path d="M270 760 V370 a330 330 0 0 1 660 0 V760"/>
+        <path d="M390 760 V380 a210 210 0 0 1 420 0 V760"/>
+      </svg>
+      <div class="shell">
+        <p class="ph-label rise in">Contact Us</p>
+        <h1 class="display rise in d1" style="margin-top:1rem">Let's discuss your<br><span style="color:var(--gold)">next project.</span></h1>
+        <p class="sub rise in d2">Every project begins with a decision — and the right material makes all the difference. Reach out and we'll connect you with the right advisor.</p>
+        <a href="#form" class="scrollcue rise in d3" aria-label="Scroll down">
+          <span>Get in touch</span><span class="rail"></span>
+        </a>
+      </div>
+    </section>
+
+    <!-- QUICK CONTACT -->
+    <section class="band" style="padding-top:0;padding-bottom:0">
+      <div class="shell">
+        <div class="quick-grid">
+          <a href="tel:9895227744" class="quick-card rise">
+            <div class="ico">☎</div>
+            <div class="lab">Call us</div>
+            <b>98952 27744</b>
+          </a>
+          <a href="https://wa.me/919895227744" class="quick-card rise d1" target="_blank" rel="noopener">
+            <div class="ico">💬</div>
+            <div class="lab">WhatsApp</div>
+            <b>Chat with us</b>
+          </a>
+          <a href="mailto:Sales@rajasthanmarbles.com" class="quick-card rise d2">
+            <div class="ico">✉</div>
+            <div class="lab">Email</div>
+            <b>Sales@rajasthanmarbles.com</b>
+          </a>
+          <a href="#showrooms" class="quick-card rise d3">
+            <div class="ico">◷</div>
+            <div class="lab">Visit</div>
+            <b>4 showrooms</b>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- FORM -->
+    <section class="band" id="form">
+      <div class="shell contact-split">
+        <div class="form-card rise">
+          <h3>Tell us what you're building</h3>
+          <p class="hint">Share a few details and the right advisor will be in touch — no pressure, just guidance.</p>
+          <form id="contactForm" onsubmit="return false">
+            <div class="field">
+              <label>I am</label>
+              <div class="chips" id="roleChips">
+                <span class="chip sel" data-role="home">Building a home</span>
+                <span class="chip" data-role="reno">Renovating</span>
+                <span class="chip" data-role="project">A project</span>
+                <span class="chip" data-role="trade">Trade / Contractor</span>
+              </div>
+            </div>
+            <div class="field"><label>Full name</label><input type="text" placeholder="e.g. Arun Nair" required /></div>
+            <div class="field-row">
+              <div class="field"><label>Email</label><input type="email" placeholder="you@email.com" /></div>
+              <div class="field"><label>Phone</label><input type="tel" placeholder="+91 98XXX XXXXX" required /></div>
+            </div>
+            <div class="field"><label>Preferred showroom</label>
+              <select>
+                <option>Kadamattom (Head Office)</option>
+                <option>Kothamangalam</option>
+                <option>Kalamassery</option>
+                <option>Adimali</option>
+              </select>
+            </div>
+            <div class="field"><label>What do you need help with?</label>
+              <textarea rows="4" placeholder="Tiles for a 3BHK, full bathroom fit-out, exterior paint for a villa…"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;border:none">Request guidance <span class="arrow">→</span></button>
+            <p class="form-note">Dummy form — connects to your backend later. We aim to respond within 24 hours.</p>
+          </form>
+        </div>
+
+        <div class="info-panel">
+          <h2 class="display rise">Head office</h2>
+          <div class="info-box rise d1">
+            <div class="info-row">
+              <span class="ic">◷</span>
+              <div><b>Address</b><p>Rajasthan Marbles<br>MC Road, Kadamattom<br>Ernakulam, Kerala — 682311</p></div>
+            </div>
+            <div class="info-row">
+              <span class="ic">☎</span>
+              <div><b>Phone</b><a href="tel:9895227744">+91 98952 27744</a></div>
+            </div>
+            <div class="info-row">
+              <span class="ic">✉</span>
+              <div><b>Email</b><a href="mailto:Sales@rajasthanmarbles.com">Sales@rajasthanmarbles.com</a></div>
+            </div>
+            <div class="info-row">
+              <span class="ic">⌚</span>
+              <div><b>Hours</b><p>Monday – Saturday: 9:00 AM – 7:00 PM<br>Sunday: Closed</p></div>
+            </div>
+          </div>
+          <div class="info-box rise d2">
+            <div class="info-row">
+              <span class="ic">👤</span>
+              <div><b>Your advisor</b><p>Rahul Menon — Senior Material Consultant<br>Specialises in tiles &amp; wet-area planning</p></div>
+            </div>
+            <div class="info-row">
+              <span class="ic">📋</span>
+              <div><b>Trade enquiries</b><p>projects@rajasthanmarbles.com<br>For bulk orders &amp; site supply</p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SHOWROOMS -->
+    <section class="showrooms-section band" id="showrooms">
+      <div class="shell">
+        <div class="sr-head">
+          <p class="eyebrow center rise">Experience centres</p>
+          <h2 class="display rise d1" style="margin-top:1.2rem">Visit us in person.</h2>
+          <p class="sub rise d2" style="margin:1rem auto 0;max-width:48ch;text-align:center">See, touch, and compare — guided by people who help you decide with confidence.</p>
+        </div>
+        <div class="sr-grid">
+          <div class="sr-card rise active" data-map="https://maps.google.com/maps?q=Kadamattom,Ernakulam,Kerala&output=embed">
+            <div class="sr-num">01 — Flagship</div>
+            <h4>Kadamattom</h4>
+            <p class="sr-addr">MC Road, Kadamattom<br>Ernakulam District, Kerala</p>
+            <div class="sr-hours">Mon – Sat · 9 AM – 7 PM</div>
+            <span class="sr-tag">Head showroom</span>
+          </div>
+          <div class="sr-card rise d1" data-map="https://maps.google.com/maps?q=Kothamangalam,Kerala&output=embed">
+            <div class="sr-num">02</div>
+            <h4>Kothamangalam</h4>
+            <p class="sr-addr">Main Road, Kothamangalam<br>Eastern Ernakulam</p>
+            <div class="sr-hours">Mon – Sat · 9 AM – 7 PM</div>
+            <a href="tel:9895227744" class="sr-tag">+91 98952 27744</a>
+          </div>
+          <div class="sr-card rise d2" data-map="https://maps.google.com/maps?q=Kalamassery,Kerala&output=embed">
+            <div class="sr-num">03</div>
+            <h4>Kalamassery</h4>
+            <p class="sr-addr">NH Bypass, Kalamassery<br>Kochi Metro Region</p>
+            <div class="sr-hours">Mon – Sat · 9 AM – 7 PM</div>
+            <a href="tel:9895227744" class="sr-tag">+91 98952 27744</a>
+          </div>
+          <div class="sr-card rise d3" data-map="https://maps.google.com/maps?q=Adimali,Kerala&output=embed">
+            <div class="sr-num">04</div>
+            <h4>Adimali</h4>
+            <p class="sr-addr">Adimali Town, Idukki<br>High Range Region</p>
+            <div class="sr-hours">Mon – Sat · 9 AM – 7 PM</div>
+            <a href="tel:9895227744" class="sr-tag">+91 98952 27744</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MAP -->
+    <section class="band" style="padding-top:0">
+      <div class="shell">
+        <div class="map-wrap rise">
+          <iframe id="mapFrame" title="Rajasthan Marbles showroom map" loading="lazy" src="https://maps.google.com/maps?q=Kadamattom,Ernakulam,Kerala&output=embed"></iframe>
+          <span class="map-overlay"></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="band" style="background:var(--ink-1);border-top:1px solid var(--ink-3)">
+      <div class="shell">
+        <p class="eyebrow center rise">Common questions</p>
+        <h2 class="display rise d1" style="margin-top:1.2rem;text-align:center">Before you visit.</h2>
+        <div class="faq-grid">
+          <div class="faq-item rise">
+            <h4>Do I need an appointment?</h4>
+            <p>No — walk-ins are welcome. For large projects or trade enquiries, calling ahead helps us assign the right advisor.</p>
+          </div>
+          <div class="faq-item rise d1">
+            <h4>Can you deliver to my site?</h4>
+            <p>Yes. We supply across Ernakulam and neighbouring districts. Delivery timelines depend on product availability.</p>
+          </div>
+          <div class="faq-item rise d2">
+            <h4>Do you offer design advice?</h4>
+            <p>Our advisors help you choose materials for your space — not full interior design, but honest guidance on what works.</p>
+          </div>
+          <div class="faq-item rise d3">
+            <h4>What should I bring?</h4>
+            <p>Floor plans, room dimensions, and photos of your space help us recommend faster. Samples of existing finishes are useful too.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="shell">
+      <div class="foot-crest">
+        <span class="fc-line"></span>
+        <a class="fc-mark" href="index.html" aria-label="Rajasthan Marbles"><svg viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="9" stroke-linejoin="miter"><path d="M14 14 H106 V92 L88 110"/><path d="M14 14 V92 L32 110 H88"/><path d="M40 92 V44 H62 a14 14 0 0 1 0 28 H40"/><path d="M58 70 L80 96"/><path d="M70 50 L86 70 V96"/></svg></a>
+        <span class="fc-line"></span>
+      </div>
+      <div class="foot-main">
+        <div class="fm-contact">
+          <div class="fm-phone"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 4h3l2 5-2.2 1.1a11 11 0 0 0 5.1 5.1L14 13l5 2v3a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg></span><div><b>Sales &amp; Guidance</b><a href="tel:9895227744">+91 98952 27744</a></div></div>
+          <div class="fm-phone"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3.5 7l8.5 6 8.5-6"/></svg></span><div><b>Email</b><a href="mailto:Sales@rajasthanmarbles.com">Sales@rajasthanmarbles.com</a></div></div>
+          <div class="fm-social">
+            <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/></svg></a>
+            <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M13.2 22v-8h2.6l.5-3h-3.1V9c0-.9.3-1.5 1.6-1.5h1.6V5c-.3 0-1.3-.1-2.3-.1-2.2 0-3.6 1.3-3.6 3.9V11H8v3h2.5v8z"/></svg></a>
+          </div>
+        </div>
+        <div class="fm-mid">
+          <span class="script">Arrival becomes belonging</span>
+          <small>Premium building materials · Since 1984</small>
+        </div>
+        <div class="fm-news">
+          <h5>Join the circle</h5>
+          <p>Seasonal collections and showroom news — a few times a year.</p>
+          <form class="news-form" onsubmit="return false"><input type="email" placeholder="Your email address"/><button type="submit">&rarr;</button></form>
+          <a class="brochure" href="#">Download catalogue (PDF) &rarr;</a>
+        </div>
+      </div>
+      <nav class="foot-nav">
+        <a href="index.html">Home</a><a href="index.html#categories">Collections</a><a href="blog.html">Journal</a><a href="about.html">About</a><a href="contact.html">Contact</a>
+      </nav>
+      <nav class="foot-sub"><a href="#">Disclaimer</a><a href="#">Privacy Policy</a><a href="#">Terms</a></nav>
+      <div class="foot-end">
+        <p>&copy; <span id="yr"></span> Rajasthan Marbles. All rights reserved.</p>
+        <span class="region">Kerala · India</span>
+      </div>
+    </div>
+    <button class="to-top" id="toTop" aria-label="Back to top">&uarr;</button>
+  </footer>
+
+  <script>
+    (function(){
+      "use strict";
+      var reduce=window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+      var header=document.getElementById('header');
+      function onScroll(){header.classList.toggle('docked',window.scrollY>40);}
+      onScroll();window.addEventListener('scroll',onScroll,{passive:true});
+
+      var burger=document.getElementById('burger'),drawer=document.getElementById('drawer'),drawerClose=document.getElementById('drawerClose');
+      function setMenu(open){drawer.classList.toggle('open',open);burger.setAttribute('aria-expanded',open);document.body.classList.toggle('locked',open);}
+      burger.addEventListener('click',function(){setMenu(!drawer.classList.contains('open'));});
+      if(drawerClose)drawerClose.addEventListener('click',function(){setMenu(false);});
+      drawer.querySelectorAll('.drawer-group>a').forEach(function(a){
+        a.addEventListener('click',function(e){if(window.innerWidth<=900){e.preventDefault();a.parentElement.classList.toggle('active');}});
+      });
+      drawer.querySelectorAll('.drawer-sub a,.drawer-nav>a').forEach(function(a){a.addEventListener('click',function(){setMenu(false);});});
+
+      var searchBtn=document.getElementById('searchBtn'),searchOv=document.getElementById('search'),searchClose=document.getElementById('searchClose'),searchInput=document.getElementById('searchInput');
+      if(searchBtn)searchBtn.addEventListener('click',function(){searchOv.classList.toggle('open');if(searchOv.classList.contains('open')&&searchInput)setTimeout(function(){searchInput.focus();},120);});
+      if(searchClose)searchClose.addEventListener('click',function(){searchOv.classList.remove('open');});
+      window.addEventListener('keydown',function(e){if(e.key==='Escape'){searchOv&&searchOv.classList.remove('open');setMenu(false);}});
+
+      var toTop=document.getElementById('toTop');
+      if(toTop){window.addEventListener('scroll',function(){toTop.classList.toggle('show',window.scrollY>600);},{passive:true});toTop.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'});});}
+
+      document.getElementById('yr').textContent=new Date().getFullYear();
+
+      // Scroll reveal
+      var rises=document.querySelectorAll('.rise:not(.in)');
+      if('IntersectionObserver' in window&&!reduce){
+        var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:0.05,rootMargin:'0px 0px -4% 0px'});
+        rises.forEach(function(el){io.observe(el);});
+      } else {rises.forEach(function(el){el.classList.add('in');});}
+
+      // Role chips
+      document.querySelectorAll('#roleChips .chip').forEach(function(chip){
+        chip.addEventListener('click',function(){
+          document.querySelectorAll('#roleChips .chip').forEach(function(c){c.classList.remove('sel');});
+          chip.classList.add('sel');
+        });
+      });
+
+      // Form dummy submit
+      document.getElementById('contactForm').addEventListener('submit',function(){
+        alert('Thank you! This is a dummy form — your message would be sent to our team.');
+      });
+
+      // Showroom map switch
+      var cards=document.querySelectorAll('.sr-card'),mapFrame=document.getElementById('mapFrame');
+      cards.forEach(function(card){
+        card.addEventListener('click',function(){
+          cards.forEach(function(c){c.classList.remove('active');});
+          card.classList.add('active');
+          var src=card.getAttribute('data-map');
+          if(src&&mapFrame)mapFrame.src=src;
+        });
+      });
+    })();
+  </script>
+</body>
+</html>
