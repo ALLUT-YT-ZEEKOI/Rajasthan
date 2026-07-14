@@ -1007,18 +1007,16 @@
       inset: 0;
       z-index: -3;
       background:
-        radial-gradient(90% 60% at 50% -6%, rgba(201, 162, 74, .20), transparent 55%),
-        radial-gradient(70% 50% at 78% 18%, rgba(201, 33, 64, .12), transparent 60%),
-        linear-gradient(180deg, #0d0b09 0%, #0b0a09 46%, #070605 100%);
+        url("assets/Home Banner.jpg") center / cover no-repeat;
     }
 
     .hero-marble {
       position: absolute;
       inset: 0;
       z-index: -2;
-      opacity: .5;
-      mix-blend-mode: screen;
-      background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1200' height='800'%3E%3Cfilter id='v'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.006 .016' numOctaves='5' seed='3'/%3E%3CfeColorMatrix values='0 0 0 0 .9 0 0 0 0 .78 0 0 0 0 .5 0 0 0 .6 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23v)' opacity='.10'/%3E%3C/svg%3E");
+      background:
+        linear-gradient(105deg, rgba(8, 6, 5, .82) 0%, rgba(8, 6, 5, .55) 42%, rgba(8, 6, 5, .28) 68%, rgba(8, 6, 5, .45) 100%),
+        linear-gradient(180deg, rgba(8, 6, 5, .35) 0%, transparent 28%, transparent 62%, rgba(8, 6, 5, .55) 100%);
     }
 
     /* lit floor reflection */
@@ -1027,9 +1025,10 @@
       left: 0;
       right: 0;
       bottom: 0;
-      height: 32%;
+      height: 28%;
       z-index: -2;
-      background: linear-gradient(180deg, transparent, rgba(201, 162, 74, .05) 40%, rgba(0, 0, 0, .6));
+      background: linear-gradient(180deg, transparent, rgba(0, 0, 0, .45));
+      pointer-events: none;
     }
 
     /* big faint arch framing the hero */
@@ -1041,17 +1040,18 @@
       z-index: -1;
       width: min(1180px, 150vw);
       height: auto;
-      opacity: .5;
+      opacity: .28;
+      pointer-events: none;
     }
 
     .hero-arch path {
       fill: none;
-      stroke: var(--line-dark);
+      stroke: rgba(214, 210, 196, .35);
       stroke-width: 1.5
     }
 
     .hero-arch .lit {
-      stroke: rgba(201, 162, 74, .28)
+      stroke: rgba(201, 162, 74, .35)
     }
 
     .hero-inner {
@@ -1200,64 +1200,62 @@
 
     .door {
       position: relative;
-      display: block;
+      display: flex;
+      flex-direction: column;
       overflow: hidden;
       border: 1px solid var(--ink-3);
       background: var(--ink-2);
-      padding: 2.2rem 1.6rem 2rem;
-      min-height: 340px;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
+      padding: 1rem 1rem 1.8rem;
       transition: .55s var(--ease);
     }
 
     .door .archtop {
-      position: absolute;
-      top: 0;
-      left: 50%;
-      translate: -50% 0;
-      width: 78%;
-      height: 62%;
-      border: 1px solid var(--line-dark);
-      border-bottom: 0;
-      border-radius: 50% 50% 0 0 / 90% 90% 0 0;
-      transition: .55s var(--ease);
-      opacity: .65
+      display: none
     }
 
     .door .glow {
       position: absolute;
-      top: -30%;
+      top: 0;
       left: 50%;
       translate: -50% 0;
-      width: 120%;
-      height: 80%;
-      background: radial-gradient(closest-side, rgba(201, 162, 74, .18), transparent);
+      width: 90%;
+      height: 55%;
+      background: radial-gradient(closest-side, rgba(201, 162, 74, .16), transparent);
       opacity: 0;
-      transition: .55s var(--ease)
+      transition: .55s var(--ease);
+      z-index: 2;
+      pointer-events: none
     }
 
     .door .ix {
+      position: relative;
+      z-index: 3;
       font-family: var(--display);
       font-weight: 600;
       font-size: .7rem;
       letter-spacing: .2em;
       color: var(--gold);
-      margin-bottom: .9rem
+      margin: 1.1rem 0 .7rem;
+      padding-inline: .4rem
     }
 
     .door-stage {
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 54%;
-      display: grid;
-      place-items: center;
-      perspective: 620px;
-      pointer-events: none;
-      z-index: 1
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      aspect-ratio: 600 / 700;
+      line-height: 0;
+      background: #0a0908;
+      overflow: hidden
+    }
+
+    .door-stage img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      object-position: center top;
+      display: block;
+      transition: transform .7s var(--ease)
     }
 
     .tri {
@@ -1281,22 +1279,30 @@
     }
 
     .door h3 {
+      position: relative;
+      z-index: 3;
       font-family: var(--display);
       font-weight: 800;
       text-transform: uppercase;
       font-size: 1.18rem;
       color: var(--white);
-      line-height: 1.04
+      line-height: 1.04;
+      padding-inline: .4rem
     }
 
     .door p {
+      position: relative;
+      z-index: 3;
       font-size: .86rem;
       color: var(--fog-dim);
-      margin-top: .5rem
+      margin-top: .5rem;
+      padding-inline: .4rem
     }
 
     .door .go {
-      margin-top: 1.2rem;
+      position: relative;
+      z-index: 3;
+      margin-top: 1.1rem;
       display: inline-flex;
       align-items: center;
       gap: .5rem;
@@ -1304,7 +1310,8 @@
       letter-spacing: .18em;
       text-transform: uppercase;
       color: var(--beige);
-      font-weight: 600
+      font-weight: 600;
+      padding-inline: .4rem
     }
 
     .door .go .arrow {
@@ -1321,9 +1328,8 @@
       opacity: 1
     }
 
-    .door:hover .archtop {
-      border-color: rgba(201, 162, 74, .5);
-      opacity: 1
+    .door:hover .door-stage img {
+      transform: scale(1.03)
     }
 
     .door:hover .go .arrow {
@@ -1464,8 +1470,9 @@
       translate: -50% 0;
       width: 130%;
       height: 78%;
-      z-index: -1;
+      z-index: 0;
       opacity: .5;
+      pointer-events: none;
       background: radial-gradient(closest-side, var(--tint, rgba(201, 162, 74, .22)), transparent);
       transition: .5s var(--ease)
     }
@@ -1484,7 +1491,9 @@
       border-bottom: 0;
       border-radius: 50% 50% 0 0/92% 92% 0 0;
       transform: translate(-50%, 0) translateZ(6px);
-      transition: border-color .5s var(--ease)
+      transition: border-color .5s var(--ease);
+      pointer-events: none;
+      z-index: 1
     }
 
     .ccard:hover .ccard-arch {
@@ -1495,6 +1504,7 @@
       position: absolute;
       top: 1.3rem;
       left: 1.6rem;
+      z-index: 4;
       font-family: var(--display);
       font-weight: 600;
       font-size: .7rem;
@@ -1507,6 +1517,7 @@
       position: absolute;
       top: 1.15rem;
       right: 1.3rem;
+      z-index: 4;
       width: 30px;
       height: 30px;
       border: 1px solid var(--line-dark);
@@ -1526,6 +1537,103 @@
       transform: translateZ(74px) rotate(90deg)
     }
 
+    /* --- photo card (full-bleed image) --- */
+    .ccard.is-photo {
+      justify-content: flex-end;
+      min-height: 340px;
+      padding: 1.5rem 1.4rem 1.6rem;
+      background: #0a0908
+    }
+
+    .ccard.is-photo .ccard-glow {
+      display: none
+    }
+
+    .ccard.is-photo .ccard-arch {
+      top: 12%;
+      width: 72%;
+      height: 62%;
+      border-color: rgba(233, 222, 188, .28);
+      z-index: 2
+    }
+
+    .ccard.is-photo .ccard-num,
+    .ccard.is-photo .ccard-plus {
+      z-index: 4
+    }
+
+    .ccard.is-photo .ccard-plus {
+      border-color: rgba(233, 222, 188, .55);
+      background: rgba(10, 9, 8, .35);
+      backdrop-filter: blur(4px)
+    }
+
+    .ccard.is-photo .stage3d {
+      position: absolute;
+      inset: 0;
+      height: auto;
+      width: auto;
+      margin: 0;
+      padding: 0;
+      display: block;
+      perspective: none;
+      transform: none;
+      z-index: 0;
+      overflow: hidden;
+      border-radius: 0
+    }
+
+    .ccard.is-photo .stage3d::after {
+      display: block;
+      content: "";
+      position: absolute;
+      inset: 0;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(180deg, rgba(8, 6, 5, .28) 0%, transparent 28%, transparent 48%, rgba(8, 6, 5, .72) 78%, rgba(8, 6, 5, .92) 100%);
+      filter: none;
+      opacity: 1;
+      transform: none;
+      pointer-events: none;
+      z-index: 1
+    }
+
+    .ccard.is-photo .stage3d img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      border-radius: 0;
+      transform: none
+    }
+
+    .ccard.is-photo:hover .stage3d img {
+      transform: scale(1.05)
+    }
+
+    .ccard.is-photo .ccard-body {
+      position: relative;
+      z-index: 3;
+      margin-top: 0;
+      padding: 0;
+      transform: translateZ(50px)
+    }
+
+    .ccard.is-photo h3 {
+      font-size: 1.28rem;
+      letter-spacing: .02em;
+      text-shadow: 0 2px 18px rgba(0, 0, 0, .65)
+    }
+
+    .ccard.is-photo p {
+      margin-top: .45rem;
+      color: rgba(232, 228, 216, .88);
+      max-width: 28ch;
+      text-shadow: 0 1px 10px rgba(0, 0, 0, .5)
+    }
+
     /* --- per-category 3D objects --- */
     .stage3d {
       position: relative;
@@ -1534,7 +1642,22 @@
       place-items: center;
       margin: 1.4rem 0 .2rem;
       transform: translateZ(38px);
-      perspective: 620px
+      perspective: 620px;
+      z-index: 2
+    }
+
+    .stage3d img {
+      width: 88%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+      border-radius: 2px;
+      transition: transform .6s var(--ease)
+    }
+
+    .ccard:hover .stage3d img {
+      transform: scale(1.04)
     }
 
     .stage3d::after {
@@ -1838,9 +1961,15 @@
     .about .shell {
       position: relative;
       display: grid;
-      grid-template-columns: .9fr 1.1fr;
-      gap: clamp(2rem, 5vw, 5rem);
-      align-items: center
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(2rem, 4vw, 4.5rem);
+      align-items: stretch
+    }
+
+    .about .about-copy {
+      display: flex;
+      flex-direction: column;
+      justify-content: center
     }
 
     .about .eyebrow {
@@ -1876,49 +2005,60 @@
     }
 
     .about .btn-primary {
-      margin-top: 2.2rem
+      margin-top: 2.2rem;
+      width: fit-content;
+      align-self: flex-start
     }
 
     .about .figure {
       position: relative;
-      aspect-ratio: 4/5;
+      width: 85%;
+      min-height: 705px;
+      align-self: stretch;
       border: 1px solid rgba(34, 28, 20, .16);
       overflow: hidden;
-      background: linear-gradient(135deg, #15110d, #2a2018 55%, #3a2c20)
+      background: #1f160c
+    }
+
+    .about .figure img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 8%;
+      display: block;
+      transition: transform .8s var(--ease)
+    }
+
+    .about .figure:hover img {
+      transform: scale(1.04)
     }
 
     .about .figure .arch {
-      position: absolute;
-      inset: 8% 10% 0;
-      border: 1px solid var(--gold);
-      border-bottom: 0;
-      border-radius: 50% 50% 0 0/40% 40% 0 0;
-      opacity: .55
+      display: none
     }
 
     .about .figure .gl {
-      position: absolute;
-      top: 18%;
-      left: 50%;
-      translate: -50% 0;
-      width: 60%;
-      height: 50%;
-      background: radial-gradient(closest-side, rgba(232, 206, 140, .35), transparent);
-      filter: blur(6px)
+      display: none
     }
 
     .about .figure .cap {
       position: absolute;
-      bottom: 1.4rem;
-      left: 1.4rem;
-      right: 1.4rem;
-      color: var(--beige)
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 1.4rem;
+      color: var(--beige);
+      background: none;
+      z-index: 2
     }
 
     .about .figure .cap .script {
       font-size: 1.9rem;
       display: block;
-      line-height: 1
+      line-height: 1;
+      text-shadow: 0 2px 16px rgba(0, 0, 0, .45)
     }
 
     .about .figure .cap small {
@@ -2004,6 +2144,11 @@
       position: absolute;
       inset: 0;
       z-index: -2;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
       transition: transform 1.1s var(--ease)
     }
 
@@ -2072,6 +2217,22 @@
 
     .r-best {
       grid-column: span 5
+    }
+
+    .room--light .tag {
+      color: #6b5428
+    }
+
+    .room--light h3 {
+      color: #1c1610
+    }
+
+    .room--light p {
+      color: #3a3025
+    }
+
+    .room--light .go {
+      color: #2a2018
     }
 
     .r-insp {
@@ -2165,6 +2326,11 @@
     .gframe .tex {
       position: absolute;
       inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
       transition: transform 1.1s var(--ease)
     }
 
@@ -2608,100 +2774,89 @@
     .ig-card {
       position: relative;
       flex: none;
-      width: clamp(216px, 21vw, 290px);
+      width: clamp(240px, 22vw, 300px);
       aspect-ratio: 9/16;
       border-radius: 4px;
       overflow: hidden;
       scroll-snap-align: start;
       border: 1px solid var(--ink-3);
       isolation: isolate;
+      background: #0a0908;
+      container-type: inline-size;
       transition: border-color .5s var(--ease), transform .5s var(--ease)
     }
 
-    .ig-card .ig-media {
+    /* Crop Instagram chrome (header + like/share/comment footer) — video only */
+    .ig-crop {
       position: absolute;
       inset: 0;
-      z-index: -2;
-      transition: transform 1s var(--ease)
+      overflow: hidden;
+      background: #0a0908
     }
 
-    .ig-card .ig-media::after {
+    .ig-crop iframe {
+      position: absolute;
+      left: 50%;
+      top: 0;
+      width: 540px;
+      height: 980px;
+      border: 0;
+      display: block;
+      background: #0a0908;
+      transform: translateX(-50%) translateY(-64px) scale(calc(100cqw / 540));
+      transform-origin: top center;
+      pointer-events: auto
+    }
+
+    .ig-card::after {
       content: "";
       position: absolute;
-      inset: 0;
-      opacity: .38;
-      mix-blend-mode: overlay;
-      background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='ign'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.008 .016' numOctaves='5' seed='9'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23ign)'/%3E%3C/svg%3E");
-      background-size: cover
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 14%;
+      z-index: 1;
+      pointer-events: none;
+      background: linear-gradient(180deg, transparent, rgba(8, 6, 5, .4))
     }
 
-    .ig-card .scrim {
+    .ig-card .ig-open {
       position: absolute;
-      inset: 0;
-      z-index: -1;
-      background: linear-gradient(180deg, rgba(0, 0, 0, .08) 40%, rgba(0, 0, 0, .6))
+      right: .7rem;
+      top: .7rem;
+      z-index: 3;
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: rgba(11, 10, 9, .55);
+      border: 1px solid rgba(255, 255, 255, .35);
+      color: #fff;
+      backdrop-filter: blur(4px);
+      transition: .3s var(--ease)
+    }
+
+    .ig-card .ig-open:hover {
+      background: var(--crimson);
+      border-color: var(--crimson)
+    }
+
+    .ig-card .ig-open svg {
+      width: 15px;
+      height: 15px
     }
 
     .ig-card:hover {
       border-color: rgba(201, 162, 74, .5)
     }
 
-    .ig-card:hover .ig-media {
-      transform: scale(1.06)
-    }
-
-    .ig-play {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      translate: -50% -50%;
-      width: 52px;
-      height: 52px;
-      border-radius: 50%;
-      background: rgba(11, 10, 9, .42);
-      border: 1px solid rgba(255, 255, 255, .45);
-      display: grid;
-      place-items: center;
-      color: #fff;
-      backdrop-filter: blur(2px);
-      transition: .3s var(--ease)
-    }
-
-    .ig-card:hover .ig-play {
-      background: var(--crimson);
-      border-color: var(--crimson)
-    }
-
-    .ig-play svg {
-      width: 15px;
-      height: 15px;
-      margin-left: 2px
-    }
-
-    .ig-tag {
-      position: absolute;
-      left: .9rem;
-      bottom: .9rem;
-      font-size: .62rem;
-      letter-spacing: .14em;
-      text-transform: uppercase;
-      color: #fff;
-      z-index: 1;
-      text-shadow: 0 1px 10px rgba(0, 0, 0, .85)
-    }
-
-    .ig-corner {
-      position: absolute;
-      right: .8rem;
-      bottom: .8rem;
-      color: #fff;
-      opacity: .85;
-      z-index: 1
-    }
-
-    .ig-corner svg {
-      width: 18px;
-      height: 18px
+    .ig-card .ig-media,
+    .ig-card .scrim,
+    .ig-card .ig-play,
+    .ig-card .ig-corner,
+    .ig-card .ig-tag {
+      display: none
     }
 
     .ig-arrow {
@@ -3104,7 +3259,11 @@
       }
 
       .about .figure {
-        max-width: 420px
+        min-height: 420px;
+        max-width: 420px;
+        max-height: none;
+        margin-inline: auto;
+        aspect-ratio: 4 / 5
       }
 
       .r-trend,
@@ -3154,14 +3313,6 @@
 
       .doorways {
         grid-template-columns: 1fr
-      }
-
-      .door {
-        min-height: 348px
-      }
-
-      .door-stage {
-        height: 50%
       }
 
       .pillars {
@@ -3524,7 +3675,7 @@
           <a class="door rise" href="contact.html">
             <span class="glow"></span><span class="archtop"></span>
             <div class="door-stage">
-              <div class="obj3d" data-kind="house"></div>
+              <img src="assets/1.jpg" alt="Luxury home bar with dark marble finishes" loading="lazy" width="600" height="800">
             </div>
             <span class="ix">01 — New Builds</span>
             <h3>I'm building a home</h3>
@@ -3534,7 +3685,7 @@
           <a class="door rise d1" href="contact.html">
             <span class="glow"></span><span class="archtop"></span>
             <div class="door-stage">
-              <div class="obj3d" data-kind="roller"></div>
+              <img src="assets/2.jpg" alt="Open-plan home interior with marble staircase" loading="lazy" width="600" height="800">
             </div>
             <span class="ix">02 — Upgrades</span>
             <h3>I'm renovating</h3>
@@ -3544,7 +3695,7 @@
           <a class="door rise d2" href="contact.html">
             <span class="glow"></span><span class="archtop"></span>
             <div class="door-stage">
-              <div class="obj3d" data-kind="tower"></div>
+              <img src="assets/3.jpg" alt="Spa-like bathroom with marble walls and vanity" loading="lazy" width="600" height="800">
             </div>
             <span class="ix">03 — At Scale</span>
             <h3>I'm working on a project</h3>
@@ -3554,7 +3705,7 @@
           <a class="door rise d3" href="contact.html">
             <span class="glow"></span><span class="archtop"></span>
             <div class="door-stage">
-              <div class="obj3d" data-kind="toolbox"></div>
+              <img src="assets/4.jpg" alt="Commercial lobby with marble reception desk" loading="lazy" width="600" height="800">
             </div>
             <span class="ix">04 — Trade</span>
             <h3>I'm a builder / contractor</h3>
@@ -3616,11 +3767,11 @@
             so you never have to settle.</p>
         </div>
         <div class="collections-grid rise">
-          <a class="ccard" href="rajasthan-marbles-tiles.html" style="--m1:#e7ddc6;--m2:#9b8f72;--tint:rgba(233,222,188,.14)">
+          <a class="ccard is-photo" href="rajasthan-marbles-tiles.html" style="--m1:#e7ddc6;--m2:#9b8f72;--tint:rgba(233,222,188,.14)">
             <span class="ccard-glow"></span><span class="ccard-arch"></span>
             <span class="ccard-num">01</span><span class="ccard-plus">+</span>
             <div class="stage3d">
-              <div class="obj3d" data-kind="tiles"></div>
+              <img src="assets/Doorway image.jpg" alt="Stacked porcelain and natural-stone slabs" loading="lazy" width="800" height="600">
             </div>
             <div class="ccard-body">
               <h3>Tiles</h3>
@@ -3628,12 +3779,12 @@
                   class="arrow">&rarr;</span></span>
             </div>
           </a>
-          <a class="ccard" href="collections/adhesives.html"
+          <a class="ccard is-photo" href="collections/adhesives.html"
             style="--m1:#8a7f6a;--m2:#3f372b;--tint:rgba(201,162,74,.10)">
             <span class="ccard-glow"></span><span class="ccard-arch"></span>
             <span class="ccard-num">02</span><span class="ccard-plus">+</span>
             <div class="stage3d">
-              <div class="obj3d" data-kind="adhesive"></div>
+              <img src="assets/category images/6.jpg" alt="Tile adhesives, trowel and waterproofing materials" loading="lazy" width="800" height="600">
             </div>
             <div class="ccard-body">
               <h3>Adhesives</h3>
@@ -3641,12 +3792,12 @@
                   class="arrow">&rarr;</span></span>
             </div>
           </a>
-          <a class="ccard" href="Sanitaryware.html"
+          <a class="ccard is-photo" href="Sanitaryware.html"
             style="--m1:#eef0ea;--m2:#9aa1a3;--tint:rgba(220,225,225,.12)">
             <span class="ccard-glow"></span><span class="ccard-arch"></span>
             <span class="ccard-num">03</span><span class="ccard-plus">+</span>
             <div class="stage3d">
-              <div class="obj3d" data-kind="tap"></div>
+              <img src="assets/category images/7.jpg" alt="Modern bathroom with sanitaryware and chrome fittings" loading="lazy" width="800" height="600">
             </div>
             <div class="ccard-body">
               <h3>Sanitaryware &amp; CP</h3>
@@ -3654,11 +3805,11 @@
                   class="arrow">&rarr;</span></span>
             </div>
           </a>
-          <a class="ccard" href="collections/wellness.html" style="--m1:#5b6b5d;--m2:#222a25;--tint:rgba(61,74,63,.32)">
+          <a class="ccard is-photo" href="collections/wellness.html" style="--m1:#5b6b5d;--m2:#222a25;--tint:rgba(61,74,63,.32)">
             <span class="ccard-glow"></span><span class="ccard-arch"></span>
             <span class="ccard-num">04</span><span class="ccard-plus">+</span>
             <div class="stage3d">
-              <div class="obj3d" data-kind="tub"></div>
+              <img src="assets/category images/8.jpg" alt="Spa bathroom with freestanding marble bathtub" loading="lazy" width="800" height="600">
             </div>
             <div class="ccard-body">
               <h3>Wellness</h3>
@@ -3666,12 +3817,12 @@
                   class="arrow">&rarr;</span></span>
             </div>
           </a>
-          <a class="ccard" href="PVC-Pipes.html"
+          <a class="ccard is-photo" href="PVC-Pipes.html"
             style="--m1:#7d8285;--m2:#2c2f31;--tint:rgba(160,170,175,.12)">
             <span class="ccard-glow"></span><span class="ccard-arch"></span>
             <span class="ccard-num">05</span><span class="ccard-plus">+</span>
             <div class="stage3d">
-              <div class="obj3d" data-kind="pipe"></div>
+              <img src="assets/category images/9.jpg" alt="PVC pipes, fittings and plumbing valves" loading="lazy" width="800" height="600">
             </div>
             <div class="ccard-body">
               <h3>PVC Pipes</h3>
@@ -3679,11 +3830,11 @@
                   class="arrow">&rarr;</span></span>
             </div>
           </a>
-          <a class="ccard" href="Paints-Coatings.html" style="--m1:#e0556a;--m2:#7a1322;--tint:rgba(201,33,64,.20)">
+          <a class="ccard is-photo" href="Paints-Coatings.html" style="--m1:#e0556a;--m2:#7a1322;--tint:rgba(201,33,64,.20)">
             <span class="ccard-glow"></span><span class="ccard-arch"></span>
             <span class="ccard-num">06</span><span class="ccard-plus">+</span>
             <div class="stage3d">
-              <div class="obj3d" data-kind="paint"></div>
+              <img src="assets/category images/10.jpg" alt="Paints, brushes and wall finish samples" loading="lazy" width="800" height="600">
             </div>
             <div class="ccard-body">
               <h3>Paints &amp; Coatings</h3>
@@ -3691,12 +3842,12 @@
                   class="arrow">&rarr;</span></span>
             </div>
           </a>
-          <a class="ccard" href="Kitchen-Accessories.html"
+          <a class="ccard is-photo" href="Kitchen-Accessories.html"
             style="--m1:#e3c074;--m2:#6e5526;--tint:rgba(201,162,74,.22)">
             <span class="ccard-glow"></span><span class="ccard-arch"></span>
             <span class="ccard-num">07</span><span class="ccard-plus">+</span>
             <div class="stage3d">
-              <div class="obj3d" data-kind="cabinet"></div>
+              <img src="assets/category images/11.jpg" alt="Modern kitchen sink, faucet and accessories" loading="lazy" width="800" height="600">
             </div>
             <div class="ccard-body">
               <h3>Kitchen Accessories</h3>
@@ -3733,7 +3884,7 @@
     <section class="about band" id="about">
       <div class="veins"></div>
       <div class="shell">
-        <div>
+        <div class="about-copy">
           <p class="eyebrow rise">Who we are</p>
           <div class="small rise d1">Every home is a series of decisions.</div>
           <h2 class="display rise d1">We help you make<br>the right ones.</h2>
@@ -3746,8 +3897,7 @@
           <a href="contact.html" class="btn btn-primary rise d3">Start your journey <span class="arrow">→</span></a>
         </div>
         <div class="figure rise d1">
-          <div class="gl"></div>
-          <div class="arch"></div>
+          <img src="assets/Artboard 2 copy.jpg" alt="Warm living room framed by a gold archway" loading="lazy" width="600" height="750">
           <div class="cap">
             <span class="script">Arrival becomes belonging</span>
             <small>The RM threshold</small>
@@ -3789,29 +3939,32 @@
         </div>
         <div class="room-grid">
           <a class="room r-trend rise" href="#categories">
-            <span class="tex tex-onyx"></span><span class="scrim"></span>
+            <img class="tex" src="assets/Get inspired/website image 4.jpg" alt="Trending surfaces and finishes for today's interiors" loading="lazy" width="1200" height="800">
+            <span class="scrim"></span>
             <span class="tag">Trending collections</span>
             <h3>Surfaces shaping today's interiors</h3>
             <p>Finishes and fittings chosen for design relevance, performance, and long-term appeal.</p>
             <span class="go">Explore trending <span class="arrow">→</span></span>
           </a>
-          <a class="room r-best tex-beige rise d1" href="#categories">
-            <span class="tex tex-beige"></span><span class="scrim"
-              style="background:linear-gradient(180deg,transparent 40%,rgba(120,100,60,.45))"></span>
+          <a class="room r-best room--light rise d1" href="#categories">
+            <img class="tex" src="assets/Get inspired/c348d4a8-72ca-4f42-b2d9-9fe8347af849.png" alt="Stone slabs, vessel basin and gold faucet" loading="lazy" width="1200" height="800">
+            <span class="scrim" style="background:linear-gradient(180deg,transparent 45%,rgba(255,248,235,.55) 78%,rgba(245,235,215,.82))"></span>
             <span class="tag">Season's bestsellers</span>
             <h3>Chosen again and again</h3>
             <p>The selections customers return to, for reliability and timeless design.</p>
             <span class="go">View bestsellers <span class="arrow">→</span></span>
           </a>
           <a class="room r-insp rise d1" href="about.html">
-            <span class="tex tex-moss"></span><span class="scrim"></span>
+            <img class="tex" src="assets/Get inspired/99f9f9a7-c398-436d-9311-3da2c263c826.png" alt="Living room with marble and wood finishes" loading="lazy" width="1200" height="800">
+            <span class="scrim"></span>
             <span class="tag">Get inspired</span>
             <h3>Rooms worth lingering in</h3>
             <p>Real material pairings from homes and projects across Kerala.</p>
             <span class="go">See the lookbook <span class="arrow">→</span></span>
           </a>
           <a class="room r-store rise" href="contact.html">
-            <span class="tex tex-terra"></span><span class="scrim"></span>
+            <img class="tex" src="assets/Get inspired/website image 5 (1).jpg" alt="Rajasthan Marbles showroom with stone slab displays" loading="lazy" width="1200" height="800">
+            <span class="scrim"></span>
             <span class="tag">Store locator</span>
             <h3>Experience it in person</h3>
             <p>Visit your nearest showroom to see, touch and compare — guided by people who help you decide with
@@ -3831,10 +3984,13 @@
             with care and clarity.</p>
         </div>
         <div class="gal-grid rise">
-          <figure class="gframe g1"><span class="tex tex-onyx"></span><span class="arch"></span>
+          <figure class="gframe g1">
+            <img class="tex" src="assets/Get inspired/website image 4.jpg" alt="Villa project in Kakkanad" loading="lazy" width="1200" height="800">
+            <span class="arch"></span>
             <figcaption>Villa · Kakkanad</figcaption>
           </figure>
-          <figure class="gframe g2"><span class="tex tex-beige"></span>
+          <figure class="gframe g2">
+            <img class="tex" src="assets/Get inspired/c348d4a8-72ca-4f42-b2d9-9fe8347af849.png" alt="Lobby project in Kochi" loading="lazy" width="800" height="600">
             <figcaption style="color:#2a2018">Lobby · Kochi</figcaption>
           </figure>
           <figure class="gframe g3"><span class="tex tex-moss"></span>
@@ -3991,76 +4147,38 @@
     <div class="ig-track-wrap rise">
       <button class="ig-arrow left" id="igPrev" aria-label="Previous">&lsaquo;</button>
       <div class="ig-track" id="igTrack">
-        <a class="ig-card" href="https://instagram.com/rajasthanmarbles" target="_blank" rel="noopener"><span
-            class="ig-media m-forest"></span><span class="scrim"></span><span class="ig-play"><svg viewBox="0 0 24 24"
-              fill="currentColor">
-              <path d="M8 5v14l11-7z" />
-            </svg></span><span class="ig-tag">Born from nature</span><span class="ig-corner"><svg viewBox="0 0 24 24"
-              fill="none" stroke="currentColor" stroke-width="1.6">
-              <rect x="3" y="3" width="18" height="18" rx="5" />
-              <circle cx="12" cy="12" r="4" />
-              <circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none" />
-            </svg></span></a>
-        <a class="ig-card" href="https://instagram.com/rajasthanmarbles" target="_blank" rel="noopener"><span
-            class="ig-media m-water"></span><span class="scrim"></span><span class="ig-play"><svg viewBox="0 0 24 24"
-              fill="currentColor">
-              <path d="M8 5v14l11-7z" />
-            </svg></span><span class="ig-tag">Soak in the calm</span><span class="ig-corner"><svg viewBox="0 0 24 24"
-              fill="none" stroke="currentColor" stroke-width="1.6">
-              <rect x="3" y="3" width="18" height="18" rx="5" />
-              <circle cx="12" cy="12" r="4" />
-              <circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none" />
-            </svg></span></a>
-        <a class="ig-card" href="https://instagram.com/rajasthanmarbles" target="_blank" rel="noopener"><span
-            class="ig-media m-onyx"></span><span class="scrim"></span><span class="ig-play"><svg viewBox="0 0 24 24"
-              fill="currentColor">
-              <path d="M8 5v14l11-7z" />
-            </svg></span><span class="ig-tag">Onyx opulence</span><span class="ig-corner"><svg viewBox="0 0 24 24"
-              fill="none" stroke="currentColor" stroke-width="1.6">
-              <rect x="3" y="3" width="18" height="18" rx="5" />
-              <circle cx="12" cy="12" r="4" />
-              <circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none" />
-            </svg></span></a>
-        <a class="ig-card" href="https://instagram.com/rajasthanmarbles" target="_blank" rel="noopener"><span
-            class="ig-media m-moss"></span><span class="scrim"></span><span class="ig-play"><svg viewBox="0 0 24 24"
-              fill="currentColor">
-              <path d="M8 5v14l11-7z" />
-            </svg></span><span class="ig-tag">The wellness suite</span><span class="ig-corner"><svg viewBox="0 0 24 24"
-              fill="none" stroke="currentColor" stroke-width="1.6">
-              <rect x="3" y="3" width="18" height="18" rx="5" />
-              <circle cx="12" cy="12" r="4" />
-              <circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none" />
-            </svg></span></a>
-        <a class="ig-card" href="https://instagram.com/rajasthanmarbles" target="_blank" rel="noopener"><span
-            class="ig-media m-marble"></span><span class="scrim"></span><span class="ig-play"><svg viewBox="0 0 24 24"
-              fill="currentColor">
-              <path d="M8 5v14l11-7z" />
-            </svg></span><span class="ig-tag">Large-format stories</span><span class="ig-corner"><svg
-              viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
-              <rect x="3" y="3" width="18" height="18" rx="5" />
-              <circle cx="12" cy="12" r="4" />
-              <circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none" />
-            </svg></span></a>
-        <a class="ig-card" href="https://instagram.com/rajasthanmarbles" target="_blank" rel="noopener"><span
-            class="ig-media m-terra"></span><span class="scrim"></span><span class="ig-play"><svg viewBox="0 0 24 24"
-              fill="currentColor">
-              <path d="M8 5v14l11-7z" />
-            </svg></span><span class="ig-tag">Behind the build</span><span class="ig-corner"><svg viewBox="0 0 24 24"
-              fill="none" stroke="currentColor" stroke-width="1.6">
-              <rect x="3" y="3" width="18" height="18" rx="5" />
-              <circle cx="12" cy="12" r="4" />
-              <circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none" />
-            </svg></span></a>
-        <a class="ig-card" href="https://instagram.com/rajasthanmarbles" target="_blank" rel="noopener"><span
-            class="ig-media m-water"></span><span class="scrim"></span><span class="ig-play"><svg viewBox="0 0 24 24"
-              fill="currentColor">
-              <path d="M8 5v14l11-7z" />
-            </svg></span><span class="ig-tag">Showroom walkthrough</span><span class="ig-corner"><svg
-              viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
-              <rect x="3" y="3" width="18" height="18" rx="5" />
-              <circle cx="12" cy="12" r="4" />
-              <circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none" />
-            </svg></span></a>
+        <article class="ig-card">
+          <div class="ig-crop"><iframe src="https://www.instagram.com/reel/DZSItOhBuC2/embed" title="Born from nature" loading="lazy" allowfullscreen allow="encrypted-media; picture-in-picture; clipboard-write; autoplay"></iframe></div>
+          <a class="ig-open" href="https://www.instagram.com/reel/DZSItOhBuC2/" target="_blank" rel="noopener" aria-label="Open reel on Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/></svg></a>
+        </article>
+        <article class="ig-card">
+          <div class="ig-crop"><iframe src="https://www.instagram.com/reel/DZU0c_FB0Ns/embed" title="Soak in the calm" loading="lazy" allowfullscreen allow="encrypted-media; picture-in-picture; clipboard-write; autoplay"></iframe></div>
+          <a class="ig-open" href="https://www.instagram.com/reel/DZU0c_FB0Ns/" target="_blank" rel="noopener" aria-label="Open reel on Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/></svg></a>
+        </article>
+        <article class="ig-card">
+          <div class="ig-crop"><iframe src="https://www.instagram.com/reel/DZIKQw3BSLp/embed" title="Onyx opulence" loading="lazy" allowfullscreen allow="encrypted-media; picture-in-picture; clipboard-write; autoplay"></iframe></div>
+          <a class="ig-open" href="https://www.instagram.com/reel/DZIKQw3BSLp/" target="_blank" rel="noopener" aria-label="Open reel on Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/></svg></a>
+        </article>
+        <article class="ig-card">
+          <div class="ig-crop"><iframe src="https://www.instagram.com/reel/DanIt09KneH/embed" title="The wellness suite" loading="lazy" allowfullscreen allow="encrypted-media; picture-in-picture; clipboard-write; autoplay"></iframe></div>
+          <a class="ig-open" href="https://www.instagram.com/reel/DanIt09KneH/" target="_blank" rel="noopener" aria-label="Open reel on Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/></svg></a>
+        </article>
+        <article class="ig-card">
+          <div class="ig-crop"><iframe src="https://www.instagram.com/reel/DakgwuAhMia/embed" title="Large-format stories" loading="lazy" allowfullscreen allow="encrypted-media; picture-in-picture; clipboard-write; autoplay"></iframe></div>
+          <a class="ig-open" href="https://www.instagram.com/reel/DakgwuAhMia/" target="_blank" rel="noopener" aria-label="Open reel on Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/></svg></a>
+        </article>
+        <article class="ig-card">
+          <div class="ig-crop"><iframe src="https://www.instagram.com/reel/Dah72_sBenc/embed" title="Behind the build" loading="lazy" allowfullscreen allow="encrypted-media; picture-in-picture; clipboard-write; autoplay"></iframe></div>
+          <a class="ig-open" href="https://www.instagram.com/reel/Dah72_sBenc/" target="_blank" rel="noopener" aria-label="Open reel on Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/></svg></a>
+        </article>
+        <article class="ig-card">
+          <div class="ig-crop"><iframe src="https://www.instagram.com/reel/DafV34uBsjI/embed" title="Showroom walkthrough" loading="lazy" allowfullscreen allow="encrypted-media; picture-in-picture; clipboard-write; autoplay"></iframe></div>
+          <a class="ig-open" href="https://www.instagram.com/reel/DafV34uBsjI/" target="_blank" rel="noopener" aria-label="Open reel on Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/></svg></a>
+        </article>
+        <article class="ig-card">
+          <div class="ig-crop"><iframe src="https://www.instagram.com/reel/DaaMvmMBf7U/embed" title="Crafted in detail" loading="lazy" allowfullscreen allow="encrypted-media; picture-in-picture; clipboard-write; autoplay"></iframe></div>
+          <a class="ig-open" href="https://www.instagram.com/reel/DaaMvmMBf7U/" target="_blank" rel="noopener" aria-label="Open reel on Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/></svg></a>
+        </article>
       </div>
       <button class="ig-arrow right" id="igNext" aria-label="Next">&rsaquo;</button>
     </div>
@@ -4210,9 +4328,12 @@
         var ip = document.getElementById('igPrev'), inx = document.getElementById('igNext');
         if (ip) ip.addEventListener('click', function () { igTrack.scrollBy({ left: -igStep(), behavior: 'smooth' }); });
         if (inx) inx.addEventListener('click', function () { igTrack.scrollBy({ left: igStep(), behavior: 'smooth' }); });
-        // drag to scroll
+        // drag to scroll (skip when interacting with embeds)
         var down = false, sx = 0, sl = 0;
-        igTrack.addEventListener('pointerdown', function (e) { down = true; sx = e.clientX; sl = igTrack.scrollLeft; });
+        igTrack.addEventListener('pointerdown', function (e) {
+          if (e.target.closest('iframe, .ig-open')) return;
+          down = true; sx = e.clientX; sl = igTrack.scrollLeft;
+        });
         window.addEventListener('pointerup', function () { down = false; });
         igTrack.addEventListener('pointermove', function (e) { if (!down) return; igTrack.scrollLeft = sl - (e.clientX - sx); });
       }
