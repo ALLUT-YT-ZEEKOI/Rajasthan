@@ -159,8 +159,18 @@
 }
 
 @keyframes pagePulse {
-  0%, 100% { opacity: .35; transform: scaleX(.7); transform-origin: left; }
-  50% { opacity: 1; transform: scaleX(1); }
+
+  0%,
+  100% {
+    opacity: .35;
+    transform: scaleX(.7);
+    transform-origin: left;
+  }
+
+  50% {
+    opacity: 1;
+    transform: scaleX(1);
+  }
 }
 
 /* ---------- BLOG ---------- */
@@ -802,6 +812,7 @@
 
 /* ---------- RESPONSIVE ---------- */
 @media (max-width: 1024px) {
+
   .page-hero__inner,
   .blog-featured,
   .about-split,
