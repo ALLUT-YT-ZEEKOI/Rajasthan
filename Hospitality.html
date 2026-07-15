@@ -171,311 +171,311 @@
             }
         }
 
-                /* ============================== HEADER ============================== */
-            header {
-              position: fixed;
-              top: 0;
-              left: 0;
-              right: 0;
-              z-index: 900
-            }
+        /* ============================== HEADER ============================== */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 900
+        }
 
-            .util {
-                background: rgba(8, 7, 6, .96);
-                border-bottom: 1px solid var(--line-dark);
-              backdrop-filter: blur(8px);
-              overflow: hidden;
-              max-height: 46px;
-              transition: max-height .45s var(--ease), opacity .35s ease, border-color .4s ease
-            }
+        .util {
+            background: rgba(8, 7, 6, .96);
+            border-bottom: 1px solid var(--line-dark);
+            backdrop-filter: blur(8px);
+            overflow: hidden;
+            max-height: 46px;
+            transition: max-height .45s var(--ease), opacity .35s ease, border-color .4s ease
+        }
 
-            header.docked .util {
-              max-height: 0;
-              opacity: 0;
-              border-color: transparent
-            }
+        header.docked .util {
+            max-height: 0;
+            opacity: 0;
+            border-color: transparent
+        }
 
-            .util-in {
-              display: flex;
-              align-items: center;
-              justify-content: space-between;
-              height: 46px
-            }
+        .util-in {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 46px
+        }
 
-            .util-left {
-              font-size: .62rem;
-              letter-spacing: .26em;
-              text-transform: uppercase;
-              color: var(--fog-dim)
-            }
+        .util-left {
+            font-size: .62rem;
+            letter-spacing: .26em;
+            text-transform: uppercase;
+            color: var(--fog-dim)
+        }
 
-            .util-right {
-              display: flex;
-              align-items: center;
-              gap: 1.7rem
-            }
+        .util-right {
+            display: flex;
+            align-items: center;
+            gap: 1.7rem
+        }
 
-            .util-right a {
-              font-size: .64rem;
-              letter-spacing: .16em;
-              text-transform: uppercase;
-              color: var(--fog);
-              display: inline-flex;
-              align-items: center;
-              gap: .55em;
-              transition: color .3s ease
-            }
+        .util-right a {
+            font-size: .64rem;
+            letter-spacing: .16em;
+            text-transform: uppercase;
+            color: var(--fog);
+            display: inline-flex;
+            align-items: center;
+            gap: .55em;
+            transition: color .3s ease
+        }
 
-            .util-right a:hover {
-              color: var(--gold)
-            }
+        .util-right a:hover {
+            color: var(--gold)
+        }
 
-            .util-right svg {
-              width: 13px;
-              height: 13px;
-              color: var(--gold)
-            }
+        .util-right svg {
+            width: 13px;
+            height: 13px;
+            color: var(--gold)
+        }
 
-            .bar {
-                background: rgba(11, 10, 9, .96);
-                backdrop-filter: blur(14px);
-                transition: background .4s ease, border-color .4s ease;
-                border-bottom: 1px solid var(--line-dark)
-            }
+        .bar {
+            background: rgba(11, 10, 9, .96);
+            backdrop-filter: blur(14px);
+            transition: background .4s ease, border-color .4s ease;
+            border-bottom: 1px solid var(--line-dark)
+        }
 
-            header.docked .bar {
-              background: rgba(11, 10, 9, .88);
-              backdrop-filter: blur(14px);
-              border-bottom: 1px solid var(--line-dark)
-            }
+        header.docked .bar {
+            background: rgba(11, 10, 9, .88);
+            backdrop-filter: blur(14px);
+            border-bottom: 1px solid var(--line-dark)
+        }
 
-            .bar-in {
-              display: grid;
-              grid-template-columns: 1fr auto 1fr;
-              align-items: center;
-              padding: 1.15rem 0;
-              transition: padding .4s ease
-            }
+        .bar-in {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            align-items: center;
+            padding: 1.15rem 0;
+            transition: padding .4s ease
+        }
 
-            header.docked .bar-in {
-              padding: .66rem 0
-            }
+        header.docked .bar-in {
+            padding: .66rem 0
+        }
 
-            .menu-btn {
-              justify-self: start;
-              display: inline-flex;
-              align-items: center;
-              gap: .75rem;
-              background: none;
-              border: 0;
-              cursor: pointer;
-              color: var(--beige);
-              padding: .4rem 0
-            }
+        .menu-btn {
+            justify-self: start;
+            display: inline-flex;
+            align-items: center;
+            gap: .75rem;
+            background: none;
+            border: 0;
+            cursor: pointer;
+            color: var(--beige);
+            padding: .4rem 0
+        }
 
-            .menu-btn .ml {
-              display: flex;
-              flex-direction: column;
-              gap: 4px;
-              width: 22px
-            }
+        .menu-btn .ml {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            width: 22px
+        }
 
-            .menu-btn .ml span {
-              height: 1.5px;
-              background: var(--beige);
-              transition: .35s var(--ease)
-            }
+        .menu-btn .ml span {
+            height: 1.5px;
+            background: var(--beige);
+            transition: .35s var(--ease)
+        }
 
-            .menu-btn .ml span:nth-child(2) {
-              width: 64%
-            }
+        .menu-btn .ml span:nth-child(2) {
+            width: 64%
+        }
 
-            .menu-btn:hover .ml span {
-              background: var(--gold)
-            }
+        .menu-btn:hover .ml span {
+            background: var(--gold)
+        }
 
-            .menu-btn:hover .ml span:nth-child(2) {
-              width: 100%
-            }
+        .menu-btn:hover .ml span:nth-child(2) {
+            width: 100%
+        }
 
-            .menu-btn em {
-              font-style: normal;
-              font-size: .7rem;
-              letter-spacing: .24em;
-              text-transform: uppercase;
-              font-weight: 600
-            }
+        .menu-btn em {
+            font-style: normal;
+            font-size: .7rem;
+            letter-spacing: .24em;
+            text-transform: uppercase;
+            font-weight: 600
+        }
 
-            .brand-center {
-              justify-self: center;
-              display: flex;
-              flex-direction: column;
-              align-items: center;
-              gap: .5rem;
-              text-align: center;
-              color: #fff
-            }
+        .brand-center {
+            justify-self: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: .5rem;
+            text-align: center;
+            color: #fff
+        }
 
-            .brand-center svg {
-              width: 30px;
-              height: 30px;
-              color: var(--crimson);
-              transition: color .4s ease
-            }
+        .brand-center svg {
+            width: 30px;
+            height: 30px;
+            color: var(--crimson);
+            transition: color .4s ease
+        }
 
-            header.docked .brand-center svg {
-              color: var(--gold)
-            }
+        header.docked .brand-center svg {
+            color: var(--gold)
+        }
 
-            .brand-center .wm {
-              display: flex;
-              flex-direction: column;
-              align-items: center;
-              line-height: 1
-            }
+        .brand-center .wm {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            line-height: 1
+        }
 
-            .brand-center .wm b {
-              font-family: var(--display);
-              font-weight: 800;
-              font-size: 1rem;
-              letter-spacing: .34em;
-              text-indent: .34em;
-              text-transform: uppercase
-            }
+        .brand-center .wm b {
+            font-family: var(--display);
+            font-weight: 800;
+            font-size: 1rem;
+            letter-spacing: .34em;
+            text-indent: .34em;
+            text-transform: uppercase
+        }
 
-            .brand-center .wm span {
-              font-size: .5rem;
-              letter-spacing: .5em;
-              text-indent: .5em;
-              color: var(--gold);
-              margin-top: .42rem
-            }
+        .brand-center .wm span {
+            font-size: .5rem;
+            letter-spacing: .5em;
+            text-indent: .5em;
+            color: var(--gold);
+            margin-top: .42rem
+        }
 
-            .bar-right {
-              justify-self: end;
-              display: flex;
-              align-items: center;
-              gap: 1.2rem
-            }
+        .bar-right {
+            justify-self: end;
+            display: flex;
+            align-items: center;
+            gap: 1.2rem
+        }
 
-            .ic-btn {
-              background: none;
-              border: 0;
-              cursor: pointer;
-              color: var(--beige);
-              display: grid;
-              place-items: center;
-              padding: .3rem;
-              transition: color .3s ease
-            }
+        .ic-btn {
+            background: none;
+            border: 0;
+            cursor: pointer;
+            color: var(--beige);
+            display: grid;
+            place-items: center;
+            padding: .3rem;
+            transition: color .3s ease
+        }
 
-            .ic-btn:hover {
-              color: var(--gold)
-            }
+        .ic-btn:hover {
+            color: var(--gold)
+        }
 
-            .ic-btn svg {
-              width: 19px;
-              height: 19px
-            }
+        .ic-btn svg {
+            width: 19px;
+            height: 19px
+        }
 
-            .nav-cta {
-              font-family: var(--body);
-              font-weight: 600;
-              font-size: .7rem;
-              letter-spacing: .16em;
-              text-transform: uppercase;
-              color: var(--white);
-              border: 1px solid var(--crimson);
-              background: var(--crimson);
-              padding: .7rem 1.3rem;
-              border-radius: 2px;
-              transition: .35s var(--ease);
-              white-space: nowrap
-            }
+        .nav-cta {
+            font-family: var(--body);
+            font-weight: 600;
+            font-size: .7rem;
+            letter-spacing: .16em;
+            text-transform: uppercase;
+            color: var(--white);
+            border: 1px solid var(--crimson);
+            background: var(--crimson);
+            padding: .7rem 1.3rem;
+            border-radius: 2px;
+            transition: .35s var(--ease);
+            white-space: nowrap
+        }
 
-            .nav-cta:hover {
-              background: transparent;
-              color: var(--crimson);
-              box-shadow: inset 0 0 0 1px var(--crimson)
-            }
+        .nav-cta:hover {
+            background: transparent;
+            color: var(--crimson);
+            box-shadow: inset 0 0 0 1px var(--crimson)
+        }
 
-            /* search overlay */
-            #search {
-              position: fixed;
-              top: 0;
-              left: 0;
-              right: 0;
-              z-index: 905;
-              background: rgba(11, 10, 9, .97);
-              backdrop-filter: blur(16px);
-              border-bottom: 1px solid var(--line-dark);
-              transform: translateY(-100%);
-              transition: transform .45s var(--ease);
-              padding: 2.2rem 0 1.8rem
-            }
+        /* search overlay */
+        #search {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 905;
+            background: rgba(11, 10, 9, .97);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--line-dark);
+            transform: translateY(-100%);
+            transition: transform .45s var(--ease);
+            padding: 2.2rem 0 1.8rem
+        }
 
-            #search.open {
-              transform: none
-            }
+        #search.open {
+            transform: none
+        }
 
-            .search-in {
-              display: flex;
-              align-items: center;
-              gap: 1rem;
-              border-bottom: 1px solid var(--ink-3);
-              padding-bottom: 1rem
-            }
+        .search-in {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            border-bottom: 1px solid var(--ink-3);
+            padding-bottom: 1rem
+        }
 
-            .search-in>svg {
-              width: 22px;
-              height: 22px;
-              color: var(--gold);
-              flex: none
-            }
+        .search-in>svg {
+            width: 22px;
+            height: 22px;
+            color: var(--gold);
+            flex: none
+        }
 
-            .search-in input {
-              flex: 1;
-              background: none;
-              border: 0;
-              color: #fff;
-              font-family: var(--display);
-              font-weight: 700;
-              font-size: clamp(1.1rem, 3vw, 1.9rem);
-              text-transform: uppercase;
-              letter-spacing: .01em
-            }
+        .search-in input {
+            flex: 1;
+            background: none;
+            border: 0;
+            color: #fff;
+            font-family: var(--display);
+            font-weight: 700;
+            font-size: clamp(1.1rem, 3vw, 1.9rem);
+            text-transform: uppercase;
+            letter-spacing: .01em
+        }
 
-            .search-in input::placeholder {
-              color: var(--fog-dim)
-            }
+        .search-in input::placeholder {
+            color: var(--fog-dim)
+        }
 
-            .search-in input:focus {
-              outline: none
-            }
+        .search-in input:focus {
+            outline: none
+        }
 
-            .search-close {
-              background: none;
-              border: 0;
-              color: var(--fog);
-              cursor: pointer;
-              font-size: 1.5rem;
-              line-height: 1;
-              transition: color .3s ease
-            }
+        .search-close {
+            background: none;
+            border: 0;
+            color: var(--fog);
+            cursor: pointer;
+            font-size: 1.5rem;
+            line-height: 1;
+            transition: color .3s ease
+        }
 
-            .search-close:hover {
-              color: var(--gold)
-            }
+        .search-close:hover {
+            color: var(--gold)
+        }
 
-            .search-hint {
-              margin-top: .9rem;
-              font-size: .64rem;
-              letter-spacing: .2em;
-              text-transform: uppercase;
-              color: var(--fog-dim)
-            }
+        .search-hint {
+            margin-top: .9rem;
+            font-size: .64rem;
+            letter-spacing: .2em;
+            text-transform: uppercase;
+            color: var(--fog-dim)
+        }
 
-            
+
 
         /* premium menu drawer */
         #drawer {
@@ -689,18 +689,18 @@
 
         /* mobile drawer overrides */
         @media (max-width: 900px) {
-      .drawer-in {
-        grid-template-columns: 1fr;
-        gap: 1.75rem;
-        align-content: start;
-        padding: clamp(4.5rem, 11vh, 5.5rem) 1.5rem clamp(2rem, 4vh, 3rem) !important;
-        width: 100% !important;
-      }
+            .drawer-in {
+                grid-template-columns: 1fr;
+                gap: 1.75rem;
+                align-content: start;
+                padding: clamp(4.5rem, 11vh, 5.5rem) 1.5rem clamp(2rem, 4vh, 3rem) !important;
+                width: 100% !important;
+            }
 
-      .drawer-nav {
-        gap: 0.5rem;
-        padding: 0;
-      }
+            .drawer-nav {
+                gap: 0.5rem;
+                padding: 0;
+            }
 
             .drawer-nav a {
                 font-size: clamp(1.6rem, 7vw, 2.2rem) !important;
@@ -2203,69 +2203,72 @@
 
 <body>
 
-      <!-- ============ HEADER ============ -->
-  <header id="header">
-    <div class="util">
-      <div class="shell util-in">
-        <span class="util-left">Four experience centres across Kochi &amp; Ernakulam</span>
-        <div class="util-right">
-          <a href="contact.html">Request a Call Back</a>
-          <a href="tel:9895227744"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
-              <path
-                d="M5 4h3l2 5-2.2 1.1a11 11 0 0 0 5.1 5.1L14 13l5 2v3a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z" />
-            </svg> Call Us · 98952 27744</a>
-          <a href="contact.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
-              <path d="M12 22s7-6.5 7-12A7 7 0 0 0 5 10c0 5.5 7 12 7 12z" />
-              <circle cx="12" cy="10" r="2.4" />
-            </svg> Store Locator</a>
+    <!-- ============ HEADER ============ -->
+    <header id="header">
+        <div class="util">
+            <div class="shell util-in">
+                <span class="util-left">Four experience centres across Kochi &amp; Ernakulam</span>
+                <div class="util-right">
+                    <a href="contact.html">Request a Call Back</a>
+                    <a href="tel:9895227744"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.6">
+                            <path
+                                d="M5 4h3l2 5-2.2 1.1a11 11 0 0 0 5.1 5.1L14 13l5 2v3a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z" />
+                        </svg> Call Us · 98952 27744</a>
+                    <a href="contact.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.6">
+                            <path d="M12 22s7-6.5 7-12A7 7 0 0 0 5 10c0 5.5 7 12 7 12z" />
+                            <circle cx="12" cy="10" r="2.4" />
+                        </svg> Store Locator</a>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-    <div class="bar">
-      <div class="shell bar-in">
-        <button class="menu-btn" id="burger" aria-label="Open menu" aria-expanded="false">
-          <span class="ml"><span></span><span></span><span></span></span><em>Menu</em>
-        </button>
-        <a class="brand brand-center" href="index.html" aria-label="Rajasthan Marbles home">
-          <svg viewBox="0 0 120 120" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="9"
-            stroke-linejoin="miter">
-            <path d="M14 14 H106 V92 L88 110" />
-            <path d="M14 14 V92 L32 110 H88" />
-            <path d="M40 92 V44 H62 a14 14 0 0 1 0 28 H40" />
-            <path d="M58 70 L80 96" />
-            <path d="M70 50 L86 70 V96" />
-          </svg>
-          <span class="wm"><b>Rajasthan Marbles</b><span>Since 1984</span></span>
-        </a>
-        <div class="bar-right">
-          <button class="ic-btn" id="searchBtn" aria-label="Search"><svg viewBox="0 0 24 24" fill="none"
-              stroke="currentColor" stroke-width="1.7">
-              <circle cx="11" cy="11" r="7" />
-              <path d="M21 21l-4.3-4.3" />
-            </svg></button>
-          <a href="contact.html" class="nav-cta">Visit Showroom</a>
+        <div class="bar">
+            <div class="shell bar-in">
+                <button class="menu-btn" id="burger" aria-label="Open menu" aria-expanded="false">
+                    <span class="ml"><span></span><span></span><span></span></span><em>Menu</em>
+                </button>
+                <a class="brand brand-center" href="index.html" aria-label="Rajasthan Marbles home">
+                    <svg viewBox="0 0 120 120" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="9"
+                        stroke-linejoin="miter">
+                        <path d="M14 14 H106 V92 L88 110" />
+                        <path d="M14 14 V92 L32 110 H88" />
+                        <path d="M40 92 V44 H62 a14 14 0 0 1 0 28 H40" />
+                        <path d="M58 70 L80 96" />
+                        <path d="M70 50 L86 70 V96" />
+                    </svg>
+                    <span class="wm"><b>Rajasthan Marbles</b><span>Since 1984</span></span>
+                </a>
+                <div class="bar-right">
+                    <button class="ic-btn" id="searchBtn" aria-label="Search"><svg viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="1.7">
+                            <circle cx="11" cy="11" r="7" />
+                            <path d="M21 21l-4.3-4.3" />
+                        </svg></button>
+                    <a href="contact.html" class="nav-cta">Visit Showroom</a>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  </header>
+    </header>
 
-<!-- search overlay -->
-  <div id="search">
-    <div class="shell">
-      <div class="search-in">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7">
-          <circle cx="11" cy="11" r="7" />
-          <path d="M21 21l-4.3-4.3" />
-        </svg>
-        <input id="searchInput" type="text" placeholder="Search collections, brands, showrooms…" />
-        <button class="search-close" id="searchClose" aria-label="Close search">&times;</button>
-      </div>
-      <p class="search-hint">Try &ldquo;hospitality&rdquo;, &ldquo;hotel&rdquo;, &ldquo;restaurant&rdquo;, &ldquo;store
-        locator&rdquo;</p>
+    <!-- search overlay -->
+    <div id="search">
+        <div class="shell">
+            <div class="search-in">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7">
+                    <circle cx="11" cy="11" r="7" />
+                    <path d="M21 21l-4.3-4.3" />
+                </svg>
+                <input id="searchInput" type="text" placeholder="Search collections, brands, showrooms…" />
+                <button class="search-close" id="searchClose" aria-label="Close search">&times;</button>
+            </div>
+            <p class="search-hint">Try &ldquo;hospitality&rdquo;, &ldquo;hotel&rdquo;, &ldquo;restaurant&rdquo;,
+                &ldquo;store
+                locator&rdquo;</p>
+        </div>
     </div>
-  </div>
 
-  <!-- mobile drawer -->
+    <!-- mobile drawer -->
     <div id="drawer">
         <button class="drawer-close" id="drawerClose" aria-label="Close menu">&times;</button>
         <div class="drawer-in">
@@ -2276,7 +2279,8 @@
                     <div class="drawer-sub">
                         <a href="rajasthan-marbles-residential.html">Residential</a>
                         <a href="Commercial-&-Govt-Institutions.html">Commercial &amp; Govt. Institutions</a>
-                        <a href="Hospitality.html">Hospitality <span class="sub-note">(hotels, resorts, restaurants)</span></a>
+                        <a href="Hospitality.html">Hospitality <span class="sub-note">(hotels, resorts,
+                                restaurants)</span></a>
                     </div>
                 </div>
                 <div class="drawer-group">
@@ -2323,8 +2327,7 @@
     <!-- ====================== SECTION 1 · HERO · 3 FULL-PAGE SECTIONS ====================== -->
     <section class="hpanel" id="top" data-i="0">
         <div class="scene scene-living"></div>
-        <img class="hpanel-img" src="hosp_lobby.png" alt="Luxury hotel lobby"
-            onerror="this.style.display='none'">
+        <img class="hpanel-img" src="hosp_lobby.png" alt="Luxury hotel lobby" onerror="this.style.display='none'">
         <div class="hero-veil"></div>
         <div class="hero-inner">
             <div class="shell">
@@ -2388,7 +2391,8 @@
 
     <section class="hpanel" data-i="2">
         <div class="scene scene-bath"></div>
-        <img class="hpanel-img" src="hosp_restaurant.png" alt="Restaurant dining space" onerror="this.style.display='none'">
+        <img class="hpanel-img" src="hosp_restaurant.png" alt="Restaurant dining space"
+            onerror="this.style.display='none'">
         <div class="hero-veil"></div>
         <div class="hero-inner">
             <div class="shell">
@@ -2438,46 +2442,62 @@
                     <button class="exp-tab" data-i="1"><span><span class="t-name">Guest Rooms</span><br /><span
                                 class="t-meta">Comfort · quiet performance</span></span><span
                             class="t-arrow">→</span></button>
-                    <button class="exp-tab" data-i="2"><span><span class="t-name">Restaurants &amp; Dining</span><br /><span
-                                class="t-meta">Heat · spills · turnover</span></span><span
+                    <button class="exp-tab" data-i="2"><span><span class="t-name">Restaurants &amp;
+                                Dining</span><br /><span class="t-meta">Heat · spills · turnover</span></span><span
                             class="t-arrow">→</span></button>
                     <button class="exp-tab" data-i="3"><span><span class="t-name">Spa &amp; Wellness</span><br /><span
-                                class="t-meta">Wet zones · calm durability</span></span><span class="t-arrow">→</span></button>
+                                class="t-meta">Wet zones · calm durability</span></span><span
+                            class="t-arrow">→</span></button>
                     <button class="exp-tab" data-i="4"><span><span class="t-name">Public Bathrooms</span><br /><span
                                 class="t-meta">High traffic · guest visibility</span></span><span
                             class="t-arrow">→</span></button>
                 </div>
 
                 <div class="exp-stage" id="expStage">
-                    <div class="exp-pane active scene-living"><img src="hosp_lobby.png" alt="Grand hotel lobby with marble floor and reception" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;z-index:0;"><span class="grain"></span><span class="p-veil"></span>
+                    <div class="exp-pane active scene-living"><img src="hosp_lobby.png"
+                            alt="Grand hotel lobby with marble floor and reception"
+                            style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;z-index:0;"><span
+                            class="grain"></span><span class="p-veil"></span>
                         <div class="p-copy"><span class="lbl">Guest Lobby</span>
                             <h3>Where the experience begins</h3>
                             <p>The lobby sets the tone for every stay — surfaces here must impress on arrival and hold
                                 up under constant footfall, luggage, and cleaning cycles.</p>
                         </div>
                     </div>
-                    <div class="exp-pane scene-kitchen"><img src="hosp_room.png" alt="Luxury hotel guest room with premium stone flooring" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;z-index:0;"><span class="grain"></span><span class="p-veil"></span>
+                    <div class="exp-pane scene-kitchen"><img src="hosp_room.png"
+                            alt="Luxury hotel guest room with premium stone flooring"
+                            style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;z-index:0;"><span
+                            class="grain"></span><span class="p-veil"></span>
                         <div class="p-copy"><span class="lbl">Guest Rooms</span>
                             <h3>Comfort that earns repeat visits</h3>
                             <p>Quiet underfoot, low-maintenance, and forgiving of turnover — guest room surfaces are
                                 judged every check-in, not just on opening day.</p>
                         </div>
                     </div>
-                    <div class="exp-pane scene-bath"><img src="hosp_restaurant.png" alt="Restaurant dining space with stone surfaces" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;z-index:0;"><span class="grain"></span><span class="p-veil"></span>
+                    <div class="exp-pane scene-bath"><img src="hosp_restaurant.png"
+                            alt="Restaurant dining space with stone surfaces"
+                            style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;z-index:0;"><span
+                            class="grain"></span><span class="p-veil"></span>
                         <div class="p-copy"><span class="lbl">Restaurants &amp; Dining</span>
                             <h3>The hardest-working hospitality surface</h3>
                             <p>Heat, spills, and rapid service — dining surfaces earn their keep every service hour.
                                 Choose for performance first, then for the atmosphere guests pay for.</p>
                         </div>
                     </div>
-                    <div class="exp-pane scene-bed"><img src="hosp_spa.png" alt="Luxury spa wellness area with marble stone" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;z-index:0;"><span class="grain"></span><span class="p-veil"></span>
+                    <div class="exp-pane scene-bed"><img src="hosp_spa.png"
+                            alt="Luxury spa wellness area with marble stone"
+                            style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;z-index:0;"><span
+                            class="grain"></span><span class="p-veil"></span>
                         <div class="p-copy"><span class="lbl">Spa &amp; Wellness</span>
                             <h3>Calm that stays safe</h3>
                             <p>Slip resistance, humidity tolerance, and hygiene matter more than shine. Spa surfaces
                                 are judged over years of water exposure and daily guest use.</p>
                         </div>
                     </div>
-                    <div class="exp-pane scene-pdr"><img src="hosp_bathroom.png" alt="Statement hotel public bathroom with premium stone finishes" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;z-index:0;"><span class="grain"></span><span class="p-veil"></span>
+                    <div class="exp-pane scene-pdr"><img src="hosp_bathroom.png"
+                            alt="Statement hotel public bathroom with premium stone finishes"
+                            style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;z-index:0;"><span
+                            class="grain"></span><span class="p-veil"></span>
                         <div class="p-copy"><span class="lbl">Public Bathrooms</span>
                             <h3>Small space, high visibility</h3>
                             <p>The one room every guest uses. A place to project refinement — without losing durability
@@ -2513,7 +2533,10 @@
 
             <div class="zone-list">
                 <article class="zone rise">
-                    <div class="zone-vis scene-floor"><img src="hosp_room.png" alt="Guest Rooms" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.5;z-index:0;"><span class="znum">01</span><span class="arch" style="z-index:1;"></span><span class="grain" style="z-index:2;"></span></div>
+                    <div class="zone-vis scene-floor"><img src="hosp_room.png" alt="Guest Rooms"
+                            style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.5;z-index:0;"><span
+                            class="znum">01</span><span class="arch" style="z-index:1;"></span><span class="grain"
+                            style="z-index:2;"></span></div>
                     <div class="zone-body">
                         <h3>Guest Rooms</h3>
                         <p class="zone-q">“Will this still feel premium after 500 check-ins?”</p>
@@ -2527,7 +2550,10 @@
                 </article>
 
                 <article class="zone rise">
-                    <div class="zone-vis scene-kit"><img src="hosp_restaurant.png" alt="Dining & Kitchen" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.5;z-index:0;"><span class="znum">02</span><span class="arch" style="z-index:1;"></span><span class="grain" style="z-index:2;"></span></div>
+                    <div class="zone-vis scene-kit"><img src="hosp_restaurant.png" alt="Dining & Kitchen"
+                            style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.5;z-index:0;"><span
+                            class="znum">02</span><span class="arch" style="z-index:1;"></span><span class="grain"
+                            style="z-index:2;"></span></div>
                     <div class="zone-body">
                         <h3>Dining &amp; Kitchen</h3>
                         <p class="zone-q">“Can this survive service hours, heat, and cleaning cycles?”</p>
@@ -2541,7 +2567,10 @@
                 </article>
 
                 <article class="zone rise">
-                    <div class="zone-vis scene-bth"><img src="hosp_spa.png" alt="Spa & Wet Zones" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.5;z-index:0;"><span class="znum">03</span><span class="arch" style="z-index:1;"></span><span class="grain" style="z-index:2;"></span></div>
+                    <div class="zone-vis scene-bth"><img src="hosp_spa.png" alt="Spa & Wet Zones"
+                            style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.5;z-index:0;"><span
+                            class="znum">03</span><span class="arch" style="z-index:1;"></span><span class="grain"
+                            style="z-index:2;"></span></div>
                     <div class="zone-body">
                         <h3>Spa &amp; Wet Zones</h3>
                         <p class="zone-q">“Does this hold up under water exposure and daily guest turnover?”</p>
@@ -2620,16 +2649,23 @@
             </div>
             <div class="j-grid">
                 <article class="j-card rise">
-                    <div class="j-vis scene-f1"><img src="hosp_lobby.png" alt="Flooring" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.5;z-index:0;"><span class="tag" style="position:relative;z-index:1;">Flooring</span><span class="grain" style="z-index:2;"></span></div>
+                    <div class="j-vis scene-f1"><img src="hosp_lobby.png" alt="Flooring"
+                            style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.5;z-index:0;"><span
+                            class="tag" style="position:relative;z-index:1;">Flooring</span><span class="grain"
+                            style="z-index:2;"></span></div>
                     <div class="j-body">
                         <h4>The Finish That Impressed on Opening Night</h4>
                         <p>Polished and beautiful under launch lighting — slippery and high-maintenance once guests
-                            actually arrive. The fix is choosing for footfall and turnover, not just the design board.</p>
+                            actually arrive. The fix is choosing for footfall and turnover, not just the design board.
+                        </p>
                         <span class="read">Read the thinking →</span>
                     </div>
                 </article>
                 <article class="j-card rise d1">
-                    <div class="j-vis scene-f2"><img src="hosp_spa.png" alt="Wet Zones" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.5;z-index:0;"><span class="tag" style="position:relative;z-index:1;">Wet Zones</span><span class="grain" style="z-index:2;"></span></div>
+                    <div class="j-vis scene-f2"><img src="hosp_spa.png" alt="Wet Zones"
+                            style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.5;z-index:0;"><span
+                            class="tag" style="position:relative;z-index:1;">Wet Zones</span><span class="grain"
+                            style="z-index:2;"></span></div>
                     <div class="j-body">
                         <h4>When Turnover Exposes the Weak Decision</h4>
                         <p>Spa and wet zones don't fail on day one — they fail in year three. Slip ratings, sealing, and
@@ -2638,7 +2674,10 @@
                     </div>
                 </article>
                 <article class="j-card rise d2">
-                    <div class="j-vis scene-f3"><img src="hosp_room.png" alt="Coordination" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.5;z-index:0;"><span class="tag" style="position:relative;z-index:1;">Coordination</span><span class="grain" style="z-index:2;"></span></div>
+                    <div class="j-vis scene-f3"><img src="hosp_room.png" alt="Coordination"
+                            style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.5;z-index:0;"><span
+                            class="tag" style="position:relative;z-index:1;">Coordination</span><span class="grain"
+                            style="z-index:2;"></span></div>
                     <div class="j-body">
                         <h4>Materials That Never Agreed Across the Property</h4>
                         <p>Each zone chosen alone, none chosen together — and the property reads as a collection of
@@ -2657,9 +2696,9 @@
         <div class="shell">
             <div class="c-inner">
                 <h2>Design for Guests. <em>Decide for Longevity.</em></h2>
-                <p>Hospitality isn't just built to be seen. It's built to be used, judged, remembered, and returned to.</p>
-                <a class="wa-btn"
-                    href="https://wa.me/919895227744?text=Hi%2C%20help%20me%20curate%20my%20property."
+                <p>Hospitality isn't just built to be seen. It's built to be used, judged, remembered, and returned to.
+                </p>
+                <a class="wa-btn" href="https://wa.me/919895227744?text=Hi%2C%20help%20me%20curate%20my%20property."
                     target="_blank" rel="noopener">
                     <svg viewBox="0 0 24 24">
                         <path
@@ -2681,7 +2720,8 @@
                     <p class="c-lead">Every project begins with a decision — and the right material makes all the
                         difference.</p>
                     <p class="c-lead small">Whether you're opening a hotel, renovating a restaurant, upgrading a resort,
-                        or curating a multi-zone property, our team is here to guide you with clarity and experience.</p>
+                        or curating a multi-zone property, our team is here to guide you with clarity and experience.
+                    </p>
                     <div class="c-actions">
                         <a class="wa-btn"
                             href="https://wa.me/919895227744?text=Hi%2C%20I%27d%20like%20to%20discuss%20my%20project."
@@ -2778,7 +2818,8 @@
             </div>
             <div class="f-end">
                 <span>© 2026 Rajasthan Marbles. All rights reserved.</span>
-                <div class="f-nav"><a href="index.html">Home</a><a href="rajasthan-marbles-residential.html">Residential</a><a href="#brands">Brand
+                <div class="f-nav"><a href="index.html">Home</a><a
+                        href="rajasthan-marbles-residential.html">Residential</a><a href="#brands">Brand
                         Circle</a><a href="contact.html">Connect</a></div>
                 <span>Kerala · India</span>
             </div>
