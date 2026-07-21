@@ -1549,14 +1549,15 @@
 
     /* ============ BRANDS / TRUST ============ */
     .trust {
-      padding: clamp(70px, 10vh, 120px) 0;
+      padding: clamp(40px, 6vh, 72px) 0 clamp(16px, 2vh, 24px);
       background: linear-gradient(180deg, var(--paper-2), var(--paper));
       border-top: 1px solid var(--line-soft)
     }
 
     .trust-head {
       text-align: center;
-      margin-bottom: clamp(36px, 5vh, 56px)
+      max-width: 40ch;
+      margin: 0 auto clamp(22px, 3.5vh, 34px)
     }
 
     .trust-head h2 {
@@ -1567,39 +1568,50 @@
 
     .trust-head p {
       color: var(--muted);
-      margin-top: 12px
+      margin-top: 12px;
+      font-size: clamp(.95rem, 1.4vw, 1.05rem)
     }
 
-    .brand-row {
+    .brand-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(148px, 1fr));
+      gap: .65rem;
+      max-width: 920px;
+      margin-inline: auto
+    }
+
+    .brand-chip {
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: clamp(20px, 5vw, 72px);
-      flex-wrap: wrap
-    }
-
-    .brand-item {
+      min-height: 52px;
+      padding: .7rem 1rem;
+      border: 1px solid rgba(35, 28, 23, .12);
+      border-radius: 14px;
+      background: rgba(255, 255, 255, .62);
       font-family: var(--display);
-      font-weight: 800;
-      font-size: clamp(22px, 3.2vw, 38px);
-      letter-spacing: .02em;
-      color: var(--muted);
-      opacity: .6;
-      filter: grayscale(1);
-      transition: .4s;
-      cursor: default;
+      font-weight: 700;
+      font-size: clamp(.82rem, 1.5vw, .95rem);
+      letter-spacing: .03em;
+      color: var(--ink);
+      opacity: .78;
+      text-align: center;
+      transition: .35s ease;
+      cursor: default
     }
 
-    .brand-item:hover {
+    .brand-chip:hover {
       opacity: 1;
-      filter: grayscale(0);
+      border-color: rgba(201, 33, 64, .35);
       color: var(--crimson);
-      transform: translateY(-3px)
+      background: #fff;
+      transform: translateY(-2px);
+      box-shadow: 0 10px 24px -16px rgba(35, 28, 23, .28)
     }
 
     /* ============ JOURNAL ============ */
     .journal {
-      padding: clamp(80px, 12vh, 140px) 0;
+      padding: clamp(28px, 4vh, 48px) 0 clamp(80px, 12vh, 140px);
       background: var(--paper)
     }
 
@@ -2150,10 +2162,6 @@
         font-size: 19px
       }
 
-      .brand-row {
-        gap: 18px 28px
-      }
-
       .hero-cta {
         flex-direction: column;
         width: 100%
@@ -2290,19 +2298,27 @@
       }
 
       .trust {
-        padding: 2rem 0 1.75rem
+        padding: 1.75rem 0 .5rem
       }
 
       .trust-head {
-        margin-bottom: 1.15rem
+        margin-bottom: 1rem
       }
 
-      .brand-row {
-        gap: .85rem 1.25rem
+      .brand-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: .55rem
+      }
+
+      .brand-chip {
+        min-height: 46px;
+        padding: .6rem .7rem;
+        font-size: .78rem;
+        border-radius: 12px
       }
 
       .journal {
-        padding: 2rem 0 1.75rem
+        padding: 1rem 0 1.75rem
       }
 
       .journal-card {
@@ -2727,10 +2743,10 @@
         <h2>The names we stand behind</h2>
         <p>A short, deliberate list — chosen for consistency, not catalogue size.</p>
       </div>
-      <div class="brand-row reveal">
-        <span class="brand-item">Astral Pipes</span>
-        <span class="brand-item">Supreme</span>
-        <span class="brand-item">KPT Pipes</span>
+      <div class="brand-grid reveal">
+        <span class="brand-chip">Astral Pipes</span>
+        <span class="brand-chip">Supreme</span>
+        <span class="brand-chip">KPT Pipes</span>
       </div>
     </div>
   </section>
