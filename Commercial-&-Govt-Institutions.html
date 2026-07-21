@@ -1286,6 +1286,10 @@
             text-align: center
         }
 
+        .brands .b-head {
+            padding-inline: var(--gutter, clamp(1.5rem, 4vw, 3rem))
+        }
+
         .brands .b-head .script {
             font-size: clamp(2.4rem, 5vw, 3.6rem);
             display: block;
@@ -1308,8 +1312,8 @@
             flex-direction: column;
             gap: 1.1rem;
             overflow: hidden;
-            -webkit-mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
-            mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent)
+            -webkit-mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent);
+            mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent)
         }
 
         .track {
@@ -1350,6 +1354,59 @@
         @keyframes scrollX {
             to {
                 transform: translateX(-50%)
+            }
+        }
+
+        @media (max-width:760px) {
+            .brands {
+                padding: 2rem 0 2.5rem;
+                overflow: hidden
+            }
+
+            .brands .b-head .script {
+                font-size: clamp(2rem, 9vw, 2.6rem)
+            }
+
+            .brands .b-head .sh {
+                letter-spacing: .2em;
+                font-size: .7rem
+            }
+
+            .marquee {
+                margin-top: 1.75rem;
+                gap: .65rem;
+                -webkit-mask-image: none;
+                mask-image: none;
+                overflow: visible
+            }
+
+            .track,
+            .track.rev {
+                display: flex;
+                flex-wrap: nowrap;
+                justify-content: flex-start;
+                gap: .55rem;
+                width: 100%;
+                animation: none;
+                transform: none;
+                overflow-x: auto;
+                overflow-y: hidden;
+                -webkit-overflow-scrolling: touch;
+                scrollbar-width: none;
+                padding-inline: var(--gutter, 1.25rem);
+                scroll-padding-inline: var(--gutter, 1.25rem)
+            }
+
+            .track::-webkit-scrollbar,
+            .track.rev::-webkit-scrollbar {
+                display: none
+            }
+
+            .chip {
+                flex: 0 0 auto;
+                padding: .65rem 1rem;
+                font-size: .8rem;
+                border-radius: 999px
             }
         }
 
@@ -2214,6 +2271,89 @@
                 text-indent: .22em
             }
         }
+
+        /* ============================================================ MOBILE SECTION SPACING */
+        @media (max-width:760px) {
+            .inspire {
+                padding: 3rem 0 2rem
+            }
+
+            .inspire .head-row {
+                margin-bottom: 1.5rem
+            }
+
+            .exp-stage {
+                min-height: 300px
+            }
+
+            .zones {
+                padding: 3.25rem 0 2.75rem
+            }
+
+            .sec-head {
+                margin-bottom: 2rem
+            }
+
+            .frame {
+                padding: 3.25rem 0 2.75rem
+            }
+
+            .frame .f-head {
+                margin-bottom: 1.75rem
+            }
+
+            .pillars {
+                gap: 1rem;
+                margin-bottom: 1.75rem
+            }
+
+            .pillar {
+                padding: 1.5rem 1.25rem
+            }
+
+            .journal {
+                padding: 3.25rem 0 2.75rem
+            }
+
+            .journal .j-head {
+                margin-bottom: 1.75rem
+            }
+
+            .closing {
+                padding: 3.25rem 0 2.75rem
+            }
+
+            .closing p {
+                margin-bottom: 1.5rem;
+                font-size: 1.02rem
+            }
+
+            .connect {
+                padding: 3.25rem 0 2.75rem
+            }
+
+            .connect .c-actions {
+                margin-top: 1.25rem
+            }
+
+            .cdetails {
+                padding: 1.6rem
+            }
+
+            footer {
+                padding: 3rem 0 2rem
+            }
+
+            .f-crest {
+                margin-bottom: 1.75rem
+            }
+
+            .f-cols {
+                margin-bottom: 1.75rem;
+                padding-bottom: 1.75rem;
+                gap: 1.5rem
+            }
+        }
     </style>
 </head>
 
@@ -2965,7 +3105,8 @@
             var brands = ["Kajaria", "Johnson", "Somany", "Simpolo", "RAK", "Myk Laticrete", "Mapei", "Roff", "Weber", "Ramco", "Ultra Tech", "Jaquar", "Kohler", "American Standard", "Grohe", "Kerovit", "Gebrite", "Cera", "Supreme", "KPT Pipes", "Astral Pipes", "Asian Paints", "Berger", "Indigo Paints", "Jotun", "Birla", "JK", "MRF", "ESDEE", "Sheenlac", "Faber", "Pureflames", "Franke", "Carysel", "Prince", "Hafele"];
             function fill(el, list) {
                 var html = list.map(function (b) { return '<span class="chip">' + b + '</span>' }).join('');
-                el.innerHTML = html + html; /* duplicate for seamless loop */
+                var loop = window.matchMedia('(min-width:761px)').matches;
+                el.innerHTML = loop ? html + html : html; /* duplicate only for desktop marquee loop */
             }
             var half = Math.ceil(brands.length / 2);
             fill(document.getElementById('t1'), brands.slice(0, half));
