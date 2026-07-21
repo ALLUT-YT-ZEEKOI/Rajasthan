@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>All Collections — Rajasthan Marbles | 8,000+ SKUs</title>
+  <meta name="description" content="Explore the full Rajasthan Marbles range — tiles, sanitaryware, paints, kitchen accessories, PVC pipes and more. 8,000+ SKUs under one roof." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=Hanken+Grotesk:wght@300;400;500;600;700&family=Pinyon+Script&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --ink: #0B0A09; --ink-1: #100E0C; --ink-2: #17130F; --ink-3: #211A14;
+      --crimson: #C92140; --gold: #C9A24A; --gold-lit: #E8CE8C; --beige: #E9DEBC;
+      --fog: rgba(233,222,188,.72); --fog-dim: rgba(233,222,188,.45); --line: rgba(233,222,188,.14);
+      --display: 'Archivo', system-ui, sans-serif; --body: 'Hanken Grotesk', system-ui, sans-serif;
+      --script: 'Pinyon Script', cursive;
+      --gutter: clamp(1.5rem, 4vw, 3rem); --max: 1100px; --ease: cubic-bezier(.22,.61,.36,1);
+    }
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{background:var(--ink);color:var(--fog);font-family:var(--body);line-height:1.65;-webkit-font-smoothing:antialiased}
+    a{color:inherit;text-decoration:none}
+    .topbar{position:sticky;top:0;z-index:20;background:rgba(11,10,9,.96);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+    .topbar-in{max-width:calc(var(--max) + 2 * var(--gutter));margin:0 auto;padding:.95rem var(--gutter);display:flex;align-items:center;justify-content:space-between;gap:1rem}
+    .brand{font-family:var(--display);font-weight:800;font-size:.78rem;letter-spacing:.28em;text-transform:uppercase;color:#fff}
+    .brand span{color:var(--gold);display:block;font-size:.5rem;letter-spacing:.4em;margin-top:.35rem;font-weight:600}
+    .back{font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:var(--beige);border:1px solid var(--line);padding:.55rem 1rem;border-radius:2px}
+    .back:hover{border-color:var(--gold);color:var(--gold)}
+    .hero{padding:clamp(3rem,8vh,5rem) var(--gutter) clamp(2rem,5vh,3rem);border-bottom:1px solid var(--line);background:radial-gradient(80% 60% at 50% 0%,rgba(201,162,74,.14),transparent 55%),var(--ink-1)}
+    .hero-in{max-width:var(--max);margin:0 auto;text-align:center}
+    .script{font-family:var(--script);font-size:clamp(1.8rem,4vw,2.8rem);color:var(--gold-lit);display:block;margin-bottom:.6rem}
+    h1{font-family:var(--display);font-weight:800;font-size:clamp(2rem,5vw,3.4rem);line-height:1.02;letter-spacing:-.02em;text-transform:uppercase;color:#fff}
+    .lede{margin:1.2rem auto 0;max-width:42ch;color:var(--fog);font-size:1.05rem}
+    .grid{max-width:var(--max);margin:0 auto;padding:clamp(2.5rem,6vh,4rem) var(--gutter) clamp(4rem,10vh,6rem);display:grid;grid-template-columns:repeat(2,1fr);gap:1.1rem}
+    @media (min-width:900px){.grid{grid-template-columns:repeat(3,1fr)}}
+    @media (max-width:560px){.grid{grid-template-columns:1fr}}
+    .card{display:flex;flex-direction:column;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,.01));transition:transform .4s var(--ease),border-color .4s var(--ease);min-height:220px}
+    .card:hover{transform:translateY(-5px);border-color:rgba(201,162,74,.4)}
+    .card-vis{height:120px;background:center/cover no-repeat;position:relative}
+    .card-vis::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 30%,rgba(11,10,9,.85))}
+    .card-body{padding:1.25rem 1.35rem 1.5rem;display:flex;flex-direction:column;flex:1}
+    .num{font-family:var(--display);font-size:.68rem;letter-spacing:.22em;color:var(--gold);font-weight:700;margin-bottom:.55rem}
+    .card h2{font-family:var(--display);font-weight:800;font-size:1.15rem;text-transform:uppercase;color:#fff;letter-spacing:.02em;margin-bottom:.45rem}
+    .card p{font-size:.9rem;color:var(--fog-dim);flex:1;margin-bottom:1rem}
+    .go{font-family:var(--display);font-weight:600;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold)}
+    .card:hover .go{gap:.7rem}
+    .cta-band{text-align:center;padding:0 var(--gutter) clamp(4rem,10vh,6rem)}
+    .cta-band a{display:inline-flex;align-items:center;gap:.6rem;background:var(--crimson);color:#fff;font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;font-weight:600;padding:1rem 1.6rem;border-radius:2px}
+    .cta-band a:hover{background:#9E172F}
+    footer{border-top:1px solid var(--line);padding:1.4rem var(--gutter);text-align:center;font-size:.75rem;color:var(--fog-dim)}
+    footer a{color:var(--gold)}
+  </style>
+</head>
+<body>
+  <div class="topbar">
+    <div class="topbar-in">
+      <a class="brand" href="index.html">Rajasthan Marbles<span>Since 1984</span></a>
+      <a class="back" href="index.html#categories">← Back</a>
+    </div>
+  </div>
+
+  <header class="hero">
+    <div class="hero-in">
+      <span class="script">Under one roof</span>
+      <h1>See the full range</h1>
+      <p class="lede">8,000+ SKUs across every category — curated so you never have to settle.</p>
+    </div>
+  </header>
+
+  <div class="grid">
+    <a class="card" href="rajasthan-marbles-tiles.html">
+      <div class="card-vis" style="background-image:url('assets/Doorway%20image.jpg')"></div>
+      <div class="card-body">
+        <span class="num">01</span>
+        <h2>Tiles</h2>
+        <p>Porcelain, vitrified &amp; natural-stone slabs.</p>
+        <span class="go">View collection →</span>
+      </div>
+    </a>
+    <a class="card" href="contact.html">
+      <div class="card-vis" style="background-image:url('assets/category%20images/6.jpg')"></div>
+      <div class="card-body">
+        <span class="num">02</span>
+        <h2>Adhesives</h2>
+        <p>Adhesives, grouts &amp; waterproofing that hold.</p>
+        <span class="go">Ask in showroom →</span>
+      </div>
+    </a>
+    <a class="card" href="Sanitaryware.html">
+      <div class="card-vis" style="background-image:url('assets/category%20images/7.jpg')"></div>
+      <div class="card-body">
+        <span class="num">03</span>
+        <h2>Sanitaryware &amp; CP</h2>
+        <p>Basins, closets, faucets &amp; showers.</p>
+        <span class="go">View collection →</span>
+      </div>
+    </a>
+    <a class="card" href="Sanitaryware.html">
+      <div class="card-vis" style="background-image:url('assets/rm-sanitaryware.jpg')"></div>
+      <div class="card-body">
+        <span class="num">04</span>
+        <h2>Wellness</h2>
+        <p>Bathtubs, steam &amp; spa for the calm.</p>
+        <span class="go">View collection →</span>
+      </div>
+    </a>
+    <a class="card" href="PVC-Pipes.html">
+      <div class="card-vis" style="background-image:url('assets/category%20images/5.jpg'),linear-gradient(140deg,#2a2218,#120e0b)"></div>
+      <div class="card-body">
+        <span class="num">05</span>
+        <h2>PVC Pipes</h2>
+        <p>Plumbing &amp; drainage built to last.</p>
+        <span class="go">View collection →</span>
+      </div>
+    </a>
+    <a class="card" href="Paints-Coatings.html">
+      <div class="card-vis" style="background-image:url('assets/category%20images/4.jpg'),linear-gradient(140deg,#2a2218,#120e0b)"></div>
+      <div class="card-body">
+        <span class="num">06</span>
+        <h2>Paints &amp; Coatings</h2>
+        <p>Interior, exterior &amp; specialist finishes.</p>
+        <span class="go">View collection →</span>
+      </div>
+    </a>
+    <a class="card" href="Kitchen-Accessories.html">
+      <div class="card-vis" style="background-image:url('assets/category%20images/3.jpg'),linear-gradient(140deg,#2a2218,#120e0b)"></div>
+      <div class="card-body">
+        <span class="num">07</span>
+        <h2>Kitchen Accessories</h2>
+        <p>Hardware, fittings &amp; storage, built in.</p>
+        <span class="go">View collection →</span>
+      </div>
+    </a>
+    <a class="card" href="contact.html" style="background:linear-gradient(160deg,rgba(201,33,64,.22),rgba(11,10,9,.9))">
+      <div class="card-body" style="justify-content:center;min-height:220px">
+        <span class="num">Visit</span>
+        <h2>Need guidance?</h2>
+        <p>Walk the full range with our team at any of our Kochi &amp; Ernakulam showrooms.</p>
+        <span class="go">Visit showroom →</span>
+      </div>
+    </a>
+  </div>
+
+  <div class="cta-band">
+    <a href="contact.html">Get in touch →</a>
+  </div>
+
+  <footer>
+    <p><a href="index.html">Home</a> · Rajasthan Marbles · Since 1984</p>
+  </footer>
+</body>
+</html>

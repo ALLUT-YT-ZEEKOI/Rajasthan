@@ -50,7 +50,9 @@
       --body: 'Hanken Grotesk', system-ui, sans-serif;
       --script: 'Pinyon Script', cursive;
 
-      --shell: min(1280px, 92vw);
+      --gutter: clamp(2rem, 5vw, 5rem);
+      --content-max: 1280px;
+      --shell: min(var(--content-max), calc(100% - 2 * var(--gutter)));
       --ease: cubic-bezier(.22, .61, .36, 1);
       --ease-out: cubic-bezier(.16, 1, .3, 1);
     }
@@ -88,6 +90,10 @@
     a {
       color: inherit;
       text-decoration: none
+    }
+
+    a[href^="mailto:"] {
+      text-transform: lowercase
     }
 
     ::selection {
@@ -177,8 +183,10 @@
 
     /* ============================== LAYOUT HELPERS ============================== */
     .shell {
-      width: var(--shell);
-      margin-inline: auto
+      width: 100%;
+      max-width: calc(var(--content-max) + 2 * var(--gutter));
+      margin-inline: auto;
+      padding-inline: var(--gutter)
     }
 
     .band {
@@ -741,9 +749,10 @@
       grid-template-columns: 1.6fr 1fr;
       gap: 3rem;
       align-items: center;
-      width: var(--shell);
+      width: 100%;
+      max-width: calc(var(--content-max) + 2 * var(--gutter));
       margin-inline: auto;
-      padding: 6.5rem 0 3rem
+      padding: 6.5rem var(--gutter) 3rem
     }
 
     .drawer-nav {
@@ -913,7 +922,7 @@
         grid-template-columns: 1fr;
         gap: 1.75rem;
         align-content: start;
-        padding: clamp(4.5rem, 11vh, 5.5rem) 1.5rem clamp(2rem, 4vh, 3rem) !important;
+        padding: clamp(4.5rem, 11vh, 5.5rem) var(--gutter) clamp(2rem, 4vh, 3rem) !important;
         width: 100% !important;
       }
 
@@ -988,7 +997,7 @@
       }
 
       .drawer-in {
-        padding: clamp(4.5rem, 11vh, 5.5rem) 1.25rem 2.5rem !important;
+        padding: clamp(4.5rem, 11vh, 5.5rem) var(--gutter) 2.5rem !important;
       }
     }
 
@@ -996,10 +1005,12 @@
     .hero {
       position: relative;
       min-height: 100svh;
-      display: flex;
-      align-items: center;
+      display: grid;
+      grid-template-rows: 1fr auto;
+      align-content: end;
       overflow: hidden;
       isolation: isolate;
+      padding-bottom: clamp(1.5rem, 3vh, 2.2rem)
     }
 
     .hero-bg {
@@ -1056,17 +1067,21 @@
 
     .hero-inner {
       position: relative;
-      width: var(--shell);
-      margin-inline: auto;
-      padding-top: 6rem
+      align-self: end;
+      padding-top: clamp(6.5rem, 12vh, 9rem);
+      padding-bottom: clamp(1.5rem, 3vh, 2.5rem)
     }
 
     .hero h1 {
-      max-width: 16ch
+      max-width: none
     }
 
     .hero h1 .accent {
       color: var(--gold)
+    }
+
+    .hero h1 .hero-line {
+      white-space: nowrap
     }
 
     .hero .sub {
@@ -1131,10 +1146,11 @@
     }
 
     .scrollcue {
-      position: absolute;
-      left: 50%;
-      bottom: 2.2rem;
-      translate: -50% 0;
+      position: relative;
+      left: auto;
+      bottom: auto;
+      translate: none;
+      justify-self: center;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -1142,7 +1158,8 @@
       font-size: .6rem;
       letter-spacing: .4em;
       text-transform: uppercase;
-      color: var(--fog-dim)
+      color: var(--fog-dim);
+      margin-bottom: clamp(.5rem, 1.5vh, 1rem)
     }
 
     .scrollcue .rail {
@@ -1178,6 +1195,11 @@
     .paths {
       background: var(--ink-1);
       border-top: 1px solid var(--ink-3)
+    }
+
+    .paths.band {
+      padding-top: clamp(2.5rem, 5vh, 3.5rem);
+      padding-bottom: clamp(5rem, 11vh, 9rem)
     }
 
     .paths-head {
@@ -1287,6 +1309,7 @@
       font-size: 1.18rem;
       color: var(--white);
       line-height: 1.04;
+      text-align: left;
       padding-inline: .4rem
     }
 
@@ -1302,7 +1325,7 @@
     .door .go {
       position: relative;
       z-index: 3;
-      margin-top: 1.1rem;
+      margin-top: auto;
       display: inline-flex;
       align-items: center;
       gap: .5rem;
@@ -1426,7 +1449,8 @@
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 1.1rem;
-      perspective: 1600px
+      perspective: 1600px;
+      align-items: stretch
     }
 
     .ccard {
@@ -1541,7 +1565,7 @@
     .ccard.is-photo {
       justify-content: flex-end;
       min-height: 340px;
-      padding: 1.5rem 1.4rem 1.6rem;
+      padding: 0;
       background: #0a0908
     }
 
@@ -1614,16 +1638,25 @@
     }
 
     .ccard.is-photo .ccard-body {
-      position: relative;
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
       z-index: 3;
       margin-top: 0;
-      padding: 0;
-      transform: translateZ(50px)
+      padding: 1.5rem 1.4rem 1.6rem;
+      transform: none;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      height: 8.75rem
     }
 
     .ccard.is-photo h3 {
       font-size: 1.28rem;
       letter-spacing: .02em;
+      line-height: 1.08;
+      min-height: calc(2 * 1.08em);
       text-shadow: 0 2px 18px rgba(0, 0, 0, .65)
     }
 
@@ -1632,6 +1665,19 @@
       color: rgba(232, 228, 216, .88);
       max-width: 28ch;
       text-shadow: 0 1px 10px rgba(0, 0, 0, .5)
+    }
+
+    .ccard.is-photo .ccard-go {
+      margin-top: .75rem;
+      max-height: 0;
+      opacity: 0;
+      overflow: hidden;
+      transition: max-height .45s var(--ease), opacity .45s var(--ease), margin .45s var(--ease)
+    }
+
+    .ccard.is-photo:hover .ccard-go {
+      max-height: 2rem;
+      opacity: 1
     }
 
     /* --- per-category 3D objects --- */
@@ -2323,6 +2369,16 @@
       border: 1px solid var(--ink-3)
     }
 
+    .gframe::after {
+      content: "";
+      position: absolute;
+      inset: auto 0 0;
+      height: 42%;
+      z-index: 1;
+      pointer-events: none;
+      background: linear-gradient(180deg, transparent, rgba(8, 6, 5, .55) 45%, rgba(8, 6, 5, .82))
+    }
+
     .gframe .tex {
       position: absolute;
       inset: 0;
@@ -2347,7 +2403,9 @@
       height: 78%;
       border: 1px solid rgba(233, 222, 188, .22);
       border-bottom: 0;
-      border-radius: 50% 50% 0 0/60% 60% 0 0
+      border-radius: 50% 50% 0 0/60% 60% 0 0;
+      z-index: 1;
+      pointer-events: none
     }
 
     .gframe figcaption {
@@ -2357,8 +2415,9 @@
       font-size: .68rem;
       letter-spacing: .18em;
       text-transform: uppercase;
-      color: var(--beige);
-      z-index: 2
+      color: #fff;
+      z-index: 2;
+      text-shadow: 0 1px 2px rgba(0, 0, 0, .65), 0 0 18px rgba(0, 0, 0, .35)
     }
 
     .g1 {
@@ -2753,15 +2812,17 @@
 
     .ig-track-wrap {
       position: relative;
-      margin-top: 1.8rem
+      margin-top: 1.8rem;
+      padding-inline: calc(var(--gutter) + 2.75rem)
     }
 
     .ig-track {
       display: flex;
-      gap: 1rem;
+      gap: 1.1rem;
       overflow-x: auto;
       scroll-snap-type: x mandatory;
-      padding: .3rem clamp(1rem, 4vw, 2.4rem);
+      padding: .5rem 0 1.25rem;
+      scroll-padding-inline: .5rem;
       scroll-behavior: smooth;
       -ms-overflow-style: none;
       scrollbar-width: none
@@ -2778,84 +2839,56 @@
       aspect-ratio: 9/16;
       border-radius: 4px;
       overflow: hidden;
-      scroll-snap-align: start;
+      scroll-snap-align: center;
       border: 1px solid var(--ink-3);
       isolation: isolate;
       background: #0a0908;
-      container-type: inline-size;
+      cursor: pointer;
       transition: border-color .5s var(--ease), transform .5s var(--ease)
     }
 
-    /* Crop Instagram chrome (header + like/share/comment footer) — video only */
-    .ig-crop {
+    .ig-card video {
       position: absolute;
       inset: 0;
-      overflow: hidden;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
       background: #0a0908
     }
 
-    .ig-crop iframe {
+    .ig-card .ig-play {
       position: absolute;
       left: 50%;
-      top: -54px;
-      width: 326px;
-      height: 700px;
-      border: 0;
-      display: block;
-      background: #0a0908;
-      transform: translateX(-50%);
-      pointer-events: auto
-    }
-
-    .ig-card::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      height: 14%;
-      z-index: 1;
-      pointer-events: none;
-      background: linear-gradient(180deg, transparent, rgba(8, 6, 5, .4))
-    }
-
-    .ig-card .ig-open {
-      position: absolute;
-      right: .7rem;
-      top: .7rem;
-      z-index: 3;
-      width: 34px;
-      height: 34px;
+      top: 50%;
+      z-index: 2;
+      translate: -50% -50%;
+      width: 52px;
+      height: 52px;
       border-radius: 50%;
+      border: 1px solid rgba(255, 255, 255, .45);
+      background: rgba(11, 10, 9, .55);
+      color: #fff;
       display: grid;
       place-items: center;
-      background: rgba(11, 10, 9, .55);
-      border: 1px solid rgba(255, 255, 255, .35);
-      color: #fff;
+      pointer-events: none;
       backdrop-filter: blur(4px);
-      transition: .3s var(--ease)
+      transition: opacity .35s var(--ease), transform .35s var(--ease)
     }
 
-    .ig-card .ig-open:hover {
-      background: var(--crimson);
-      border-color: var(--crimson)
+    .ig-card .ig-play svg {
+      width: 18px;
+      height: 18px;
+      margin-left: 2px
     }
 
-    .ig-card .ig-open svg {
-      width: 15px;
-      height: 15px
+    .ig-card.is-playing .ig-play {
+      opacity: 0;
+      transform: scale(.85)
     }
 
     .ig-card:hover {
       border-color: rgba(201, 162, 74, .5)
-    }
-
-    .ig-card .ig-media,
-    .ig-card .scrim,
-    .ig-card .ig-play,
-    .ig-card .ig-corner,
-    .ig-card .ig-tag {
-      display: none
     }
 
     .ig-arrow {
@@ -2884,11 +2917,11 @@
     }
 
     .ig-arrow.left {
-      left: .4rem
+      left: max(.75rem, calc(var(--gutter) - .5rem))
     }
 
     .ig-arrow.right {
-      right: .4rem
+      right: max(.75rem, calc(var(--gutter) - .5rem))
     }
 
     .m-forest {
@@ -3395,6 +3428,10 @@
       .collections-grid {
         grid-template-columns: 1fr
       }
+
+      .hero h1 .hero-line {
+        white-space: normal
+      }
     }
 
     @media(max-width:980px) {
@@ -3416,7 +3453,7 @@
         grid-template-columns: 1fr;
         gap: 2rem;
         align-content: start;
-        padding: clamp(4.5rem, 11vh, 5.5rem) 1.5rem clamp(2rem, 4vh, 3rem) !important;
+        padding: clamp(4.5rem, 11vh, 5.5rem) var(--gutter) clamp(2rem, 4vh, 3rem) !important;
       }
 
       .drawer-aside {
@@ -3465,7 +3502,11 @@
       }
 
       .ig-card {
-        width: 62vw
+        width: clamp(220px, 62vw, 280px)
+      }
+
+      .ig-track-wrap {
+        padding-inline: calc(var(--gutter) + 2.25rem)
       }
 
       .ig-head {
@@ -3521,10 +3562,10 @@
         <span class="util-left">Four experience centres across Kochi &amp; Ernakulam</span>
         <div class="util-right">
           <a href="contact.html">Request a Call Back</a>
-          <a href="tel:9895227744"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+          <a href="tel:9895227755"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
               <path
                 d="M5 4h3l2 5-2.2 1.1a11 11 0 0 0 5.1 5.1L14 13l5 2v3a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z" />
-            </svg> Call Us · 98952 27744</a>
+            </svg> Call Us · 98952 27755</a>
           <a href="contact.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
               <path d="M12 22s7-6.5 7-12A7 7 0 0 0 5 10c0 5.5 7 12 7 12z" />
               <circle cx="12" cy="10" r="2.4" />
@@ -3605,17 +3646,17 @@
         <a href="contact.html"><span class="dn">06</span>Contact Us</a>
       </nav>
       <aside class="drawer-aside">
-        <div class="da-block"><b>Call</b><a href="tel:9895227744">+91 98952 27744</a></div>
-        <div class="da-block"><b>Email</b><a href="mailto:Sales@rajasthanmarbles.com">Sales@rajasthanmarbles.com</a>
+        <div class="da-block"><b>Call</b><a href="tel:9895227755">+91 98952 27755</a> <a href="tel:8129805004">+91 81298 05004</a></div>
+        <div class="da-block"><b>Email</b><a href="mailto:sales@rajasthanmarbles.com">sales@rajasthanmarbles.com</a>
         </div>
         <div class="da-block"><b>Visit</b><span>Kadamattom, Ernakulam, Kerala</span></div>
         <div class="da-block"><b>Follow</b>
-          <div class="da-social"><a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none"
+          <div class="da-social"><a href="https://www.instagram.com/rajasthanmarblesofficial/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none"
                 stroke="currentColor" stroke-width="1.6">
                 <rect x="3" y="3" width="18" height="18" rx="5" />
                 <circle cx="12" cy="12" r="4" />
                 <circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none" />
-              </svg></a><a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor">
+              </svg></a><a href="https://www.facebook.com/share/18yS4UcQpd/?mibextid=wwXIfr" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor">
                 <path
                   d="M13.2 22v-8h2.6l.5-3h-3.1V9c0-.9.3-1.5 1.6-1.5h1.6V5c-.3 0-1.3-.1-2.3-.1-2.2 0-3.6 1.3-3.6 3.9V11H8v3h2.5v8z" />
               </svg></a><a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="currentColor">
@@ -3642,9 +3683,9 @@
         <path d="M270 760 V370 a330 330 0 0 1 660 0 V760" />
         <path d="M390 760 V380 a210 210 0 0 1 420 0 V760" />
       </svg>
-      <div class="hero-inner">
+      <div class="shell hero-inner">
         <p class="eyebrow rise in">Premium building materials · Since 1984</p>
-        <h1 class="display rise in d1" style="margin-top:1.4rem">Every space begins<br>with a <span
+        <h1 class="display rise in d1" style="margin-top:1.4rem"><span class="hero-line">Every space begins</span><br>with a <span
             class="accent">decision.</span></h1>
         <p class="lead sub rise in d2">We help you make the right ones — <span class="em">beautifully, reliably,
             forever.</span> Four decades of judgment, gathered under one roof.</p>
@@ -3693,7 +3734,7 @@
             <p>Renovation & upgrade projects, done without the guesswork.</p>
             <span class="go">Begin <span class="arrow">→</span></span>
           </a>
-          <a class="door rise d2" href="contact.html">
+          <a class="door rise d2" href="Commercial-&-Govt-Institutions.html">
             <span class="glow"></span><span class="archtop"></span>
             <div class="door-stage">
               <img src="assets/3.jpg" alt="Spa-like bathroom with marble walls and vanity" loading="lazy" width="600"
@@ -3711,7 +3752,7 @@
                 height="800">
             </div>
             <span class="ix">04 — Trade</span>
-            <h3>I'm a builder / contractor</h3>
+            <h3>I'm a builder</h3>
             <p>Professional & trade solutions, with accountability that lasts.</p>
             <span class="go">Begin <span class="arrow">→</span></span>
           </a>
@@ -3784,7 +3825,7 @@
                   class="arrow">&rarr;</span></span>
             </div>
           </a>
-          <a class="ccard is-photo" href="collections/adhesives.html"
+          <a class="ccard is-photo" href="collections.html"
             style="--m1:#8a7f6a;--m2:#3f372b;--tint:rgba(201,162,74,.10)">
             <span class="ccard-glow"></span><span class="ccard-arch"></span>
             <span class="ccard-num">02</span><span class="ccard-plus">+</span>
@@ -3807,12 +3848,12 @@
                 loading="lazy" width="800" height="600">
             </div>
             <div class="ccard-body">
-              <h3>Sanitaryware &amp; CP</h3>
+              <h3>Sanitaryware<br>&amp; CP</h3>
               <p>Basins, closets, faucets &amp; showers.</p><span class="ccard-go">View collection <span
                   class="arrow">&rarr;</span></span>
             </div>
           </a>
-          <a class="ccard is-photo" href="collections/wellness.html"
+          <a class="ccard is-photo" href="Sanitaryware.html"
             style="--m1:#5b6b5d;--m2:#222a25;--tint:rgba(61,74,63,.32)">
             <span class="ccard-glow"></span><span class="ccard-arch"></span>
             <span class="ccard-num">04</span><span class="ccard-plus">+</span>
@@ -3868,7 +3909,7 @@
                   class="arrow">&rarr;</span></span>
             </div>
           </a>
-          <a class="ccard cta" href="collections/" style="--tint:rgba(201,33,64,.18)">
+          <a class="ccard cta" href="collections.html" style="--tint:rgba(201,33,64,.18)">
             <span class="ccard-glow"></span>
             <div class="ccard-body"><span class="big">See the<br>full range</span><span class="sub">8,000+ SKUs across
                 every category.</span><span class="ccard-go">All collections <span class="arrow">&rarr;</span></span>
@@ -4012,7 +4053,7 @@
           <figure class="gframe g2">
             <img class="tex" src="assets/rm-about.jpg" alt="Lobby project in Kochi" loading="lazy" width="800"
               height="600">
-            <figcaption style="color:#2a2018">Lobby · Kochi</figcaption>
+            <figcaption>Lobby · Kochi</figcaption>
           </figure>
           <figure class="gframe g3">
             <img class="tex" src="assets/Get inspired/website image 5 (1).jpg" alt="Bath project in Adimali"
@@ -4079,21 +4120,21 @@
           </p>
         </div>
         <div class="journal-grid">
-          <a class="post rise" href="#">
+          <a class="post rise" href="journal-tiles.html">
             <span class="cover"><span class="tex tex-onyx"></span></span>
             <span class="kicker">Tiles</span>
             <h3>Porcelain or vitrified? A buyer's guide</h3>
             <p>How to read a tile's spec sheet and pick for the room it'll actually live in.</p>
             <span class="read">Read <span class="arrow">→</span></span>
           </a>
-          <a class="post rise d1" href="#">
+          <a class="post rise d1" href="journal-sanitaryware.html">
             <span class="cover"><span class="tex tex-terra"></span></span>
             <span class="kicker">Wellness</span>
             <h3>Designing a bathroom that ages well</h3>
             <p>The fittings worth spending on, and the ones where restraint pays off.</p>
             <span class="read">Read <span class="arrow">→</span></span>
           </a>
-          <a class="post rise d2" href="#">
+          <a class="post rise d2" href="journal-paints.html">
             <span class="cover"><span class="tex tex-moss"></span></span>
             <span class="kicker">Paints</span>
             <h3>Why the right primer matters more than the colour</h3>
@@ -4123,11 +4164,11 @@
             </div>
             <div class="row">
               <span class="ic" aria-hidden="true">☎</span>
-              <div><b>Call</b><a href="tel:9895227744">+91 98952 27744</a></div>
+              <div><b>Call</b><a href="tel:9895227755">+91 98952 27755</a> · <a href="tel:8129805004">+91 81298 05004</a></div>
             </div>
             <div class="row">
               <span class="ic" aria-hidden="true">✉</span>
-              <div><b>Email</b><a href="mailto:Sales@rajasthanmarbles.com">Sales@rajasthanmarbles.com</a></div>
+              <div><b>Email</b><a href="mailto:sales@rajasthanmarbles.com">sales@rajasthanmarbles.com</a></div>
             </div>
           </div>
         </div>
@@ -4137,19 +4178,19 @@
           <div class="field">
             <label>I am</label>
             <div class="chips" id="roleChips">
-              <span class="opt sel">Building a home</span>
-              <span class="opt">Renovating</span>
-              <span class="opt">A project</span>
-              <span class="opt">Trade</span>
+              <span class="opt sel" data-role="home" tabindex="0" role="button">Building a home</span>
+              <span class="opt" data-role="reno" tabindex="0" role="button">Renovating</span>
+              <span class="opt" data-role="project" tabindex="0" role="button">A project</span>
+              <span class="opt" data-role="trade" tabindex="0" role="button">Trade</span>
             </div>
           </div>
-          <div class="field"><label>Name</label><input type="text" placeholder="Your name" /></div>
-          <div class="field"><label>Phone</label><input type="tel" placeholder="Mobile number" /></div>
-          <div class="field"><label>What do you need help with?</label><textarea rows="3"
+          <div class="field"><label id="nameLabel">Name</label><input id="nameInput" type="text" placeholder="Your name" /></div>
+          <div class="field"><label id="phoneLabel">Phone</label><input id="phoneInput" type="tel" placeholder="Mobile number" /></div>
+          <div class="field"><label id="helpLabel">What do you need help with?</label><textarea id="helpInput" rows="3"
               placeholder="Tiles for a 3BHK, a full bathroom, paint for the exterior…"></textarea></div>
-          <a class="btn btn-primary" href="mailto:Sales@rajasthanmarbles.com">Request guidance <span
+          <a class="btn btn-primary" href="mailto:sales@rajasthanmarbles.com">Request guidance <span
               class="arrow">→</span></a>
-          <p class="note">Or call us directly on +91 98952 27744</p>
+          <p class="note">Or call us directly on +91 98952 27755</p>
         </div>
       </div>
     </section>
@@ -4160,12 +4201,12 @@
   <section class="ig band" id="instagram">
     <div class="shell ig-head rise">
       <span class="ln"></span>
-      <a class="ig-handle" href="https://instagram.com/rajasthanmarbles" target="_blank"
-        rel="noopener">@rajasthanmarbles</a>
+      <a class="ig-handle" href="https://www.instagram.com/rajasthanmarblesofficial/" target="_blank"
+        rel="noopener">@rajasthanmarblesofficial</a>
       <span class="ln"></span>
     </div>
     <div class="shell rise">
-      <a class="ig-follow" href="https://instagram.com/rajasthanmarbles" target="_blank" rel="noopener"><svg
+      <a class="ig-follow" href="https://www.instagram.com/rajasthanmarblesofficial/" target="_blank" rel="noopener"><svg
           viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
           <rect x="3" y="3" width="18" height="18" rx="5" />
           <circle cx="12" cy="12" r="4" />
@@ -4176,100 +4217,40 @@
       <button class="ig-arrow left" id="igPrev" aria-label="Previous">&lsaquo;</button>
       <div class="ig-track" id="igTrack">
         <article class="ig-card">
-          <div class="ig-crop"><iframe src="https://www.instagram.com/reel/DZSItOhBuC2/embed" title="Born from nature"
-              loading="lazy" allowfullscreen
-              allow="encrypted-media; picture-in-picture; clipboard-write; autoplay"></iframe></div>
-          <a class="ig-open" href="https://www.instagram.com/reel/DZSItOhBuC2/" target="_blank" rel="noopener"
-            aria-label="Open reel on Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
-              stroke-width="1.6">
-              <rect x="3" y="3" width="18" height="18" rx="5" />
-              <circle cx="12" cy="12" r="4" />
-              <circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none" />
-            </svg></a>
+          <video src="videos/show%20room%20transition%20main%204.mp4" muted loop playsinline preload="metadata"></video>
+          <span class="ig-play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
         </article>
         <article class="ig-card">
-          <div class="ig-crop"><iframe src="https://www.instagram.com/reel/DZU0c_FB0Ns/embed" title="Soak in the calm"
-              loading="lazy" allowfullscreen
-              allow="encrypted-media; picture-in-picture; clipboard-write; autoplay"></iframe></div>
-          <a class="ig-open" href="https://www.instagram.com/reel/DZU0c_FB0Ns/" target="_blank" rel="noopener"
-            aria-label="Open reel on Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
-              stroke-width="1.6">
-              <rect x="3" y="3" width="18" height="18" rx="5" />
-              <circle cx="12" cy="12" r="4" />
-              <circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none" />
-            </svg></a>
+          <video src="videos/Giji%20interaction%20reel%204.mp4" muted loop playsinline preload="metadata"></video>
+          <span class="ig-play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
         </article>
         <article class="ig-card">
-          <div class="ig-crop"><iframe src="https://www.instagram.com/reel/DZIKQw3BSLp/embed" title="Onyx opulence"
-              loading="lazy" allowfullscreen
-              allow="encrypted-media; picture-in-picture; clipboard-write; autoplay"></iframe></div>
-          <a class="ig-open" href="https://www.instagram.com/reel/DZIKQw3BSLp/" target="_blank" rel="noopener"
-            aria-label="Open reel on Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
-              stroke-width="1.6">
-              <rect x="3" y="3" width="18" height="18" rx="5" />
-              <circle cx="12" cy="12" r="4" />
-              <circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none" />
-            </svg></a>
+          <video src="videos/giji%20reel%202.mp4" muted loop playsinline preload="metadata"></video>
+          <span class="ig-play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
         </article>
         <article class="ig-card">
-          <div class="ig-crop"><iframe src="https://www.instagram.com/reel/DanIt09KneH/embed" title="The wellness suite"
-              loading="lazy" allowfullscreen
-              allow="encrypted-media; picture-in-picture; clipboard-write; autoplay"></iframe></div>
-          <a class="ig-open" href="https://www.instagram.com/reel/DanIt09KneH/" target="_blank" rel="noopener"
-            aria-label="Open reel on Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
-              stroke-width="1.6">
-              <rect x="3" y="3" width="18" height="18" rx="5" />
-              <circle cx="12" cy="12" r="4" />
-              <circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none" />
-            </svg></a>
+          <video src="videos/couple%20ad%202%20out%201.mp4" muted loop playsinline preload="metadata"></video>
+          <span class="ig-play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
         </article>
         <article class="ig-card">
-          <div class="ig-crop"><iframe src="https://www.instagram.com/reel/DakgwuAhMia/embed"
-              title="Large-format stories" loading="lazy" allowfullscreen
-              allow="encrypted-media; picture-in-picture; clipboard-write; autoplay"></iframe></div>
-          <a class="ig-open" href="https://www.instagram.com/reel/DakgwuAhMia/" target="_blank" rel="noopener"
-            aria-label="Open reel on Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
-              stroke-width="1.6">
-              <rect x="3" y="3" width="18" height="18" rx="5" />
-              <circle cx="12" cy="12" r="4" />
-              <circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none" />
-            </svg></a>
+          <video src="videos/coupl%20reel%20out%204.mp4" muted loop playsinline preload="metadata"></video>
+          <span class="ig-play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
         </article>
         <article class="ig-card">
-          <div class="ig-crop"><iframe src="https://www.instagram.com/reel/Dah72_sBenc/embed" title="Behind the build"
-              loading="lazy" allowfullscreen
-              allow="encrypted-media; picture-in-picture; clipboard-write; autoplay"></iframe></div>
-          <a class="ig-open" href="https://www.instagram.com/reel/Dah72_sBenc/" target="_blank" rel="noopener"
-            aria-label="Open reel on Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
-              stroke-width="1.6">
-              <rect x="3" y="3" width="18" height="18" rx="5" />
-              <circle cx="12" cy="12" r="4" />
-              <circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none" />
-            </svg></a>
+          <video src="videos/hostel%20reel%20out%203.mp4" muted loop playsinline preload="metadata"></video>
+          <span class="ig-play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
         </article>
         <article class="ig-card">
-          <div class="ig-crop"><iframe src="https://www.instagram.com/reel/DafV34uBsjI/embed"
-              title="Showroom walkthrough" loading="lazy" allowfullscreen
-              allow="encrypted-media; picture-in-picture; clipboard-write; autoplay"></iframe></div>
-          <a class="ig-open" href="https://www.instagram.com/reel/DafV34uBsjI/" target="_blank" rel="noopener"
-            aria-label="Open reel on Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
-              stroke-width="1.6">
-              <rect x="3" y="3" width="18" height="18" rx="5" />
-              <circle cx="12" cy="12" r="4" />
-              <circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none" />
-            </svg></a>
+          <video src="videos/hostel%20reel%202%20out%204.mp4" muted loop playsinline preload="metadata"></video>
+          <span class="ig-play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
         </article>
         <article class="ig-card">
-          <div class="ig-crop"><iframe src="https://www.instagram.com/reel/DaaMvmMBf7U/embed" title="Crafted in detail"
-              loading="lazy" allowfullscreen
-              allow="encrypted-media; picture-in-picture; clipboard-write; autoplay"></iframe></div>
-          <a class="ig-open" href="https://www.instagram.com/reel/DaaMvmMBf7U/" target="_blank" rel="noopener"
-            aria-label="Open reel on Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
-              stroke-width="1.6">
-              <rect x="3" y="3" width="18" height="18" rx="5" />
-              <circle cx="12" cy="12" r="4" />
-              <circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none" />
-            </svg></a>
+          <video src="videos/jaccuzzi%20out%202.mp4" muted loop playsinline preload="metadata"></video>
+          <span class="ig-play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
+        </article>
+        <article class="ig-card">
+          <video src="videos/flash%20transition%20reel%20out%202.mp4" muted loop playsinline preload="metadata"></video>
+          <span class="ig-play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
         </article>
       </div>
       <button class="ig-arrow right" id="igNext" aria-label="Next">&rsaquo;</button>
@@ -4298,22 +4279,22 @@
                 <path
                   d="M5 4h3l2 5-2.2 1.1a11 11 0 0 0 5.1 5.1L14 13l5 2v3a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z" />
               </svg></span>
-            <div><b>Sales &amp; Guidance</b><a href="tel:9895227744">+91 98952 27744</a></div>
+            <div><b>Sales &amp; Guidance</b><a href="tel:9895227755">+91 98952 27755</a> · <a href="tel:8129805004">+91 81298 05004</a></div>
           </div>
           <div class="fm-phone"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
                 stroke-width="1.6">
                 <rect x="3" y="5" width="18" height="14" rx="2" />
                 <path d="M3.5 7l8.5 6 8.5-6" />
               </svg></span>
-            <div><b>Email</b><a href="mailto:Sales@rajasthanmarbles.com">Sales@rajasthanmarbles.com</a></div>
+            <div><b>Email</b><a href="mailto:sales@rajasthanmarbles.com">sales@rajasthanmarbles.com</a></div>
           </div>
           <div class="fm-social">
-            <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            <a href="https://www.instagram.com/rajasthanmarblesofficial/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
                 stroke-width="1.6">
                 <rect x="3" y="3" width="18" height="18" rx="5" />
                 <circle cx="12" cy="12" r="4" />
                 <circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none" />
-              </svg></a><a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor">
+              </svg></a><a href="https://www.facebook.com/share/18yS4UcQpd/?mibextid=wwXIfr" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor">
                 <path
                   d="M13.2 22v-8h2.6l.5-3h-3.1V9c0-.9.3-1.5 1.6-1.5h1.6V5c-.3 0-1.3-.1-2.3-.1-2.2 0-3.6 1.3-3.6 3.9V11H8v3h2.5v8z" />
               </svg></a><a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="currentColor">
@@ -4416,18 +4397,46 @@
       /* ---------- INSTAGRAM CAROUSEL ---------- */
       var igTrack = document.getElementById('igTrack');
       if (igTrack) {
-        function igStep() { var c = igTrack.querySelector('.ig-card'); return (c ? c.offsetWidth + 16 : 280) * 1.4; }
+        function igStep() {
+          var c = igTrack.querySelector('.ig-card');
+          if (!c) return 280;
+          var gap = parseFloat(getComputedStyle(igTrack).gap) || 17.6;
+          return (c.offsetWidth + gap) * 1.35;
+        }
         var ip = document.getElementById('igPrev'), inx = document.getElementById('igNext');
         if (ip) ip.addEventListener('click', function () { igTrack.scrollBy({ left: -igStep(), behavior: 'smooth' }); });
         if (inx) inx.addEventListener('click', function () { igTrack.scrollBy({ left: igStep(), behavior: 'smooth' }); });
-        // drag to scroll (skip when interacting with embeds)
-        var down = false, sx = 0, sl = 0;
+        // drag to scroll
+        var down = false, sx = 0, sl = 0, moved = false;
         igTrack.addEventListener('pointerdown', function (e) {
-          if (e.target.closest('iframe, .ig-open')) return;
-          down = true; sx = e.clientX; sl = igTrack.scrollLeft;
+          down = true; moved = false; sx = e.clientX; sl = igTrack.scrollLeft;
         });
         window.addEventListener('pointerup', function () { down = false; });
-        igTrack.addEventListener('pointermove', function (e) { if (!down) return; igTrack.scrollLeft = sl - (e.clientX - sx); });
+        igTrack.addEventListener('pointermove', function (e) {
+          if (!down) return;
+          var dx = e.clientX - sx;
+          if (Math.abs(dx) > 6) moved = true;
+          igTrack.scrollLeft = sl - dx;
+        });
+        // click card to play/pause (skip if dragged)
+        igTrack.querySelectorAll('.ig-card').forEach(function (card) {
+          var vid = card.querySelector('video');
+          if (!vid) return;
+          card.addEventListener('click', function () {
+            if (moved) return;
+            if (vid.paused) {
+              igTrack.querySelectorAll('video').forEach(function (v) {
+                if (v !== vid) { v.pause(); v.closest('.ig-card').classList.remove('is-playing'); }
+              });
+              vid.play();
+              card.classList.add('is-playing');
+            } else {
+              vid.pause();
+              card.classList.remove('is-playing');
+            }
+          });
+          vid.addEventListener('ended', function () { card.classList.remove('is-playing'); });
+        });
       }
 
       /* ---------- BACK TO TOP ---------- */
@@ -4530,11 +4539,73 @@
 
       /* ---------- ROLE CHIPS ---------- */
       var chips = document.getElementById('roleChips');
-      chips.addEventListener('click', function (e) {
-        if (!e.target.classList.contains('opt')) return;
+      var roleCopy = {
+        home: {
+          nameLabel: 'Name',
+          namePh: 'Your name',
+          phoneLabel: 'Phone',
+          phonePh: 'Mobile number',
+          helpLabel: 'What do you need help with?',
+          helpPh: 'Tiles for a 3BHK, a full bathroom, paint for the exterior…'
+        },
+        reno: {
+          nameLabel: 'Name',
+          namePh: 'Your name',
+          phoneLabel: 'Phone',
+          phonePh: 'Mobile number',
+          helpLabel: 'What are you renovating?',
+          helpPh: 'Kitchen refresh, bathroom remodel, living room flooring…'
+        },
+        project: {
+          nameLabel: 'Contact name',
+          namePh: 'Project contact person',
+          phoneLabel: 'Project phone',
+          phonePh: 'Site / office number',
+          helpLabel: 'Tell us about the project',
+          helpPh: 'Commercial fit-out, institution, scope, timeline…'
+        },
+        trade: {
+          nameLabel: 'Firm / contact',
+          namePh: 'Company or trade contact name',
+          phoneLabel: 'Trade phone',
+          phonePh: 'WhatsApp / mobile number',
+          helpLabel: 'What do you need supplied?',
+          helpPh: 'SKU list, brand preference, delivery location…'
+        }
+      };
+      function applyRole(role) {
+        var copy = roleCopy[role] || roleCopy.home;
+        var nameLabel = document.getElementById('nameLabel');
+        var nameInput = document.getElementById('nameInput');
+        var phoneLabel = document.getElementById('phoneLabel');
+        var phoneInput = document.getElementById('phoneInput');
+        var helpLabel = document.getElementById('helpLabel');
+        var helpInput = document.getElementById('helpInput');
+        if (nameLabel) nameLabel.textContent = copy.nameLabel;
+        if (nameInput) nameInput.placeholder = copy.namePh;
+        if (phoneLabel) phoneLabel.textContent = copy.phoneLabel;
+        if (phoneInput) phoneInput.placeholder = copy.phonePh;
+        if (helpLabel) helpLabel.textContent = copy.helpLabel;
+        if (helpInput) helpInput.placeholder = copy.helpPh;
+      }
+      function selectRole(opt) {
+        if (!opt || !opt.classList.contains('opt')) return;
         chips.querySelectorAll('.opt').forEach(function (o) { o.classList.remove('sel'); });
-        e.target.classList.add('sel');
-      });
+        opt.classList.add('sel');
+        applyRole(opt.getAttribute('data-role') || 'home');
+      }
+      if (chips) {
+        chips.addEventListener('click', function (e) {
+          selectRole(e.target.closest('.opt'));
+        });
+        chips.addEventListener('keydown', function (e) {
+          if (e.key !== 'Enter' && e.key !== ' ') return;
+          var opt = e.target.closest('.opt');
+          if (!opt) return;
+          e.preventDefault();
+          selectRole(opt);
+        });
+      }
 
       /* ---------- YEAR ---------- */
       document.getElementById('yr').textContent = new Date().getFullYear();
