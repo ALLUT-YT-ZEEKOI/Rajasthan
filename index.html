@@ -2,6 +2,8 @@
 <html lang="en">
 
 <head>
+  <link rel="icon" href="assets/logo-mark.png" type="image/png" />
+
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Rajasthan Marbles — Every Space Begins With a Decision</title>
@@ -305,38 +307,13 @@
       transition: opacity .6s ease
     }
 
-    .th-arch {
-      width: clamp(120px, 18vw, 190px);
+    .th-logo {
+      width: clamp(220px, 42vw, 360px);
       height: auto;
       margin-inline: auto;
-      display: block
-    }
-
-    .th-arch path {
-      fill: none;
-      stroke: var(--gold);
-      stroke-width: 2.4;
-      stroke-dasharray: var(--len);
-      stroke-dashoffset: var(--len);
-      animation: draw 1.15s var(--ease-out) .15s forwards;
-    }
-
-    @keyframes draw {
-      to {
-        stroke-dashoffset: 0
-      }
-    }
-
-    .th-word {
-      margin-top: 1.6rem;
-      font-family: var(--display);
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: .42em;
-      font-size: .82rem;
-      color: var(--beige);
+      display: block;
       opacity: 0;
-      animation: fadeUp .9s var(--ease-out) .85s forwards;
+      animation: fadeUp .9s var(--ease-out) .25s forwards
     }
 
     .th-since {
@@ -483,7 +460,7 @@
       display: grid;
       grid-template-columns: 1fr auto 1fr;
       align-items: center;
-      padding: 1.15rem 0;
+      padding: .7rem 0;
       transition: padding .4s ease
     }
 
@@ -539,22 +516,18 @@
     .brand-center {
       justify-self: center;
       display: flex;
-      flex-direction: column;
+      
       align-items: center;
-      gap: .5rem;
+      
       text-align: center;
       color: #fff
     }
 
-    .brand-center svg {
-      width: 30px;
-      height: 30px;
-      color: var(--crimson);
-      transition: color .4s ease
-    }
-
-    header.docked .brand-center svg {
-      color: var(--gold)
+    .brand-center .brand-logo {
+      height: clamp(40px, 4.8vw, 54px);
+      width: auto;
+      display: block;
+      object-fit: contain
     }
 
     .brand-center .wm {
@@ -2990,11 +2963,7 @@
       border-color: var(--gold)
     }
 
-    .foot-crest .fc-mark svg {
-      width: 40px;
-      height: 40px;
-      color: var(--gold)
-    }
+    .foot-crest .fc-mark img{width:44px;height:44px;object-fit:contain;display:block}
 
     .foot-main {
       display: grid;
@@ -3657,13 +3626,7 @@
     <div class="th-panel l"></div>
     <div class="th-panel r"></div>
     <div class="th-core">
-      <svg class="th-arch" viewBox="0 0 200 230" aria-hidden="true">
-        <path style="--len:520" d="M30 230 V120 a70 70 0 0 1 140 0 V230" />
-        <path style="--len:430" d="M55 230 V120 a45 45 0 0 1 90 0 V230" />
-        <path style="--len:340" d="M80 230 V122 a20 20 0 0 1 40 0 V230" />
-      </svg>
-      <div class="th-word">Rajasthan Marbles</div>
-      <div class="th-since">Since 1984</div>
+      <img class="th-logo" src="assets/logo-full.png" alt="Rajasthan Marbles">
       <div class="th-enter" id="enterBtn">Enter the showroom</div>
     </div>
   </div>
@@ -3692,15 +3655,7 @@
           <span class="ml"><span></span><span></span><span></span></span><em>Menu</em>
         </button>
         <a class="brand brand-center" href="#top" aria-label="Rajasthan Marbles home">
-          <svg viewBox="0 0 120 120" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="9"
-            stroke-linejoin="miter">
-            <path d="M14 14 H106 V92 L88 110" />
-            <path d="M14 14 V92 L32 110 H88" />
-            <path d="M40 92 V44 H62 a14 14 0 0 1 0 28 H40" />
-            <path d="M58 70 L80 96" />
-            <path d="M70 50 L86 70 V96" />
-          </svg>
-          <span class="wm"><b>Rajasthan Marbles</b><span>Since 1984</span></span>
+          <img class="brand-logo" src="assets/logo-full.png" alt="Rajasthan Marbles" width="200" height="58">
         </a>
         <div class="bar-right">
           <button class="ic-btn" id="searchBtn" aria-label="Search"><svg viewBox="0 0 24 24" fill="none"
@@ -4375,14 +4330,7 @@
     <div class="shell">
       <div class="foot-crest">
         <span class="fc-line"></span>
-        <a class="fc-mark" href="#top" aria-label="Rajasthan Marbles"><svg viewBox="0 0 120 120" aria-hidden="true"
-            fill="none" stroke="currentColor" stroke-width="9" stroke-linejoin="miter">
-            <path d="M14 14 H106 V92 L88 110" />
-            <path d="M14 14 V92 L32 110 H88" />
-            <path d="M40 92 V44 H62 a14 14 0 0 1 0 28 H40" />
-            <path d="M58 70 L80 96" />
-            <path d="M70 50 L86 70 V96" />
-          </svg></a>
+        <a class="fc-mark" href="#top" aria-label="Rajasthan Marbles"><img src="assets/logo-mark.png" alt="" width="44" height="44"></a>
         <span class="fc-line"></span>
       </div>
       <div class="foot-main">
