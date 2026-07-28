@@ -922,47 +922,62 @@
         }
 
         /* laptop / shorter viewports: keep eyebrow clear of fixed header */
-        @media (max-height: 820px) {
+        @media (max-height: 920px) {
             .hero-inner {
-                padding-top: clamp(7.5rem, 13vh, 9rem);
-                padding-bottom: clamp(2.5rem, 5vh, 4rem)
+                align-items: flex-start;
+                padding-top: clamp(124px, 15vh, 140px);
+                padding-bottom: clamp(2rem, 4vh, 3.5rem);
             }
 
             .hero-tag {
-                margin-bottom: 1rem
+                margin-bottom: 1rem;
             }
 
             .hero-h {
-                font-size: clamp(2rem, 4.8vw, 3.6rem);
-                margin-bottom: 1rem
+                font-size: clamp(1.9rem, 4.2vw, 3.4rem);
+                margin-bottom: 1rem;
             }
 
             .hero-brief {
                 margin-bottom: 1.4rem;
-                font-size: .98rem
+                font-size: clamp(0.92rem, 1.2vw, 1.05rem);
+                max-width: 480px;
             }
 
             .wa-btn,
             .ghost-btn {
-                padding: .85rem 1.3rem
+                padding: .75rem 1.25rem;
+                font-size: 0.78rem;
             }
         }
 
-        @media (max-height: 700px) {
+        @media (max-height: 760px) {
             .hero-inner {
-                padding-top: clamp(7.25rem, 12vh, 8.5rem);
-                padding-bottom: clamp(2rem, 4vh, 3.5rem)
+                padding-top: clamp(118px, 14vh, 130px);
+            }
+
+            .hero-tag {
+                margin-bottom: 0.75rem;
             }
 
             .hero-h {
-                font-size: clamp(1.85rem, 4.2vw, 2.8rem)
+                font-size: clamp(1.65rem, 3.6vw, 2.6rem);
+                margin-bottom: 0.8rem;
             }
 
             .hero-brief {
                 display: -webkit-box;
                 -webkit-line-clamp: 3;
                 -webkit-box-orient: vertical;
-                overflow: hidden
+                overflow: hidden;
+                margin-bottom: 1.1rem;
+                font-size: 0.9rem;
+            }
+
+            .wa-btn,
+            .ghost-btn {
+                padding: .65rem 1.1rem;
+                font-size: 0.74rem;
             }
         }
 

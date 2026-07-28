@@ -1045,6 +1045,39 @@
       padding-bottom: clamp(1.5rem, 3vh, 2.5rem)
     }
 
+    @media (max-height: 900px) {
+      .hero-inner {
+        padding-top: clamp(124px, 15vh, 140px);
+        padding-bottom: clamp(1.2rem, 2.5vh, 2rem);
+      }
+      h1.display {
+        font-size: clamp(2.2rem, 5.2vw, 4.5rem);
+      }
+      .hero .sub {
+        margin-top: 1.2rem;
+        font-size: clamp(0.95rem, 1.3vw, 1.15rem);
+      }
+      .hero-actions {
+        margin-top: 1.8rem;
+      }
+      .btn {
+        padding: 0.85rem 1.4rem;
+        font-size: 0.75rem;
+      }
+    }
+
+    @media (max-height: 720px) {
+      h1.display {
+        font-size: clamp(1.85rem, 4.4vw, 3.4rem);
+      }
+      .hero .sub {
+        margin-top: 0.9rem;
+      }
+      .hero-actions {
+        margin-top: 1.3rem;
+      }
+    }
+
     .hero h1 {
       max-width: none
     }

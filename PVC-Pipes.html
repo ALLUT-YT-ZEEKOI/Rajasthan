@@ -737,6 +737,53 @@
       overflow: hidden;
     }
 
+    @media (max-height: 900px) {
+      .hero {
+        justify-content: flex-start;
+        padding-top: clamp(124px, 15vh, 145px);
+      }
+      .hero-top {
+        margin-bottom: clamp(14px, 2vh, 24px);
+      }
+      .hero h1 {
+        font-size: clamp(26px, 4.2vw, 48px);
+      }
+      .hero .sub {
+        font-size: clamp(14px, 1.4vw, 17px);
+        margin-top: 10px;
+      }
+      .hero-cta {
+        margin-top: 16px;
+      }
+      .btn-primary, .btn-ghost {
+        padding: 13px 24px;
+        font-size: 13px;
+      }
+      .stage {
+        height: clamp(220px, 28vh, 300px);
+        margin-top: clamp(4px, 1.2vh, 10px);
+      }
+      .cf-slide {
+        width: clamp(190px, 22vw, 290px);
+        height: clamp(200px, 26vh, 270px);
+        margin: calc(-1 * clamp(100px, 13vh, 135px)) 0 0 calc(-1 * clamp(95px, 11vw, 145px));
+      }
+    }
+
+    @media (max-height: 720px) {
+      .hero h1 {
+        font-size: clamp(22px, 3.6vw, 38px);
+      }
+      .stage {
+        height: clamp(180px, 24vh, 240px);
+      }
+      .cf-slide {
+        width: clamp(170px, 20vw, 250px);
+        height: clamp(175px, 22vh, 230px);
+        margin: calc(-1 * clamp(87px, 11vh, 115px)) 0 0 calc(-1 * clamp(85px, 10vw, 125px));
+      }
+    }
+
     .hero-top {
       text-align: center;
       max-width: 880px;
